@@ -513,8 +513,17 @@ textarea::placeholder { color: #888 !important; -webkit-text-fill-color: #888; }
   opacity: 0;
   transform: translateY(20px);
   transition: opacity .65s ease, transform .65s ease;
+  /* Fallback: always reveal after 0.8s in case observer doesn't fire */
+  animation: fadeInFallback 0s ease 0.8s forwards;
 }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+@keyframes fadeInFallback {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
 
 /* ─── REDUCED MOTION (Accessibility) ───────────────────── */
 @media (prefers-reduced-motion: reduce) {
