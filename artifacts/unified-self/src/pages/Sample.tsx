@@ -82,11 +82,14 @@ const SECTIONS = [
 
 export default function Sample() {
   useFadeIn();
+  useEffect(() => { document.title = "What's Inside — The Unified Spirit"; }, []);
 
   return (
     <div className="tus-page">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Starfield fixed />
       <Nav />
+      <main id="main-content">
 
       {/* ── HERO ── */}
       <section className="sample-hero">
@@ -108,7 +111,7 @@ export default function Sample() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── SECTIONS ── */}
       <section>
@@ -134,7 +137,7 @@ export default function Sample() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── WORKBOOK CALLOUT ── */}
       <section>
@@ -154,7 +157,7 @@ export default function Sample() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── TESTIMONIAL PULL ── */}
       <section>
@@ -171,7 +174,7 @@ export default function Sample() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── CTA ── */}
       <section style={{ textAlign: "center" }}>
@@ -194,6 +197,7 @@ export default function Sample() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

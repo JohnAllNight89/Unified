@@ -20,14 +20,9 @@ export function Starfield({ fixed = false }: { fixed?: boolean }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let animationFrameId: number;
     let stars: Star[] = [];
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initStars();
-    };
 
     const initStars = () => {
       stars = [];
@@ -45,54 +40,62 @@ export function Starfield({ fixed = false }: { fixed?: boolean }) {
       }
     };
 
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const drawFrame = (animate: boolean) => {
       ctx.fillStyle = "#07040f";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
-        star.x += star.vx;
-        star.y += star.vy;
-        star.a += Math.sin(Date.now() * star.twinkleSpeed) * 0.05;
-
-        if (star.x < 0) star.x = canvas.width;
-        if (star.x > canvas.width) star.x = 0;
-        if (star.y < 0) star.y = canvas.height;
-        if (star.y > canvas.height) star.y = 0;
-        
-        if (star.a < 0.2) star.a = 0.2;
-        if (star.a > 1) star.a = 1;
+        if (animate) {
+          star.x += star.vx;
+          star.y += star.vy;
+          star.a += Math.sin(Date.now() * star.twinkleSpeed) * 0.05;
+          if (star.x < 0) star.x = canvas.width;
+          if (star.x > canvas.width) star.x = 0;
+          if (star.y < 0) star.y = canvas.height;
+          if (star.y > canvas.height) star.y = 0;
+          if (star.a < 0.2) star.a = 0.2;
+          if (star.a > 1) star.a = 1;
+        }
 
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        // Golden / purple tint for stars
         const isGold = Math.random() > 0.8;
-        ctx.fillStyle = isGold 
-          ? `rgba(201, 168, 76, ${star.a})` 
+        ctx.fillStyle = isGold
+          ? `rgba(201, 168, 76, ${star.a})`
           : `rgba(216, 205, 184, ${star.a})`;
         ctx.fill();
       });
 
-      // Add a subtle glowing orb in the background
       const gradient = ctx.createRadialGradient(
         canvas.width / 2, canvas.height * 0.3, 0,
         canvas.width / 2, canvas.height * 0.3, canvas.width * 0.6
       );
-      gradient.addColorStop(0, "rgba(45, 27, 94, 0.15)"); // purple
+      gradient.addColorStop(0, "rgba(45, 27, 94, 0.15)");
       gradient.addColorStop(0.5, "rgba(26, 15, 58, 0.05)");
       gradient.addColorStop(1, "rgba(7, 4, 15, 0)");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      animationFrameId = requestAnimationFrame(draw);
+      if (animate) {
+        animationFrameId = requestAnimationFrame(() => drawFrame(true));
+      }
     };
 
-    window.addEventListener("resize", resize);
-    resize();
-    draw();
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initStars();
+      if (prefersReducedMotion) drawFrame(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initStars();
+    drawFrame(!prefersReducedMotion);
 
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -100,6 +103,7 @@ export function Starfield({ fixed = false }: { fixed?: boolean }) {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       className={`${fixed ? "fixed" : "absolute"} inset-0 z-0 pointer-events-none`}
       style={{ opacity: 0.8 }}
     />

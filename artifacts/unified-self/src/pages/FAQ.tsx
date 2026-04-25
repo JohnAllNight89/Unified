@@ -89,11 +89,14 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   useFadeIn();
+  useEffect(() => { document.title = "FAQ — The Unified Spirit"; }, []);
 
   return (
     <div className="tus-page">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Starfield fixed />
       <Nav />
+      <main id="main-content">
 
       <section className="faq-hero" aria-labelledby="faq-heading">
         <div className="inner-sm" style={{ textAlign: "center" }}>
@@ -110,7 +113,7 @@ export default function FAQ() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       <section aria-label="Frequently asked questions">
         <div className="inner-sm" style={{ paddingTop: 40 }}>
@@ -120,7 +123,7 @@ export default function FAQ() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       <section style={{ textAlign: "center" }} aria-labelledby="faq-contact-heading">
         <div className="inner-sm">
@@ -140,6 +143,7 @@ export default function FAQ() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

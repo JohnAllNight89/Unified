@@ -1,13 +1,18 @@
+import { useEffect } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import "./shared.css";
 
 export default function Privacy() {
+  useEffect(() => { document.title = "Privacy Policy — The Unified Spirit"; }, []);
+
   return (
     <div className="tus-page">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Starfield fixed />
       <Nav />
+      <main id="main-content">
       <section>
         <div className="inner-sm">
           <span className="tag">Legal</span>
@@ -26,6 +31,7 @@ export default function Privacy() {
           </div>
         </div>
       </section>
+      </main>
       <Footer />
     </div>
   );

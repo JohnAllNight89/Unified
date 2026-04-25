@@ -22,6 +22,7 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function Connect() {
   useFadeIn();
+  useEffect(() => { document.title = "Connect — The Unified Spirit"; }, []);
 
   const [state, setState] = useState<FormState>("idle");
   const [form, setForm] = useState({
@@ -71,8 +72,10 @@ export default function Connect() {
 
   return (
     <div className="tus-page">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Starfield fixed />
       <Nav />
+      <main id="main-content">
 
       <section className="connect-hero">
         <div className="inner-sm" style={{ textAlign: "center" }}>
@@ -88,7 +91,7 @@ export default function Connect() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       <section>
         <div className="inner-sm" style={{ paddingTop: 48 }}>
@@ -201,7 +204,7 @@ export default function Connect() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       <section style={{ textAlign: "center" }}>
         <div className="inner-sm" style={{ paddingTop: 48, paddingBottom: 64 }}>
@@ -218,6 +221,7 @@ export default function Connect() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

@@ -516,6 +516,29 @@ textarea::placeholder { color: #888 !important; -webkit-text-fill-color: #888; }
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+/* ─── REDUCED MOTION (Accessibility) ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .nav-hamburger span,
+  .nav-mobile,
+  .hero-btn,
+  .outline-btn,
+  .nav-cta,
+  .sticky,
+  .skip-link {
+    transition: none !important;
+  }
+}
+
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 @media (max-width: 480px) {
   .tus-nav { height: 64px; }

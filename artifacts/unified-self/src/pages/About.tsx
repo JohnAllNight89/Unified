@@ -43,11 +43,14 @@ const SYSTEMS = [
 
 export default function About() {
   useFadeIn();
+  useEffect(() => { document.title = "About — The Unified Spirit"; }, []);
 
   return (
     <div className="tus-page">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Starfield fixed />
       <Nav />
+      <main id="main-content">
 
       {/* ── HERO ── */}
       <section className="about-hero">
@@ -65,7 +68,7 @@ export default function About() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── STORY ── */}
       <section>
@@ -102,7 +105,7 @@ export default function About() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── SYSTEMS ── */}
       <section>
@@ -125,7 +128,7 @@ export default function About() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── WHAT YOU GET ── */}
       <section className="about-promise">
@@ -166,6 +169,7 @@ export default function About() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

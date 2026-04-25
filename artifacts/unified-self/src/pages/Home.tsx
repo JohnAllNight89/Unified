@@ -58,6 +58,7 @@ export default function Home() {
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Starfield fixed />
       <Nav />
+      <main id="main-content">
 
       {/* ── ANNOUNCEMENT BAR ─────────────────────────────────── */}
       <div className="announcement-bar" role="status" aria-label="Limited availability notice">
@@ -65,7 +66,7 @@ export default function Home() {
       </div>
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="hero" id="main-content" aria-labelledby="hero-heading">
+      <section className="hero" aria-labelledby="hero-heading">
         <div className="hero-eyebrow">You Were Designed With a Purpose</div>
         <h1 className="hero-h1" id="hero-heading">
           You Have Always Felt<br /><em>There Was More.</em>
@@ -88,7 +89,7 @@ export default function Home() {
         </p>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── SOUL CARDS ───────────────────────────────────────── */}
       <section aria-labelledby="soul-heading">
@@ -115,7 +116,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── PORTAL CTA ───────────────────────────────────────── */}
       <section aria-labelledby="portal-heading">
@@ -149,7 +150,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── TRUTH LINES ──────────────────────────────────────── */}
       <section className="truth-section" aria-labelledby="truth-heading">
@@ -172,7 +173,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── ABOUT TEASER ─────────────────────────────────────── */}
       <section className="about-teaser" aria-labelledby="about-heading">
@@ -203,7 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────── */}
       <section aria-labelledby="process-heading">
@@ -237,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────── */}
       <section aria-labelledby="testimonials-heading">
@@ -266,7 +267,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── PULL QUOTE ───────────────────────────────────────── */}
       <section className="pull-quote-section" aria-label="Featured quote from a Soul Blueprint">
@@ -281,7 +282,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── PRODUCTS ─────────────────────────────────────────── */}
       <section id="order" ref={orderRef} aria-labelledby="order-heading">
@@ -502,7 +503,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="rule"><span>✦</span></div>
+      <div className="rule" aria-hidden="true"><span>✦</span></div>
 
       {/* ── CLOSING ──────────────────────────────────────────── */}
       <section className="closing" aria-labelledby="closing-heading">
@@ -520,6 +521,7 @@ export default function Home() {
         </button>
       </section>
 
+      </main>
       <Footer />
 
       {/* ── STICKY BAR ───────────────────────────────────────── */}
