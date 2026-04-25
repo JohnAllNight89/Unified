@@ -1,0 +1,177 @@
+.sample-hero {
+  padding: 60px 0 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 10%, rgba(74, 45, 138, .22) 0%, transparent 70%);
+}
+
+.sample-stats {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  margin-top: 8px;
+}
+.sample-stat {
+  flex: 1;
+  min-width: 120px;
+  padding: 20px 16px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  color: var(--text);
+  font-size: .75rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+}
+.sample-stat:last-child { border-right: none; }
+.sample-stat span {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--goldL);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+@media (max-width: 480px) {
+  .sample-stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .sample-stat:last-child { border-bottom: none; }
+}
+
+/* ─── REPORT SECTIONS ───────────────────────────────────── */
+.report-section {
+  display: flex;
+  gap: 32px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.report-section:last-child { border-bottom: none; }
+@media (max-width: 560px) { .report-section { flex-direction: column; gap: 16px; } }
+
+.report-num {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  color: rgba(201, 168, 76, .18);
+  line-height: 1;
+  min-width: 80px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.report-tag {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: .3em;
+  color: var(--goldL);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 1;
+}
+.report-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.report-desc {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+.report-highlights {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.report-highlights li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--text);
+  font-size: .92rem;
+  line-height: 1.7;
+}
+.check {
+  color: var(--goldL);
+  font-size: .85rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ─── QUOTE ─────────────────────────────────────────────── */
+.sample-quote {
+  background: linear-gradient(160deg, var(--card), var(--card2));
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 32px 36px;
+}
+.sample-quote-stars { color: var(--gold); font-size: .9rem; margin-bottom: 16px; letter-spacing: .1em; }
+.sample-quote-text {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.95;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.sample-quote-name {
+  font-family: 'Cinzel', serif;
+  font-size: .75rem;
+  color: var(--goldL);
+  letter-spacing: .08em;
+}
+.sample-quote-name span { color: var(--muted); }
+
+/* ─── WORKBOOK CALLOUT ──────────────────────────────────── */
+.workbook-callout {
+  background: linear-gradient(160deg, rgba(74, 45, 138, .18), rgba(11, 9, 25, .9));
+  border: 1px solid rgba(201, 168, 76, .35);
+  border-radius: var(--radius);
+  padding: 40px 40px;
+  text-align: center;
+}
+@media (max-width: 480px) { .workbook-callout { padding: 28px 20px; } }
+.workbook-icon {
+  font-size: 2rem;
+  color: var(--goldL);
+  margin-bottom: 16px;
+  display: block;
+  opacity: .7;
+}
+.workbook-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 18px;
+  letter-spacing: .04em;
+}
+.workbook-body {
+  color: var(--text);
+  font-size: .97rem;
+  line-height: 2;
+  font-weight: 300;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.workbook-body em { color: var(--goldL); font-style: italic; }
+
+/* ─── CTA ───────────────────────────────────────────────── */
+.sample-cta-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.sample-guarantee {
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .04em;
+  line-height: 1.9;
+}

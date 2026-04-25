@@ -1,0 +1,602 @@
+/* ─── AUTH PAGE ─────────────────────────────── */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px 60px;
+  min-height: calc(100vh - 72px);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── PORTAL LOADING ────────────────────────── */
+.portal-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--muted);
+  font-family: 'Cinzel', serif;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.portal-spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(201,168,76,.2);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin .9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── PORTAL MAIN ───────────────────────────── */
+.portal-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── GREETING ──────────────────────────────── */
+.portal-greeting {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+.portal-greeting-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  color: #fff;
+  margin: 8px 0 12px;
+  line-height: 1.2;
+}
+.portal-greeting-sub {
+  color: var(--muted);
+  font-size: .95rem;
+  font-weight: 300;
+}
+
+/* ─── SECTIONS ──────────────────────────────── */
+.portal-section {
+  margin-top: 64px;
+  position: relative;
+  z-index: 1;
+}
+.portal-section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  color: #fff;
+  text-align: center;
+  margin: 12px 0 10px;
+}
+.portal-section-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: .93rem;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ─── PROFILE FORM CARD ─────────────────────── */
+.portal-profile-form {
+  padding: 40px;
+}
+.portal-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.portal-card-sub {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label {
+  font-family: 'Cinzel', serif;
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.form-opt {
+  color: var(--muted);
+  font-size: .78em;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.form-group input {
+  border-radius: 8px;
+  transition: border-color .2s;
+}
+.form-note {
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+.form-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ─── TOOL CARDS ────────────────────────────── */
+.portal-tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.portal-tool-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-decoration: none;
+  padding: 36px 28px;
+  border-top: 2px solid var(--teal);
+}
+.portal-tool-card:hover {
+  border-color: var(--tealL);
+  box-shadow: 0 4px 32px rgba(77,184,164,.15);
+}
+.portal-tool-icon {
+  font-size: 1.8rem;
+  color: var(--teal);
+  line-height: 1;
+}
+.portal-tool-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.portal-tool-desc {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.8;
+  font-weight: 300;
+  flex: 1;
+}
+.portal-tool-cta {
+  color: var(--tealL);
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ─── SUBSCRIPTION BANNER ───────────────────── */
+.portal-sub-banner {
+  background: linear-gradient(135deg, rgba(74,45,138,.2), rgba(201,168,76,.08));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+.portal-sub-banner-left h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: #fff;
+  margin: 10px 0 14px;
+}
+.portal-sub-banner-left p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.portal-sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.portal-sub-list li {
+  color: var(--text);
+  font-size: .88rem;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+}
+.portal-sub-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: .8rem;
+}
+.portal-sub-banner-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  min-width: 180px;
+}
+.portal-sub-price {
+  text-align: center;
+}
+.portal-sub-amount {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  color: var(--goldL);
+  line-height: 1;
+}
+.portal-sub-period {
+  font-size: .9rem;
+  color: var(--muted);
+}
+.portal-sub-note {
+  color: var(--muted);
+  font-size: .8rem;
+  text-align: center;
+  margin: 0;
+}
+.portal-sub-badge {
+  background: linear-gradient(135deg, var(--goldL), var(--gold));
+  color: #06040f;
+  font-family: 'Cinzel', serif;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* ─── EDUCATIONAL CARDS ─────────────────────── */
+.portal-edu-card {
+  padding: 40px;
+}
+.portal-edu-icon {
+  font-size: 2rem;
+  color: var(--cobalt);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.portal-edu-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 10px 0 20px;
+}
+.portal-edu-body {
+  color: var(--text);
+  font-size: .93rem;
+  line-height: 1.95;
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+.portal-edu-types,
+.portal-edu-sequences {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 28px 0;
+  padding: 24px;
+  background: rgba(107,140,206,.04);
+  border: 1px solid rgba(107,140,206,.15);
+  border-radius: 8px;
+}
+.portal-edu-type-row,
+.portal-edu-seq-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.portal-edu-type-name,
+.portal-edu-seq-name {
+  font-family: 'Cinzel', serif;
+  font-size: .78rem;
+  color: var(--cobaltL);
+  letter-spacing: .08em;
+}
+.portal-edu-type-pct {
+  color: var(--muted);
+  font-size: .82em;
+}
+.portal-edu-type-desc,
+.portal-edu-seq-desc {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.75;
+  font-weight: 300;
+}
+.portal-edu-cta {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.portal-edu-cta p {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.75;
+  font-weight: 300;
+  flex: 1;
+  margin: 0;
+}
+
+/* ─── MEMBER CTA (greeting) ─────────────────── */
+.portal-member-cta {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 28px;
+  background: linear-gradient(135deg, rgba(201,168,76,.15), rgba(201,168,76,.08));
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+  color: var(--goldL);
+  font-family: 'Cinzel', serif;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+}
+.portal-member-cta:hover {
+  background: linear-gradient(135deg, rgba(201,168,76,.25), rgba(201,168,76,.12));
+  box-shadow: 0 0 24px rgba(201,168,76,.15);
+}
+.portal-member-badge {
+  display: inline-block;
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--goldL), var(--gold));
+  color: #06040f;
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* ─── PROFILE SECTION LABEL ─────────────────── */
+.profile-section-label {
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: -4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── FORM TEXTAREA ─────────────────────────── */
+.form-textarea {
+  border-radius: 8px;
+  transition: border-color .2s;
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ─── ACCORDION ─────────────────────────────── */
+.profile-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.profile-accordion-arrow {
+  color: var(--gold);
+  font-size: .75rem;
+}
+
+/* ─── SYSTEM DATA PANEL ──────────────────────── */
+.profile-system-panel {
+  background: rgba(107,140,206,.03);
+  border: 1px solid rgba(107,140,206,.12);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile-system-intro {
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.75;
+  font-weight: 300;
+  margin: 0;
+}
+.profile-system-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.profile-system-tab {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.profile-system-tab:hover {
+  border-color: var(--cobaltL);
+  color: var(--cobaltL);
+}
+.profile-system-tab.active {
+  border-color: var(--cobalt);
+  color: var(--cobaltL);
+  background: rgba(107,140,206,.08);
+}
+.profile-system-tab-content {
+  min-height: 100px;
+}
+
+/* ─── SYSTEM DATA LOCK ───────────────────────── */
+.profile-system-lock {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+.profile-system-lock-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(201,168,76,.05);
+  border: 1px solid rgba(201,168,76,.15);
+  border-radius: 8px;
+  padding: 18px 20px;
+  flex-wrap: wrap;
+}
+.profile-lock-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.profile-lock-title {
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  color: var(--goldL);
+  margin-bottom: 4px;
+}
+.profile-lock-desc {
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.65;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ─── SAVED SYSTEM DATA ──────────────────────── */
+.portal-system-data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.portal-system-data-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.portal-system-data-icon {
+  font-size: 1.4rem;
+  color: var(--cobalt);
+  line-height: 1;
+}
+.portal-system-data-label {
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.portal-system-data-value {
+  color: var(--text);
+  font-size: .83rem;
+  line-height: 1.7;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ─── MEMBERSHIP LINK in sub banner ─────────── */
+.portal-membership-link {
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s;
+  text-align: center;
+}
+.portal-membership-link:hover { color: var(--goldL); }
+
+/* ─── EDIT ROW ──────────────────────────────── */
+.portal-edit-row {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ─── NAV AUTH ──────────────────────────────── */
+.nav-auth-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.nav-signout-btn {
+  background: none;
+  border: 1px solid rgba(201,168,76,.3);
+  color: var(--muted);
+  font-family: 'Raleway', sans-serif;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  white-space: nowrap;
+}
+.nav-signout-btn:hover {
+  border-color: var(--goldL);
+  color: var(--goldL);
+}
+
+/* ─── RESPONSIVE ────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-auth-btns { display: none; }
+  .portal-tools-grid { grid-template-columns: 1fr; }
+  .portal-sub-banner { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .portal-edu-type-row,
+  .portal-edu-seq-row { grid-template-columns: 1fr; gap: 4px; }
+  .portal-edu-cta { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .portal-main { padding: 24px 16px 60px; }
+  .portal-profile-form,
+  .portal-edu-card,
+  .portal-sub-banner { padding: 24px 20px; }
+}
