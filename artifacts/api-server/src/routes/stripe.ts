@@ -36,6 +36,7 @@ const TRUSTED_URL_PATTERNS: RegExp[] = [
   /^https?:\/\/localhost(:\d+)?(\/|$)/,
   /^https?:\/\/[\w-]+\.replit\.(app|dev|co)(\/|$)/,
   /^https?:\/\/(www\.)?theunifiedspirit\.com(\/|$)/,
+  /^https?:\/\/[\w-]+\.onrender\.com(\/|$)/,
 ];
 
 if (process.env.REPLIT_DEV_DOMAIN) {
