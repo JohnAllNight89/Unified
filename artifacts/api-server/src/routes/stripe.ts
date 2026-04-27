@@ -111,6 +111,28 @@ router.post("/stripe/checkout", async (req: Request, res: Response) => {
           product_data: { name: product.name },
         },
       }],
+      custom_fields: [
+        {
+          key: 'full_birth_name',
+          label: { type: 'custom', custom: 'Full Birth Name' },
+          type: 'text',
+        },
+        {
+          key: 'birth_date',
+          label: { type: 'custom', custom: 'Birth Date (MM/DD/YYYY)' },
+          type: 'text',
+        },
+        {
+          key: 'birth_time',
+          label: { type: 'custom', custom: 'Birth Time (e.g. 9:55 PM)' },
+          type: 'text',
+        },
+        {
+          key: 'birth_location',
+          label: { type: 'custom', custom: 'Birth City and State/Country' },
+          type: 'text',
+        },
+      ],
       success_url: successUrl,
       cancel_url: cancelUrl,
       metadata: { clerkUserId: userId ?? "", productKey },
