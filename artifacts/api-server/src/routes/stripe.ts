@@ -1,4 +1,7 @@
 import express, { Router, type Request, type Response } from "express";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 import Stripe from "stripe";
 import { eq } from "drizzle-orm";
 import { getAuth } from "@clerk/express";
@@ -282,6 +285,29 @@ router.post("/stripe/webhook", express.raw({ type: "application/json" }), async 
             fulfilled: false,
           })
           .onConflictDoNothing();
+
+        const fields = session.custom_fields ?? [];
+        const getValue = (key: string) => fields.find((f) => f.key === key)?.text?.value ?? "Not provided";
+
+        await resend.emails.send({
+          from: "orders@resend.dev",
+          to: "4pointspirit@gmail.com",
+          subject: `New Order: ${product?.name ?? productKey}`,
+          html: `
+            <h2>New Order Received</h2>
+            <p><strong>Product:</strong> ${product?.name ?? productKey}</p>
+            <p><strong>Amount:</strong> $${((session.amount_total ?? 0) / 100).toFixed(2)}</p>
+            <p><strong>Customer Email:</strong> ${session.customer_details?.email ?? "Not provided"}</p>
+            <hr/>
+            <h3>Birth Information</h3>
+            <p><strong>Full Birth Name:</strong> ${getValue("full_birth_name")}</p>
+            <p><strong>Birth Date:</strong> ${getValue("birth_date")}</p>
+            <p><strong>Birth Time:</strong> ${getValue("birth_time")}</p>
+            <p><strong>Birth Location:</strong> ${getValue("birth_location")}</p>
+            <hr/>
+            <p><strong>Stripe Session ID:</strong> ${session.id}</p>
+          `,
+        });
       }
     }
 
