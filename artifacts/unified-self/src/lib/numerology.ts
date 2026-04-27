@@ -3,7 +3,7 @@ const LETTER_VALUES: Record<string, number> = {
   j:1,k:2,l:3,m:4,n:5,o:6,p:7,q:8,r:9,
   s:1,t:2,u:3,v:4,w:5,x:6,y:7,z:8,
 };
-const VOWELS = new Set(["a","e","i","o","u"]);
+const VOWELS = new Set(["a","e","i","o","u","y"]);
 
 function reduce(n: number): number {
   while (n > 9 && n !== 11 && n !== 22 && n !== 33) {

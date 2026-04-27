@@ -132,17 +132,11 @@ function obliquity(jd: number): number {
 }
 
 function ascendant(jd: number, latDeg: number, lngDeg: number): number {
-  const T = (jd - 2451545.0) / 36525;
   const e = obliquity(jd);
-  const gmst0 = mod360(100.4606184 + 36000.77004 * T);
-  const sunLon = sunLongitude(jd);
-  const GMST = mod360(gmst0 + sunLon + 180);
-  const d = jd - 2451543.5;
-  const UT = ((d % 1) + 0.5) % 1 * 24;
-  const LST = mod360(GMST + UT * 15 + lngDeg);
-  const ARMC = LST;
-  const asc = mod360(atan2d(cosd(ARMC), -sind(ARMC) * cosd(e) - tand(latDeg) * sind(e)));
-  return asc;
+  // GMST (degrees) via IAU formula — jd already encodes the UT
+  const GMST = mod360(280.46061837 + 360.98564736629 * (jd - 2451545.0));
+  const LST = mod360(GMST + lngDeg);
+  return mod360(atan2d(cosd(LST), -sind(LST) * cosd(e) - tand(latDeg) * sind(e)));
 }
 
 export const SIGNS = [
@@ -194,14 +188,17 @@ export function calculateChart(
   birthTime: string | null | undefined,
   birthLat: number | null,
   birthLng: number | null,
+  utcOffsetHours = 0,
 ): ChartResult {
   const [y, m, d] = birthDate.split("-").map(Number);
   let hour = 12;
   if (birthTime) {
-    const [h, min] = birthTime.split(":").map(Number);
+    const timePart = birthTime.split(/[+-]\d/)[0].trim();
+    const [h, min] = timePart.split(":").map(Number);
     hour = h + (min || 0) / 60;
   }
-  const jd = julianDay(y, m, d, hour);
+  // Shift local time to UTC for accurate planetary positions
+  const jd = julianDay(y, m, d, hour - utcOffsetHours);
   const dd = jd - 2451543.5;
 
   const sunLon = sunLongitude(jd);

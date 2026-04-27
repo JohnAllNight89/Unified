@@ -58,7 +58,11 @@ export default function AstroChartPage() {
           const p = profData.profile;
           const lat = p.birthLat ? parseFloat(p.birthLat) : null;
           const lng = p.birthLng ? parseFloat(p.birthLng) : null;
-          const calc = calculateChart(p.birthDate, p.birthTime || null, lat, lng);
+          const timeStr = p.birthTime || null;
+          const utcOffset = timeStr
+            ? parseFloat(timeStr.match(/([+-]\d+(?:\.\d+)?)\s*$/)?.[1] ?? "0")
+            : 0;
+          const calc = calculateChart(p.birthDate, timeStr, lat, lng, utcOffset);
           setChart(calc);
         }
         setSubStatus(subData.status || "inactive");
@@ -151,7 +155,7 @@ export default function AstroChartPage() {
           </h1>
           <p className="portal-greeting-sub">
             Born {new Date(profile.birthDate + "T12:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-            {profile.birthTime ? ` · ${profile.birthTime}` : " · time unknown"}
+            {profile.birthTime ? ` · ${profile.birthTime.replace(/[+-]\d+(?:\.\d+)?\s*$/, "")}` : " · time unknown"}
             {" · "}{profile.birthPlace}
           </p>
         </div>
