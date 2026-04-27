@@ -121,13 +121,8 @@ router.post("/stripe/checkout", async (req: Request, res: Response) => {
           type: 'text',
         },
         {
-          key: 'birth_date',
-          label: { type: 'custom', custom: 'Birth Date (MM/DD/YYYY)' },
-          type: 'text',
-        },
-        {
-          key: 'birth_time',
-          label: { type: 'custom', custom: 'Birth Time (e.g. 9:55 PM)' },
+          key: 'birth_date_time',
+          label: { type: 'custom', custom: 'Birth Date & Time (e.g. 06/23/1989 9:55 PM)' },
           type: 'text',
         },
         {
@@ -301,8 +296,7 @@ router.post("/stripe/webhook", express.raw({ type: "application/json" }), async 
             <hr/>
             <h3>Birth Information</h3>
             <p><strong>Full Birth Name:</strong> ${getValue("full_birth_name")}</p>
-            <p><strong>Birth Date:</strong> ${getValue("birth_date")}</p>
-            <p><strong>Birth Time:</strong> ${getValue("birth_time")}</p>
+            <p><strong>Birth Date & Time:</strong> ${getValue("birth_date_time")}</p>
             <p><strong>Birth Location:</strong> ${getValue("birth_location")}</p>
             <hr/>
             <p><strong>Stripe Session ID:</strong> ${session.id}</p>
