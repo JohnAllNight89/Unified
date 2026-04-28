@@ -45,7 +45,7 @@ html { scroll-behavior: smooth; }
   width: 100%;
   height: auto;
   max-height: 220px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
 }
