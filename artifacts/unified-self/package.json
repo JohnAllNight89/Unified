@@ -72,6 +72,7 @@
     "zod": "catalog:"
   },
   "dependencies": {
-    "@clerk/react": "^6.2.1"
+    "@clerk/react": "^6.2.1",
+    "geo-tz": "^7.0.0"
   }
 }

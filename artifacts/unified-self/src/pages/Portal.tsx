@@ -30,44 +30,6 @@ const SYSTEM_TABS: { key: SystemTab; label: string; icon: string }[] = [
   { key: "geneKeys", label: "Gene Keys", icon: "✦" },
 ];
 
-const UTC_OFFSETS = [
-  { value: "-12", label: "UTC-12 (Baker Island)" },
-  { value: "-11", label: "UTC-11 (Samoa)" },
-  { value: "-10", label: "UTC-10 (Hawaii)" },
-  { value: "-9", label: "UTC-9 (Alaska Standard)" },
-  { value: "-8", label: "UTC-8 (Pacific Standard)" },
-  { value: "-7", label: "UTC-7 (Mountain / Pacific Daylight)" },
-  { value: "-6", label: "UTC-6 (Central Standard)" },
-  { value: "-5", label: "UTC-5 (Eastern Standard / Central Daylight)" },
-  { value: "-4", label: "UTC-4 (Eastern Daylight / Atlantic)" },
-  { value: "-3", label: "UTC-3 (Argentina, Brazil)" },
-  { value: "-2", label: "UTC-2" },
-  { value: "-1", label: "UTC-1 (Azores)" },
-  { value: "0",  label: "UTC+0 (London, Lisbon)" },
-  { value: "+1", label: "UTC+1 (Paris, Berlin, Rome)" },
-  { value: "+2", label: "UTC+2 (Athens, Cairo)" },
-  { value: "+3", label: "UTC+3 (Moscow, Nairobi)" },
-  { value: "+4", label: "UTC+4 (Dubai)" },
-  { value: "+5", label: "UTC+5 (Karachi)" },
-  { value: "+5.5", label: "UTC+5:30 (India)" },
-  { value: "+6", label: "UTC+6 (Dhaka)" },
-  { value: "+7", label: "UTC+7 (Bangkok)" },
-  { value: "+8", label: "UTC+8 (Beijing, Singapore)" },
-  { value: "+9", label: "UTC+9 (Tokyo, Seoul)" },
-  { value: "+9.5", label: "UTC+9:30 (Adelaide)" },
-  { value: "+10", label: "UTC+10 (Sydney)" },
-  { value: "+11", label: "UTC+11 (Solomon Islands)" },
-  { value: "+12", label: "UTC+12 (New Zealand)" },
-  { value: "+13", label: "UTC+13 (Samoa DST)" },
-  { value: "+14", label: "UTC+14 (Kiribati)" },
-];
-
-function parseBirthTimeField(stored: string): { time: string; offset: string } {
-  const m = stored.match(/^(\d{1,2}:\d{2})([+-]\d+(?:\.\d+)?)?\s*$/);
-  if (!m) return { time: stored, offset: "0" };
-  return { time: m[1] ?? "", offset: m[2] ?? "0" };
-}
-
 const SYSTEM_PLACEHOLDERS: Record<SystemTab, string> = {
   numerology: "e.g. Life Path: 7, Expression: 3, Soul Urge: 11, Personality: 5, Birth Day: 22",
   astro: "e.g. Sun: Scorpio, Moon: Pisces, Rising: Virgo, Mercury: Sagittarius, Venus: Libra",
@@ -108,7 +70,6 @@ export default function Portal() {
     avatarUrl: "",
     birthDate: "",
     birthTime: "",
-    birthTimezoneOffset: "0",
     birthPlace: "",
     numerologyData: "",
     astrologyData: "",
@@ -130,16 +91,13 @@ export default function Portal() {
         if (profData.profile && profData.profile.fullName) {
           setProfile(profData.profile);
           setHasProfile(true);
-          const stored = profData.profile.birthTime ?? "";
-          const parsed = parseBirthTimeField(stored);
           setForm({
             fullName: profData.profile.fullName ?? "",
             username: profData.profile.username ?? "",
             bio: profData.profile.bio ?? "",
             avatarUrl: profData.profile.avatarUrl ?? "",
             birthDate: profData.profile.birthDate ?? "",
-            birthTime: parsed.time,
-            birthTimezoneOffset: parsed.offset,
+            birthTime: profData.profile.birthTime ?? "",
             birthPlace: profData.profile.birthPlace ?? "",
             numerologyData: profData.profile.numerologyData ?? "",
             astrologyData: profData.profile.astrologyData ?? "",
@@ -177,10 +135,7 @@ export default function Portal() {
         humanDesignData: form.humanDesignData || undefined,
         geneKeysData: form.geneKeysData || undefined,
       };
-      if (form.birthTime) {
-        const off = form.birthTimezoneOffset;
-        body.birthTime = off !== "0" ? `${form.birthTime}${off}` : form.birthTime;
-      }
+      if (form.birthTime) body.birthTime = form.birthTime;
       if (geo) { body.birthLat = geo.lat; body.birthLng = geo.lng; }
 
       const res = await fetch("/api/profile", {
@@ -363,20 +318,6 @@ export default function Portal() {
                     />
                   </div>
                 </div>
-                {form.birthTime && (
-                  <div className="form-group">
-                    <label htmlFor="birthTimezoneOffset">Birth Time Timezone</label>
-                    <select
-                      id="birthTimezoneOffset"
-                      value={form.birthTimezoneOffset}
-                      onChange={e => setForm(f => ({ ...f, birthTimezoneOffset: e.target.value }))}
-                    >
-                      {UTC_OFFSETS.map(o => (
-                        <option key={o.value} value={o.value}>{o.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                )}
                 <div className="form-group">
                   <label htmlFor="birthPlace">Birth City &amp; Country</label>
                   <input
@@ -389,7 +330,7 @@ export default function Portal() {
                   />
                 </div>
                 <p className="form-note">
-                  ✦ Birth time and timezone are both needed for an accurate Rising sign.
+                  ✦ Birth time is needed for your Rising sign. Timezone is auto-detected from your birth location.
                 </p>
 
                 {/* ── SYSTEM DATA ── */}
