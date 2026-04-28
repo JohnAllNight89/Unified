@@ -136,7 +136,7 @@ function ascendant(jd: number, latDeg: number, lngDeg: number): number {
   // GMST (degrees) via IAU formula — jd already encodes the UT
   const GMST = mod360(280.46061837 + 360.98564736629 * (jd - 2451545.0));
   const LST = mod360(GMST + lngDeg);
-  return mod360(atan2d(-cosd(LST), sind(LST) * cosd(e) + tand(latDeg) * sind(e)));
+  return mod360(atan2d(cosd(LST), -sind(LST) * cosd(e) - tand(latDeg) * sind(e)));
 }
 
 export const SIGNS = [
