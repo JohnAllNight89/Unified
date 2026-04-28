@@ -8,6 +8,29 @@ import "./shared.css";
 import "./portal.css";
 import "./astro.css";
 
+function computeUtcOffset(ianaTimezone: string, dateStr: string): number {
+  const [y, mo, d] = dateStr.split("-").map(Number);
+  const ref = new Date(Date.UTC(y, mo - 1, d, 12, 0, 0));
+  try {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: ianaTimezone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).formatToParts(ref);
+    const g = (type: string) => parseInt(parts.find(p => p.type === type)?.value ?? "0");
+    const h = g("hour") === 24 ? 0 : g("hour");
+    const local = new Date(Date.UTC(g("year"), g("month") - 1, g("day"), h, g("minute")));
+    return (local.getTime() - ref.getTime()) / 3_600_000;
+  } catch {
+    return 0;
+  }
+}
+
+
 interface Profile {
   fullName: string;
   birthDate: string;
@@ -92,7 +115,20 @@ export default function AstroInterpretationPage() {
           const p = profData.profile;
           const lat = p.birthLat ? parseFloat(p.birthLat) : null;
           const lng = p.birthLng ? parseFloat(p.birthLng) : null;
-          setChart(calculateChart(p.birthDate, p.birthTime || null, lat, lng));
+          let utcOffset = 0;
+          if (lat !== null && lng !== null) {
+            try {
+              const geotz = await import("geo-tz");
+              const zones: string[] = geotz.find(lat, lng);
+              if (zones.length > 0) {
+                utcOffset = computeUtcOffset(zones[0], p.birthDate);
+              }
+            } catch {
+              const m = (p.birthTime ?? "").match(/([+-]\d+(?:\.\d+)?)\s*$/);
+              if (m) utcOffset = parseFloat(m[1]);
+            }
+          }
+          setChart(calculateChart(p.birthDate, p.birthTime || null, lat, lng, utcOffset));
         }
       } catch (_) {}
       setLoading(false);
