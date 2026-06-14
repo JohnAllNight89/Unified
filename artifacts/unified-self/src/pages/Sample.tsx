@@ -187,7 +187,7 @@ export default function Sample() {
           </p>
           <div className="sample-cta-row fade-in">
             <button className="hero-btn" onClick={() => handleCheckout("soul_blueprint")}>
-              ✦ &nbsp;Reveal My Blueprint — $49.95
+              ✦ &nbsp;Reveal My Blueprint — $152.00
             </button>
             <Link href="/faq" className="outline-btn">View FAQ</Link>
           </div>

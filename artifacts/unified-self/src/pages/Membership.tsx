@@ -24,8 +24,8 @@ const SUBSCRIBER_BENEFITS = [
   "Planetary mythology & archetypes explained",
   "How each placement shows up in daily life",
   "Expanded Human Design & Gene Keys depth",
-  "Soul Blueprint at $49.95 (vs $59.94 public)",
-  "Couples Blueprint at $79.95 (vs $95.94 public)",
+  "Soul Blueprint at $152.00",
+  "Couples Blueprint at $200.00",
   "Life Cycle Reading at $12.99 (vs $15.59 public)",
   "Numerology Report at $14.99 (vs $17.99 public)",
   "Astrology Report at $14.99 (vs $17.99 public)",
@@ -33,8 +33,8 @@ const SUBSCRIBER_BENEFITS = [
 ];
 
 const PRODUCTS = [
-  { name: "Soul Blueprint (Individual)", subscriber: "$49.95", public: "$59.94" },
-  { name: "Couples Blueprint", subscriber: "$79.95", public: "$95.94" },
+  { name: "Soul Blueprint (Individual)", subscriber: "$152.00", public: "$152.00" },
+  { name: "Couples Blueprint", subscriber: "$200.00", public: "$200.00" },
   { name: "Life Cycle Reading", subscriber: "$12.99", public: "$15.59" },
   { name: "Numerology Report", subscriber: "$14.99", public: "$17.99" },
   { name: "Astrology Report", subscriber: "$14.99", public: "$17.99" },

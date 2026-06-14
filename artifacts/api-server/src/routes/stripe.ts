@@ -23,8 +23,8 @@ interface ProductDef {
 }
 
 const PRODUCTS: Record<string, ProductDef> = {
-  soul_blueprint:    { name: "The Soul Blueprint",         fullPrice: 5994, subscriberPrice: 4995 },
-  couples_blueprint: { name: "The Couples Blueprint",      fullPrice: 9594, subscriberPrice: 7995 },
+  soul_blueprint:    { name: "The Soul Blueprint",         fullPrice: 15200, subscriberPrice: 15200 },
+  couples_blueprint: { name: "The Couples Blueprint",      fullPrice: 20000, subscriberPrice: 20000 },
   current_life:      { name: "Current Life Reading",       fullPrice: 1559, subscriberPrice: 1299 },
   couples_life:      { name: "Both Current Life Readings", fullPrice: 3118, subscriberPrice: 2598 },
   numerology_report: { name: "In-depth Numerology Report", fullPrice: 1799, subscriberPrice: 1499 },

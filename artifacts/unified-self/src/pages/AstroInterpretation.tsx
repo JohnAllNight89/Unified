@@ -251,7 +251,7 @@ export default function AstroInterpretationPage() {
               What you have here is a genuine beginning — a real, accurate interpretation of your chart. What lives inside your <strong>Soul Blueprint</strong> is the synthesis: your Astrology, your Numerology, your Human Design, and your Gene Keys — all four systems woven together into one complete portrait of exactly who you were designed to be. 75+ pages, personally written from your specific data.
             </p>
             <a className="hero-btn" href="/#order">
-              ✦ &nbsp;Get My Soul Blueprint — $49.95
+              ✦ &nbsp;Get My Soul Blueprint — $152.00
             </a>
           </div>
         </section>

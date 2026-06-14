@@ -311,16 +311,8 @@ export default function Home() {
                 <li>52-week alignment workbook, drawn from your profile</li>
                 <li>Delivered to your inbox within 24 hours</li>
               </ul>
-              <div className="price-row">
-                <span className="price-orig" aria-label={isSubscribed ? "Public price $59.94" : "Original price $97.00"}>
-                  {isSubscribed ? "$59.94" : "$97.00"}
-                </span>
-                <span className="price-badge">{isSubscribed ? "Member Price" : "Founding Price"}</span>
-              </div>
-              <div className="price-main" aria-label={isSubscribed ? "Member price $49.95" : "Public price $59.94"}>
-                {isSubscribed
-                  ? <>${"49"}<span style={{ fontSize: "1.2rem" }}>.95</span></>
-                  : <>${"59"}<span style={{ fontSize: "1.2rem" }}>.94</span></>}
+              <div className="price-main" aria-label="Price $152.00">
+                $<span>152</span><span style={{ fontSize: "1.2rem" }}>.00</span>
               </div>
               <button className="product-btn primary-btn" onClick={() => handleCheckout("soul_blueprint")}>
                 ✦ &nbsp;Reveal My Blueprint
@@ -362,16 +354,8 @@ export default function Home() {
                 <li>What you are designed to build together</li>
                 <li>Two 52-week alignment workbooks</li>
               </ul>
-              <div className="price-row">
-                <span className="price-orig" aria-label={isSubscribed ? "Public price $95.94" : "Original price $147.00"}>
-                  {isSubscribed ? "$95.94" : "$147.00"}
-                </span>
-                <span className="price-badge">{isSubscribed ? "Member Price" : "Founding Price"}</span>
-              </div>
-              <div className="price-main" aria-label={isSubscribed ? "Member price $79.95" : "Public price $95.94"}>
-                {isSubscribed
-                  ? <>${"79"}<span style={{ fontSize: "1.2rem" }}>.95</span></>
-                  : <>${"95"}<span style={{ fontSize: "1.2rem" }}>.94</span></>}
+              <div className="price-main" aria-label="Price $200.00">
+                $<span>200</span><span style={{ fontSize: "1.2rem" }}>.00</span>
               </div>
               <button className="product-btn secondary-btn" onClick={() => handleCheckout("couples_blueprint")}>
                 ✦ &nbsp;Read Our Blueprint
@@ -491,11 +475,6 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="founding-note fade-in" role="status" style={{ marginTop: 40 }}>
-            <p className="founding-note-head">Four openings remain at founding price.</p>
-            <p>These rates are available for the first 20 orders only. Once filled, pricing returns to full rate. No code needed — the discount is live now.</p>
-          </div>
-
           <div className="products-links fade-in">
             <Link href="/sample" className="outline-btn">Preview the Report</Link>
             <Link href="/faq" className="outline-btn">Read the FAQ</Link>
@@ -526,7 +505,7 @@ export default function Home() {
 
       {/* ── STICKY BAR ───────────────────────────────────────── */}
       <div className={`sticky${stickyHidden ? " sticky-hidden" : ""}`} role="complementary" aria-label="Order now">
-        <div className="sticky-l">Hand-crafted &nbsp;·&nbsp; <strong>$49.95</strong> &nbsp;·&nbsp; Founding price</div>
+        <div className="sticky-l">Hand-crafted &nbsp;·&nbsp; <strong>$152.00</strong> &nbsp;·&nbsp; Soul Blueprint</div>
         <button className="sticky-btn" onClick={scrollToOrder}>Read My Blueprint →</button>
       </div>
     </div>
