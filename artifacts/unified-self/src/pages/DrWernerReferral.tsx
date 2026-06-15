@@ -70,7 +70,7 @@ export default function DrWernerReferral() {
             <div className="dw-ref-text">
               You were personally referred by{" "}
               <a href={DR_WERNER_URL} target="_blank" rel="noopener noreferrer">
-                <strong>Dr. Mykayla Werner, ND</strong>
+                <strong style={{ whiteSpace: "nowrap" }}>Dr. Mykayla Werner, ND</strong>
               </a>{" "}
               — this page and the rate on it were made exclusively for her patients.
             </div>
@@ -108,7 +108,7 @@ export default function DrWernerReferral() {
             className="dw-dr-photo"
           />
           <div className="dw-welcome-text">
-            Welcome! You were referred by <em>Dr. Werner, ND.</em><br />
+            Welcome! You were referred by <em style={{ whiteSpace: "nowrap" }}>Dr. Werner, ND.</em><br />
             This page is exclusively for you.
           </div>
           <p className="dw-welcome-sub">
