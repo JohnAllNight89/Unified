@@ -24,6 +24,7 @@ import NumerologyPage from "@/pages/Numerology";
 import AstroChartPage from "@/pages/AstroChart";
 import AstroInterpretationPage from "@/pages/AstroInterpretation";
 import Membership from "@/pages/Membership";
+import DrWernerReferral from "@/pages/DrWernerReferral";
 
 const queryClient = new QueryClient();
 
@@ -186,6 +187,7 @@ function AppRouter() {
             <Route path="/connect" component={Connect} />
             <Route path="/privacy" component={Privacy} />
             <Route path="/membership" component={Membership} />
+            <Route path="/dr-werner" component={DrWernerReferral} />
             <Route component={NotFound} />
           </Switch>
           <Toaster />

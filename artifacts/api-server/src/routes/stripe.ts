@@ -29,6 +29,7 @@ const PRODUCTS: Record<string, ProductDef> = {
   couples_life:      { name: "Both Current Life Readings", fullPrice: 3118, subscriberPrice: 2598 },
   numerology_report: { name: "In-depth Numerology Report", fullPrice: 1799, subscriberPrice: 1499 },
   astro_reading:     { name: "In-depth Astro Reading",     fullPrice: 1799, subscriberPrice: 1499 },
+  werner_blueprint:  { name: "The Soul Blueprint — Dr. Werner Referral", fullPrice: 15000, subscriberPrice: 15000 },
 };
 
 const SUB_PRICE_CENTS = 399;
