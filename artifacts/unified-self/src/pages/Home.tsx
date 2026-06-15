@@ -311,8 +311,8 @@ export default function Home() {
                 <li>52-week alignment workbook, drawn from your profile</li>
                 <li>Delivered to your inbox within 24 hours</li>
               </ul>
-              <div className="price-main" aria-label="Price $152.00">
-                $<span>152</span><span style={{ fontSize: "1.2rem" }}>.00</span>
+              <div className="price-main" aria-label="Price $222.00">
+                $<span>222</span><span style={{ fontSize: "1.2rem" }}>.00</span>
               </div>
               <button className="product-btn primary-btn" onClick={() => handleCheckout("soul_blueprint")}>
                 ✦ &nbsp;Reveal My Blueprint
@@ -354,8 +354,8 @@ export default function Home() {
                 <li>What you are designed to build together</li>
                 <li>Two 52-week alignment workbooks</li>
               </ul>
-              <div className="price-main" aria-label="Price $200.00">
-                $<span>200</span><span style={{ fontSize: "1.2rem" }}>.00</span>
+              <div className="price-main" aria-label="Price $300.00">
+                $<span>300</span><span style={{ fontSize: "1.2rem" }}>.00</span>
               </div>
               <button className="product-btn secondary-btn" onClick={() => handleCheckout("couples_blueprint")}>
                 ✦ &nbsp;Read Our Blueprint
@@ -505,7 +505,7 @@ export default function Home() {
 
       {/* ── STICKY BAR ───────────────────────────────────────── */}
       <div className={`sticky${stickyHidden ? " sticky-hidden" : ""}`} role="complementary" aria-label="Order now">
-        <div className="sticky-l">Hand-crafted &nbsp;·&nbsp; <strong>$152.00</strong> &nbsp;·&nbsp; Soul Blueprint</div>
+        <div className="sticky-l">Hand-crafted &nbsp;·&nbsp; <strong>$222.00</strong> &nbsp;·&nbsp; Soul Blueprint</div>
         <button className="sticky-btn" onClick={scrollToOrder}>Read My Blueprint →</button>
       </div>
     </div>
