@@ -7,30 +7,17 @@ import "./connect.css";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
-const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
-];
-
 export default function Connect() {
   useEffect(() => { document.title = "Connect — The Unified Spirit"; }, []);
 
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    birthMonth: "",
-    message: "",
-    subscribe: true,
-  });
-
-  const update = (field: string, value: string | boolean) =>
-    setForm((prev) => ({ ...prev, [field]: value }));
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim()) return;
+    if (!email.trim()) return;
     setState("submitting");
     setErrorMsg("");
 
@@ -39,11 +26,10 @@ export default function Connect() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: form.name.trim(),
-          email: form.email.trim(),
-          birthDate: form.birthMonth || undefined,
-          message: form.message.trim() || undefined,
-          subscribed: form.subscribe,
+          name: email.split("@")[0],
+          email: email.trim(),
+          message: message.trim() || undefined,
+          subscribed: true,
           source: "connect-form",
         }),
       });
@@ -89,50 +75,18 @@ export default function Connect() {
             <form onSubmit={handleSubmit} noValidate>
 
               <div className="cn-field">
-                <label className="cn-label" htmlFor="cn-name">
-                  Full Name <span className="cn-label-req">*</span>
-                </label>
-                <input
-                  id="cn-name"
-                  type="text"
-                  value={form.name}
-                  onChange={(e) => update("name", e.target.value)}
-                  placeholder="Your name"
-                  required
-                  autoComplete="name"
-                />
-              </div>
-
-              <div className="cn-field">
                 <label className="cn-label" htmlFor="cn-email">
                   Email Address <span className="cn-label-req">*</span>
                 </label>
                 <input
                   id="cn-email"
                   type="email"
-                  value={form.email}
-                  onChange={(e) => update("email", e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
                   autoComplete="email"
                 />
-              </div>
-
-              <div className="cn-field">
-                <label className="cn-label" htmlFor="cn-dob">
-                  Date of Birth{" "}
-                  <span className="cn-label-opt">(optional — for personalized insights)</span>
-                </label>
-                <select
-                  id="cn-dob"
-                  value={form.birthMonth}
-                  onChange={(e) => update("birthMonth", e.target.value)}
-                >
-                  <option value="" disabled></option>
-                  {MONTHS.map((m) => (
-                    <option key={m} value={m}>{m}</option>
-                  ))}
-                </select>
               </div>
 
               <div className="cn-field">
@@ -142,22 +96,11 @@ export default function Connect() {
                 </label>
                 <textarea
                   id="cn-message"
-                  value={form.message}
-                  onChange={(e) => update("message", e.target.value)}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   placeholder="Share what's on your mind — questions, intentions, anything you'd like us to know before we connect."
+                  rows={5}
                 />
-              </div>
-
-              <div className="cn-check">
-                <input
-                  id="cn-subscribe"
-                  type="checkbox"
-                  checked={form.subscribe}
-                  onChange={(e) => update("subscribe", e.target.checked)}
-                />
-                <label htmlFor="cn-subscribe" className="cn-check-label">
-                  Yes — send me soul insights, alignment wisdom, and occasional updates from The Unified Spirit.
-                </label>
               </div>
 
               {state === "error" && (
@@ -167,9 +110,9 @@ export default function Connect() {
               <button
                 type="submit"
                 className="cn-submit"
-                disabled={state === "submitting" || !form.name.trim() || !form.email.trim()}
+                disabled={state === "submitting" || !email.trim()}
               >
-                {state === "submitting" ? "Sending…" : "✦   Send My Message"}
+                {state === "submitting" ? "Sending…" : "✦   Connect"}
               </button>
 
               <p className="cn-form-note">Your information is never shared or sold.</p>
