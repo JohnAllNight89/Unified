@@ -5,6 +5,8 @@ import { Footer } from "@/components/Footer";
 import "./shared.css";
 import "./connect.css";
 
+const FORMSPREE = "https://formspree.io/f/xnjylkev";
+
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function Connect() {
@@ -22,27 +24,25 @@ export default function Connect() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/leads", {
+      const body = new FormData();
+      body.append("email", email.trim());
+      if (message.trim()) body.append("message", message.trim());
+
+      const res = await fetch(FORMSPREE, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: email.split("@")[0],
-          email: email.trim(),
-          message: message.trim() || undefined,
-          subscribed: true,
-          source: "connect-form",
-        }),
+        body,
+        headers: { Accept: "application/json" },
       });
 
-      if (!res.ok) {
+      if (res.ok) {
+        setState("success");
+      } else {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Something went wrong");
+        throw new Error((data as { error?: string }).error || "Something went wrong");
       }
-
-      setState("success");
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "Please try again.";
-      setErrorMsg(message);
+      const msg = err instanceof Error ? err.message : "Please try again.";
+      setErrorMsg(msg);
       setState("error");
     }
   };
