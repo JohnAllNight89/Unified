@@ -1,0 +1,180 @@
+/* ── REPORTS PAGE ── */
+.rp-hero {
+  min-height: 52vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 130px 28px 72px;
+  position: relative; z-index: 1;
+}
+.rp-hero-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 68%);
+  pointer-events: none;
+}
+.rp-eyebrow {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--goldL); margin-bottom: 20px; opacity: 0.75;
+  position: relative; z-index: 1;
+}
+.rp-hero h1 {
+  font-family: 'Cormorant Garamond','Cinzel',serif; font-size: clamp(36px,8vw,58px);
+  font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.rp-hero p {
+  font-size: 17px; line-height: 1.9; color: var(--muted);
+  max-width: 480px; position: relative; z-index: 1;
+}
+
+/* ── WRAP ── */
+.rp-wrap {
+  max-width: 720px; margin: 0 auto; padding: 0 28px 88px;
+  position: relative; z-index: 1;
+}
+.rp-section-label {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.65;
+  margin-bottom: 32px; padding-top: 72px; display: block;
+}
+
+/* ── PRIMARY PRODUCT ── */
+.rp-product-primary {
+  border: 1px solid rgba(201,168,76,0.32); border-radius: 2px; overflow: hidden;
+  box-shadow: 0 0 60px rgba(201,168,76,0.06); margin-bottom: 16px;
+}
+.rp-product-top {
+  background: rgba(201,168,76,0.09); border-bottom: 1px solid rgba(201,168,76,0.32);
+  padding: 24px 28px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.rp-product-tag {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 6px;
+}
+.rp-product-title {
+  font-family: 'Cormorant Garamond','Cinzel',serif;
+  font-size: clamp(24px,5vw,34px); font-weight: 300; color: var(--white); line-height: 1.2;
+}
+.rp-product-price {
+  font-family: 'Cormorant Garamond',serif; font-size: 56px; font-weight: 300;
+  color: var(--goldL); line-height: 1; flex-shrink: 0;
+}
+.rp-product-body {
+  padding: 28px 28px 32px; background: #0b0b18;
+}
+.rp-product-desc {
+  font-size: 17px; line-height: 1.9; color: var(--muted); margin-bottom: 24px;
+}
+.rp-checks {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px;
+}
+.rp-checks li {
+  display: flex; gap: 12px; font-size: 16px; line-height: 1.65; color: var(--muted);
+}
+.rp-checks li::before {
+  content: '✓'; color: var(--gold); font-size: 11px; flex-shrink: 0; margin-top: 3px;
+}
+.rp-btn-gold {
+  display: block;
+  background: linear-gradient(135deg, var(--goldD), var(--goldL), var(--goldD));
+  color: #06060e; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.26em; text-transform: uppercase; border: none;
+  padding: 20px; border-radius: 2px; text-align: center; cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+}
+.rp-btn-gold:hover { opacity: 0.87; transform: translateY(-1px); }
+.rp-btn-outline {
+  display: block;
+  background: transparent; color: var(--goldL); font-family: 'Cinzel', serif;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  border: 1px solid rgba(201,168,76,0.32); padding: 18px; border-radius: 2px;
+  text-align: center; cursor: pointer; width: 100%;
+  transition: opacity 0.2s;
+}
+.rp-btn-outline:hover { opacity: 0.7; }
+
+/* ── ADDON ── */
+.rp-addon {
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 24px; background: rgba(201,168,76,0.04); margin-bottom: 16px;
+}
+.rp-addon-label {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.6; margin-bottom: 10px;
+}
+.rp-addon-title {
+  font-family: 'Cormorant Garamond','Cinzel',serif; font-size: 22px; font-weight: 300;
+  color: var(--white); margin-bottom: 10px; line-height: 1.25;
+}
+.rp-addon-desc {
+  font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 18px;
+}
+.rp-addon-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+}
+.rp-addon-price {
+  font-family: 'Cormorant Garamond',serif; font-size: 36px; font-weight: 300;
+  color: var(--goldL); line-height: 1;
+}
+.rp-addon-btn {
+  font-family: 'Cinzel', serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--goldL); border: 1px solid rgba(201,168,76,0.32);
+  padding: 12px 22px; border-radius: 2px; cursor: pointer; background: none;
+  transition: opacity 0.2s;
+}
+.rp-addon-btn:hover { opacity: 0.7; }
+
+/* ── DIVIDER ── */
+.rp-divider { height: 1px; background: var(--border); margin: 64px 0 0; }
+.rp-divider--mb { margin-bottom: 56px; }
+
+/* ── STANDALONE GRID ── */
+.rp-standalone-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+}
+@media (max-width: 500px) { .rp-standalone-grid { grid-template-columns: 1fr; } }
+.rp-standalone-card {
+  background: #0d0d1e; border: 1px solid var(--border); border-radius: 2px;
+  padding: 26px 22px; display: flex; flex-direction: column;
+}
+.rp-standalone-icon { font-size: 18px; margin-bottom: 12px; color: var(--gold); }
+.rp-standalone-tag {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.65; margin-bottom: 8px;
+}
+.rp-standalone-title {
+  font-family: 'Cormorant Garamond','Cinzel',serif; font-size: 20px; font-weight: 300;
+  color: var(--white); line-height: 1.3; margin-bottom: 10px;
+}
+.rp-standalone-desc {
+  font-size: 14px; line-height: 1.75; color: var(--muted); margin-bottom: 20px; flex-grow: 1;
+}
+.rp-standalone-price {
+  font-family: 'Cormorant Garamond',serif; font-size: 38px; font-weight: 300;
+  color: var(--goldL); line-height: 1; margin-bottom: 14px;
+}
+.rp-standalone-btn {
+  display: block; text-align: center; font-family: 'Cinzel', serif; font-size: 10px;
+  font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--goldL);
+  border: 1px solid rgba(201,168,76,0.32); padding: 12px; border-radius: 2px;
+  cursor: pointer; background: none; width: 100%; transition: opacity 0.2s;
+}
+.rp-standalone-btn:hover { opacity: 0.7; }
+
+/* ── DELIVERY NOTE ── */
+.rp-delivery-note {
+  text-align: center; padding-bottom: 20px;
+  font-size: 14px; color: var(--muted); opacity: 0.55; line-height: 1.8;
+}
+.rp-delivery-note a { color: var(--goldL); text-decoration: none; }
+
+@media (max-width: 480px) {
+  .rp-hero { padding: 110px 20px 56px; }
+  .rp-wrap { padding: 0 20px 64px; }
+}

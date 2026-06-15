@@ -5,6 +5,7 @@ import bannerImg from "/logo-new.png";
 
 const NAV_LINKS = [
   { href: "/about",    label: "About" },
+  { href: "/reports",  label: "Reports" },
   { href: "/discover", label: "Discover" },
   { href: "/sample",   label: "Sample Report" },
   { href: "/faq",      label: "FAQ" },

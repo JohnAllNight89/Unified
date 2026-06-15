@@ -25,6 +25,7 @@ import AstroChartPage from "@/pages/AstroChart";
 import AstroInterpretationPage from "@/pages/AstroInterpretation";
 import Membership from "@/pages/Membership";
 import DrWernerReferral from "@/pages/DrWernerReferral";
+import Reports from "@/pages/Reports";
 
 const queryClient = new QueryClient();
 
@@ -182,6 +183,7 @@ function AppRouter() {
             <Route path="/discover/human-design" component={DiscoverHumanDesign} />
             <Route path="/discover/gene-keys" component={DiscoverGeneKeys} />
             <Route path="/about" component={About} />
+            <Route path="/reports" component={Reports} />
             <Route path="/sample" component={Sample} />
             <Route path="/faq" component={FAQ} />
             <Route path="/connect" component={Connect} />
