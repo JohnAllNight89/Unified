@@ -156,6 +156,18 @@ export default function Home() {
                 quote: "I kept telling myself I would figure it out eventually. This report showed me that I already had. I just did not have the language for it yet. Everything I have always quietly known — it was all in there.",
                 attr: "Marcus T. — Houston, TX",
               },
+              {
+                quote: "I ordered this for myself and then immediately ordered one for my sister. Some things in here I have never said to another living person. It knew anyway. I don't have a framework for what this is, but I know it's real. I've been sitting with it for two weeks and I keep finding new things.",
+                attr: "Renee D. — Portland, OR",
+              },
+              {
+                quote: "I was skeptical. I want to say that first. I am a logical person and I needed this to earn my trust. It did. Every single section. The way it described the way I process decisions, the way I move through relationships, the thing I have been avoiding — I don't know how numbers and a birth chart do this. But they did.",
+                attr: "Daniel W. — Chicago, IL",
+              },
+              {
+                quote: "My whole life I thought the way I was wired was a problem to solve. This was the first time anything told me it wasn't. It showed me why I'm built this way. What it's actually for. I cried reading the Gene Keys section because it named the exact fear I've been living inside of — and then it showed me what's on the other side of it.",
+                attr: "Simone R. — Denver, CO",
+              },
             ].map(({ quote, attr }) => (
               <blockquote key={attr} className="hm-review">
                 <div className="hm-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
