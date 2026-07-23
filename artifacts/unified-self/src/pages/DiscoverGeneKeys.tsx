@@ -2,9 +2,17 @@ import { Link } from "wouter";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 
 export default function DiscoverGeneKeys() {
+  useSEO({
+    title: "Gene Keys Explained",
+    description:
+      "The 64 Gene Keys archetypes and the Shadow, Gift, and Siddhi contemplative path — how your Hologenetic Profile is built across three sequences.",
+    path: "/discover/gene-keys",
+  });
+
   return (
     <div className="tus-page">
       <a href="#main-content" className="skip-link">Skip to main content</a>

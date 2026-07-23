@@ -4,6 +4,7 @@ import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleSubscribe } from "@/lib/checkout";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 import "./membership.css";
 
@@ -42,6 +43,13 @@ const PRODUCTS = [
 
 export default function Membership() {
   const { isSignedIn } = useUser();
+
+  useSEO({
+    title: "Membership & Pricing",
+    description:
+      "Join The Unified Spirit for $3.99/month — full natal chart interpretation, Human Design and Gene Keys education, and discounted Soul Blueprint reports.",
+    path: "/membership",
+  });
 
   return (
     <div className="tus-page">

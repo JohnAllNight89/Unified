@@ -2,9 +2,17 @@ import { Link } from "wouter";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 
 export default function DiscoverAstrology() {
+  useSEO({
+    title: "Astrology Explained",
+    description:
+      "The history of astrology and its five major traditions — Western, Vedic, Chinese, Hellenistic, and Evolutionary — plus how planets, signs, houses, and aspects shape a birth chart.",
+    path: "/discover/astrology",
+  });
+
   return (
     <div className="tus-page">
       <a href="#main-content" className="skip-link">Skip to main content</a>

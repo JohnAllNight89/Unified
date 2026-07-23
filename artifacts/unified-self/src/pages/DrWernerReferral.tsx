@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { handleCheckout } from "@/lib/checkout";
+import { useSEO } from "@/lib/seo";
 import "./drwerner.css";
 
 function StarCanvas() {
@@ -58,6 +59,14 @@ function StarCanvas() {
 const DR_WERNER_URL = "https://www.anandahealth.care/";
 
 export default function DrWernerReferral() {
+  useSEO({
+    title: "A Gift From Dr. Werner",
+    description:
+      "A private Soul Blueprint offer for Dr. Mykayla Werner's patients.",
+    path: "/dr-werner",
+    noindex: true,
+  });
+
   return (
     <div className="dw-page">
       <StarCanvas />

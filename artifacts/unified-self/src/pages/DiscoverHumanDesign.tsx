@@ -2,9 +2,17 @@ import { Link } from "wouter";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 
 export default function DiscoverHumanDesign() {
+  useSEO({
+    title: "Human Design Explained",
+    description:
+      "How Human Design began with Ra Uru Hu, and how its four pillars, five types, Authority, and nine centers work together to map your energy.",
+    path: "/discover/human-design",
+  });
+
   return (
     <div className="tus-page">
       <a href="#main-content" className="skip-link">Skip to main content</a>

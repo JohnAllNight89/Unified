@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 import "./connect.css";
 
@@ -10,7 +11,12 @@ const FORMSPREE = "https://formspree.io/f/xnjylkev";
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function Connect() {
-  useEffect(() => { document.title = "Connect — The Unified Spirit"; }, []);
+  useSEO({
+    title: "Connect",
+    description:
+      "Have a question before ordering your Soul Blueprint? Reach out and we'll get back to you directly — no bots, no automated replies.",
+    path: "/connect",
+  });
 
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");

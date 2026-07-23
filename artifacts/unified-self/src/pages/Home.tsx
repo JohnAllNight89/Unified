@@ -1,15 +1,18 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 import "./home.css";
 
 export default function Home() {
-  useEffect(() => {
-    document.title = "The Unified Spirit — Soul Blueprint";
-  }, []);
+  useSEO({
+    title: "The Unified Spirit — Soul Blueprint",
+    description:
+      "Discover who you were designed to be. A hand-crafted Soul Blueprint synthesizing Astrology, Numerology, Human Design, and Gene Keys — written personally from your birth data and delivered in 24 hours.",
+    path: "/",
+  });
 
   return (
     <div className="tus-page">

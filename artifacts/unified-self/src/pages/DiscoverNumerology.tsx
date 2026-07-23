@@ -2,9 +2,17 @@ import { Link } from "wouter";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 
 export default function DiscoverNumerology() {
+  useSEO({
+    title: "Numerology Explained",
+    description:
+      "The history and meaning of numerology — Pythagorean and Chaldean systems, the five core numbers, and Master Numbers, explained in depth.",
+    path: "/discover/numerology",
+  });
+
   return (
     <div className="tus-page">
       <a href="#main-content" className="skip-link">Skip to main content</a>

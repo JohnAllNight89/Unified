@@ -1,15 +1,18 @@
-import { useEffect } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 import "./discover.css";
 
 export default function Discover() {
-  useEffect(() => {
-    document.title = "Discover the Four Systems — The Unified Spirit";
-  }, []);
+  useSEO({
+    title: "Discover the Four Systems",
+    description:
+      "An introduction to Numerology, Astrology, Human Design, and Gene Keys — the four ancient systems synthesized into every Unified Spirit Soul Blueprint.",
+    path: "/discover",
+  });
 
   return (
     <div className="dh-page">

@@ -1,11 +1,16 @@
-import { useEffect } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/lib/seo";
 import "./shared.css";
 
 export default function Privacy() {
-  useEffect(() => { document.title = "Privacy Policy — The Unified Spirit"; }, []);
+  useSEO({
+    title: "Privacy Policy",
+    description:
+      "How The Unified Spirit collects, uses, and protects the personal information you share with us, including birth data used to prepare your Soul Blueprint report.",
+    path: "/privacy",
+  });
 
   return (
     <div className="tus-page">
