@@ -1,15 +1,17 @@
-import { useEffect } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
+import { useSEO } from "@/hooks/useSEO";
 import "./shared.css";
 import "./discover.css";
 
 export default function Discover() {
-  useEffect(() => {
-    document.title = "Discover the Four Systems — The Unified Spirit";
-  }, []);
+  useSEO({
+    title: "Discover Numerology, Astrology, Human Design & Gene Keys — The Unified Spirit",
+    description: "Learn how Numerology, Astrology, Human Design, and Gene Keys each reveal a different dimension of who you are — and what happens when all four are synthesized into one personal document.",
+    path: "/discover",
+  });
 
   return (
     <div className="dh-page">

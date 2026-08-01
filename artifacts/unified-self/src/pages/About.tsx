@@ -1,13 +1,17 @@
-import { useEffect } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
+import { useSEO } from "@/hooks/useSEO";
 import "./shared.css";
 import "./about.css";
 
 export default function About() {
-  useEffect(() => { document.title = "About — The Unified Spirit"; }, []);
+  useSEO({
+    title: "About The Unified Spirit — Soul Blueprint Practitioner",
+    description: "Meet the practitioner behind The Unified Spirit. Learn how Numerology, Astrology, Human Design, and Gene Keys are synthesized into one personalized Soul Blueprint — and why this work exists.",
+    path: "/about",
+  });
 
   return (
     <div className="tus-page">

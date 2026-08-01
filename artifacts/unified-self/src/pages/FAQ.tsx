@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
+import { useSEO } from "@/hooks/useSEO";
 import "./shared.css";
 import "./faq.css";
 
@@ -145,7 +146,11 @@ function FAQItem({
 export default function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  useEffect(() => { document.title = "FAQ — The Unified Spirit"; }, []);
+  useSEO({
+    title: "FAQ — Soul Blueprint Questions Answered | The Unified Spirit",
+    description: "Answers to common questions about Soul Blueprint reports — how they work, what's included, delivery time, pricing, and the four systems: Numerology, Astrology, Human Design, and Gene Keys.",
+    path: "/faq",
+  });
 
   return (
     <div className="tus-page">

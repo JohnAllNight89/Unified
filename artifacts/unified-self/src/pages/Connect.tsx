@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/hooks/useSEO";
 import "./shared.css";
 import "./connect.css";
 
@@ -10,7 +11,11 @@ const FORMSPREE = "https://formspree.io/f/xnjylkev";
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function Connect() {
-  useEffect(() => { document.title = "Connect — The Unified Spirit"; }, []);
+  useSEO({
+    title: "Contact The Unified Spirit — Request a Soul Blueprint Reading",
+    description: "Get in touch with The Unified Spirit. Ask questions, share what you're seeking, or reach out directly to learn more about your Soul Blueprint report.",
+    path: "/connect",
+  });
 
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");

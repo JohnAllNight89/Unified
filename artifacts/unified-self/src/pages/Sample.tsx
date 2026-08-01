@@ -1,13 +1,17 @@
-import { useEffect } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
+import { useSEO } from "@/hooks/useSEO";
 import "./shared.css";
 import "./sample.css";
 
 export default function Sample() {
-  useEffect(() => { document.title = "What's Inside — The Unified Spirit"; }, []);
+  useSEO({
+    title: "Sample Soul Blueprint Report — The Unified Spirit",
+    description: "See inside a real Soul Blueprint — 6 chapters covering Numerology, Astrology, Human Design, Gene Keys, your personal Synthesis, and your path forward. 150+ pages written from your birth data.",
+    path: "/sample",
+  });
 
   return (
     <div className="sp-page">

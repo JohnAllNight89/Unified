@@ -1,13 +1,17 @@
-import { useEffect } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
+import { useSEO } from "@/hooks/useSEO";
 import "./shared.css";
 import "./reports.css";
 
 export default function Reports() {
-  useEffect(() => { document.title = "Reports — The Unified Spirit"; }, []);
+  useSEO({
+    title: "Soul Blueprint Reports & Readings — The Unified Spirit",
+    description: "Order your Soul Blueprint, Couples Blueprint, Numerology, or Astrology reading. Each report is hand-crafted from your birth data using Numerology, Astrology, Human Design, and Gene Keys.",
+    path: "/reports",
+  });
 
   return (
     <div className="tus-page">
