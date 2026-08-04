@@ -73,7 +73,6 @@
   },
   "dependencies": {
     "@clerk/react": "^6.2.1",
-    "@fusionstrings/swisseph-wasi": "^0.1.0",
     "geo-tz": "^7.0.0"
   }
 }

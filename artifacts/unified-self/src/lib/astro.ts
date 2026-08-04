@@ -1,41 +1,142 @@
-import {
-  type BodyName,
-  houses as swissHouses,
-  julianDayUT,
-  siderealPosition,
-  tropicalPosition,
-} from "./swisseph";
+const DEG = Math.PI / 180;
+const RAD = 180 / Math.PI;
 
-export { siderealPosition };
-
+function sind(deg: number) { return Math.sin(deg * DEG); }
+function cosd(deg: number) { return Math.cos(deg * DEG); }
+function tand(deg: number) { return Math.tan(deg * DEG); }
+function atan2d(y: number, x: number) { return Math.atan2(y, x) * RAD; }
 function mod360(n: number) { return ((n % 360) + 360) % 360; }
 
-/** Julian Day (UT) from a local birth date/time + UTC offset (hours). Noon UT if no time given. */
-export async function julianDay(year: number, month: number, day: number, hour = 12): Promise<number> {
-  return julianDayUT(year, month, day, hour);
+export function julianDay(year: number, month: number, day: number, hour = 12): number {
+  if (month <= 2) { year -= 1; month += 12; }
+  const A = Math.floor(year / 100);
+  const B = 2 - A + Math.floor(A / 4);
+  return Math.floor(365.25 * (year + 4716)) + Math.floor(30.6001 * (month + 1)) + day + B - 1524.5 + hour / 24;
 }
 
-/**
- * UTC offset (hours) for an IANA timezone on a given date, accounting for the
- * DST rules that were historically in effect on that day.
- */
-export function computeUtcOffset(ianaTimezone: string, dateStr: string): number {
-  const [y, mo, d] = dateStr.split("-").map(Number);
-  // Use noon UTC on the birth date — safely avoids DST transition ambiguity
-  const ref = new Date(Date.UTC(y, mo - 1, d, 12, 0, 0));
-  try {
-    const parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: ianaTimezone,
-      year: "numeric", month: "2-digit", day: "2-digit",
-      hour: "2-digit", minute: "2-digit", hour12: false,
-    }).formatToParts(ref);
-    const g = (type: string) => parseInt(parts.find((p) => p.type === type)?.value ?? "0");
-    const h = g("hour") === 24 ? 0 : g("hour");
-    const local = new Date(Date.UTC(g("year"), g("month") - 1, g("day"), h, g("minute")));
-    return (local.getTime() - ref.getTime()) / 3_600_000;
-  } catch {
-    return 0;
+function solveKepler(M: number, e: number): number {
+  let E = M;
+  for (let i = 0; i < 50; i++) {
+    const dE = (M - E + e * RAD * sind(E)) / (1 - e * cosd(E));
+    E += dE;
+    if (Math.abs(dE) < 1e-8) break;
   }
+  return E;
+}
+
+function sunLongitude(jd: number): number {
+  const d = jd - 2451543.5;
+  const w = mod360(282.9404 + 4.70935e-5 * d);
+  const M = mod360(356.0470 + 0.9856002585 * d);
+  const e = 0.016709 - 1.151e-9 * d;
+  const E = solveKepler(M, e);
+  const x = cosd(E) - e;
+  const y = Math.sqrt(1 - e * e) * sind(E);
+  const v = atan2d(y, x);
+  return mod360(v + w);
+}
+
+interface Vec3 { x: number; y: number; z: number }
+
+function sunPosition(jd: number): Vec3 {
+  const d = jd - 2451543.5;
+  const w = mod360(282.9404 + 4.70935e-5 * d);
+  const M = mod360(356.0470 + 0.9856002585 * d);
+  const e = 0.016709 - 1.151e-9 * d;
+  const E = solveKepler(M, e);
+  const xv = cosd(E) - e;
+  const yv = Math.sqrt(1 - e * e) * sind(E);
+  const v = atan2d(yv, xv);
+  const r = Math.sqrt(xv * xv + yv * yv);
+  const lonsun = mod360(v + w);
+  return {
+    x: r * cosd(lonsun),
+    y: r * sind(lonsun),
+    z: 0,
+  };
+}
+
+interface OrbitalElements {
+  N: number; Nd: number;
+  i: number; id: number;
+  w: number; wd: number;
+  a: number;
+  e: number; ed: number;
+  M: number; Md: number;
+}
+
+const ELEMENTS: Record<string, OrbitalElements> = {
+  mercury: { N:48.3313, Nd:3.24587e-5, i:7.0047, id:5.00e-8, w:29.1241, wd:1.01444e-5, a:0.387098, e:0.205635, ed:5.59e-10, M:168.6562, Md:4.0923344368 },
+  venus:   { N:76.6799, Nd:2.46590e-5, i:3.3946, id:2.75e-8, w:54.8910, wd:1.38374e-5, a:0.723330, e:0.006773, ed:-1.302e-9, M:48.0052,  Md:1.6021302244 },
+  mars:    { N:49.5574, Nd:2.11081e-5, i:1.8497, id:1.78e-8, w:286.5016, wd:2.92961e-5, a:1.523688, e:0.093405, ed:2.516e-9, M:18.6021,  Md:0.5240207766 },
+  jupiter: { N:100.4542, Nd:2.76854e-5, i:1.3030, id:-1.557e-7, w:273.8777, wd:1.64505e-5, a:5.20256, e:0.048498, ed:4.469e-9, M:19.8950, Md:0.0830853001 },
+  saturn:  { N:113.6634, Nd:2.38980e-5, i:2.4886, id:-1.081e-7, w:339.3939, wd:2.97661e-5, a:9.55475, e:0.055546, ed:-9.499e-9, M:316.9670, Md:0.0334442282 },
+  uranus:  { N:74.0005, Nd:1.3978e-5, i:0.7733, id:1.9e-8, w:96.6612, wd:3.0565e-5, a:19.18171, e:0.047318, ed:7.45e-9, M:142.5905, Md:0.011725806 },
+  neptune: { N:131.7806, Nd:3.0173e-5, i:1.7700, id:-2.55e-7, w:272.8461, wd:-6.027e-6, a:30.05826, e:0.008606, ed:2.15e-9, M:260.2471, Md:0.005995147 },
+};
+
+function planetHeliocentric(d: number, el: OrbitalElements): Vec3 {
+  const N = mod360(el.N + el.Nd * d);
+  const i = el.i + el.id * d;
+  const w = mod360(el.w + el.wd * d);
+  const e = el.e + el.ed * d;
+  const M = mod360(el.M + el.Md * d);
+  const E = solveKepler(M, e);
+  const xv = el.a * (cosd(E) - e);
+  const yv = el.a * Math.sqrt(1 - e * e) * sind(E);
+  const v = atan2d(yv, xv);
+  const r = Math.sqrt(xv * xv + yv * yv);
+  const lon = mod360(v + w);
+  const xh = r * (cosd(N) * cosd(lon) - sind(N) * sind(lon) * cosd(i));
+  const yh = r * (sind(N) * cosd(lon) + cosd(N) * sind(lon) * cosd(i));
+  const zh = r * sind(lon) * sind(i);
+  return { x: xh, y: yh, z: zh };
+}
+
+function moonLongitude(jd: number): number {
+  const T = (jd - 2451545.0) / 36525;
+  const L0 = mod360(218.3164477 + 481267.88123421 * T);
+  const M  = mod360(357.5291092 + 35999.0502909 * T);
+  const Mp = mod360(134.9633964 + 477198.8675055 * T);
+  const D  = mod360(297.8501921 + 445267.1114034 * T);
+  const F  = mod360(93.2720950  + 483202.0175233 * T);
+  const sl =
+    6288774 * sind(Mp) +
+    1274027 * sind(2*D - Mp) +
+    658314  * sind(2*D) +
+    213618  * sind(2*Mp) +
+    -185116  * sind(M) +
+    -114332  * sind(2*F) +
+    58793   * sind(2*D - 2*Mp) +
+    57066   * sind(2*D - M - Mp) +
+    53322   * sind(2*D + Mp) +
+    45758   * sind(2*D - M) +
+    -40923  * sind(Mp - M) +
+    -34720  * sind(D) +
+    -30383  * sind(Mp + M) +
+    15327   * sind(2*D - 2*F) +
+    -12528  * sind(Mp + 2*F) +
+    10980   * sind(Mp - 2*F) +
+    10675   * sind(4*D - Mp) +
+    10034   * sind(3*Mp) +
+    8548    * sind(4*D - 2*Mp) +
+    -7888   * sind(2*D + M - Mp) +
+    -6766   * sind(2*D + M) +
+    -5163   * sind(D - Mp);
+  return mod360(L0 + sl / 1000000);
+}
+
+function obliquity(jd: number): number {
+  const T = (jd - 2451545.0) / 36525;
+  return 23.439291111 - 0.013004167 * T - 1.64e-7 * T * T + 5.04e-7 * T * T * T;
+}
+
+function ascendant(jd: number, latDeg: number, lngDeg: number): number {
+  const e = obliquity(jd);
+  // GMST (degrees) via IAU formula — jd already encodes the UT
+  const GMST = mod360(280.46061837 + 360.98564736629 * (jd - 2451545.0));
+  const LST = mod360(GMST + lngDeg);
+  return mod360(atan2d(cosd(LST), -sind(LST) * cosd(e) - tand(latDeg) * sind(e)));
 }
 
 export const SIGNS = [
@@ -77,19 +178,18 @@ export interface ChartResult {
   pluto: PlanetPosition;
 }
 
-function makePlanet(name: string, lon: number, retrograde?: boolean): PlanetPosition {
+function makePlanet(name: string, lon: number): PlanetPosition {
   const s = signFromDegree(lon);
-  return { planet: name, longitude: lon, retrograde, ...s };
+  return { planet: name, longitude: lon, ...s };
 }
 
-const CHART_BODIES: BodyName[] = ["Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
-
-/** Parses "birthDate" (YYYY-MM-DD) + optional "birthTime" (HH:MM) + UTC offset into a Julian Day (UT). */
-async function toJulianDayUT(
+export function calculateChart(
   birthDate: string,
   birthTime: string | null | undefined,
-  utcOffsetHours: number,
-): Promise<number> {
+  birthLat: number | null,
+  birthLng: number | null,
+  utcOffsetHours = 0,
+): ChartResult {
   const [y, m, d] = birthDate.split("-").map(Number);
   let hour = 12;
   if (birthTime) {
@@ -97,65 +197,44 @@ async function toJulianDayUT(
     const [h, min] = timePart.split(":").map(Number);
     hour = h + (min || 0) / 60;
   }
-  return julianDay(y, m, d, hour - utcOffsetHours);
-}
+  // Shift local time to UTC for accurate planetary positions
+  const jd = julianDay(y, m, d, hour - utcOffsetHours);
+  const dd = jd - 2451543.5;
 
-export async function calculateChart(
-  birthDate: string,
-  birthTime: string | null | undefined,
-  birthLat: number | null,
-  birthLng: number | null,
-  utcOffsetHours = 0,
-): Promise<ChartResult> {
-  const jd = await toJulianDayUT(birthDate, birthTime, utcOffsetHours);
-
-  const sunPos = await tropicalPosition(jd, "Sun");
-  const moonPos = await tropicalPosition(jd, "Moon");
-  const sun = makePlanet("Sun", sunPos.longitude);
-  const moon = makePlanet("Moon", moonPos.longitude);
+  const sunLon = sunLongitude(jd);
+  const moonLon = moonLongitude(jd);
+  const sun = makePlanet("Sun", sunLon);
+  const moon = makePlanet("Moon", moonLon);
 
   let rising: PlanetPosition | null = null;
   if (birthTime && birthLat !== null && birthLng !== null) {
-    const { ascendant } = await swissHouses(jd, birthLat, birthLng);
-    rising = makePlanet("Rising", ascendant);
+    const ascLon = ascendant(jd, birthLat, birthLng);
+    rising = makePlanet("Rising", ascLon);
   }
 
-  const planetEntries = await Promise.all(
-    CHART_BODIES.map(async (name) => {
-      const pos = await tropicalPosition(jd, name);
-      return [name.toLowerCase(), makePlanet(name, pos.longitude, pos.retrograde)] as const;
-    }),
-  );
-  const planets = Object.fromEntries(planetEntries) as Record<Lowercase<Exclude<BodyName, "Sun" | "Moon">>, PlanetPosition>;
+  function geo(name: string, elKey: string): PlanetPosition {
+    const el = ELEMENTS[elKey];
+    const h = planetHeliocentric(dd, el);
+    const sunPos = sunPosition(jd);
+    const gx = h.x + sunPos.x;
+    const gy = h.y + sunPos.y;
+    const gz = h.z;
+    const lon = mod360(atan2d(gy, gx));
+    return makePlanet(name, lon);
+  }
 
-  return { sun, moon, rising, ...planets };
-}
-
-export interface ChartAngles {
-  ascendant: PlanetPosition;
-  descendant: PlanetPosition;
-  midheaven: PlanetPosition;
-  imumCoeli: PlanetPosition;
-  /** 12 house cusp longitudes, house 1 first. */
-  houseCusps: number[];
-}
-
-/** Placidus house cusps + the four angles, for chart-wheel rendering. Requires birth time + place. */
-export async function calculateChartAngles(
-  birthDate: string,
-  birthTime: string,
-  birthLat: number,
-  birthLng: number,
-  utcOffsetHours = 0,
-): Promise<ChartAngles> {
-  const jd = await toJulianDayUT(birthDate, birthTime, utcOffsetHours);
-  const h = await swissHouses(jd, birthLat, birthLng);
   return {
-    ascendant: makePlanet("Ascendant", h.ascendant),
-    descendant: makePlanet("Descendant", h.descendant),
-    midheaven: makePlanet("Midheaven", h.midheaven),
-    imumCoeli: makePlanet("Imum Coeli", h.imumCoeli),
-    houseCusps: h.cusps,
+    sun,
+    moon,
+    rising,
+    mercury: geo("Mercury", "mercury"),
+    venus:   geo("Venus",   "venus"),
+    mars:    geo("Mars",    "mars"),
+    jupiter: geo("Jupiter", "jupiter"),
+    saturn:  geo("Saturn",  "saturn"),
+    uranus:  geo("Uranus",  "uranus"),
+    neptune: geo("Neptune", "neptune"),
+    pluto:   makePlanet("Pluto", mod360(238.929 + 0.003968789 * (jd - 2451545.0) / 365.25 * 360 / 248)),
   };
 }
 
