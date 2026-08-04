@@ -32,20 +32,20 @@ export default function Sample() {
         {/* ── STATS BAR ── */}
         <div className="sp-stats-bar">
           <div className="sp-stat">
-            <div className="sp-stat-val">6</div>
+            <div className="sp-stat-val">10</div>
             <div className="sp-stat-label">Chapters,<br />In Full</div>
           </div>
           <div className="sp-stat">
-            <div className="sp-stat-val">4</div>
+            <div className="sp-stat-val">5</div>
             <div className="sp-stat-label">Complete<br />System Audits</div>
           </div>
           <div className="sp-stat">
-            <div className="sp-stat-val">150+</div>
+            <div className="sp-stat-val">75+</div>
             <div className="sp-stat-label">Pages,<br />About You</div>
           </div>
           <div className="sp-stat">
             <div className="sp-stat-val">52</div>
-            <div className="sp-stat-label">Week<br />Workbook</div>
+            <div className="sp-stat-label">Week<br />Alignment &amp; Shadow Journal</div>
           </div>
         </div>
 
@@ -66,13 +66,13 @@ export default function Sample() {
 
         <div className="sp-divider" />
 
-        {/* ── CHAPTER 2: ASTROLOGY ── */}
+        {/* ── CHAPTER 2: WESTERN ASTROLOGY ── */}
         <div className="sp-dark-panel">
           <div className="sp-chapter">
             <div className="sp-chapter-num">02</div>
-            <div className="sp-chapter-tag">The Celestial Architecture of Your Birth</div>
-            <h2>Astrology</h2>
-            <p className="sp-chapter-body">The planets were always in motion. What changed when you were born was the horizon — the specific relationship between those planetary positions and the exact point on earth where you took your first breath. That relationship is yours alone. Unrepeatable. It describes something precise about the quality of experience you were built to inhabit.</p>
+            <div className="sp-chapter-tag">The Architecture of Your Inner World</div>
+            <h2>Western Astrology</h2>
+            <p className="sp-chapter-body">The planets were always in motion. What changed when you were born was the horizon — the specific relationship between those tropical planetary positions and the exact point on earth where you took your first breath. Western Astrology reads that relationship through the lens of your psyche: your patterns, drives, relational architecture, and the specific quality of consciousness your chart is organized around.</p>
             <ul className="sp-chapter-checks">
               <li>Your Sun, Moon, and Rising — not as archetypes but as the specific lens, emotional body, and first impression you were built with</li>
               <li>Every key planetary placement — what each one means and exactly where you live it in the patterns, relationships, and recurring tensions of your actual life</li>
@@ -83,6 +83,23 @@ export default function Sample() {
           </div>
         </div>
 
+        <div className="sp-divider" />
+
+        {/* ── CHAPTER 3: VEDIC ASTROLOGY ── */}
+        <div className="sp-chapter">
+          <div className="sp-chapter-num">03</div>
+          <div className="sp-chapter-tag">The Soul's Karmic Blueprint</div>
+          <h2>Vedic Astrology</h2>
+          <p className="sp-chapter-body">Vedic Astrology — Jyotish — uses sidereal positioning: the actual astronomical location of the planets against the fixed stars at your birth, not their seasonal relationship to the sun. Where Western Astrology reads your psychology, Vedic reads your soul. The karmic agreements you arrived with. The dharma you are here to walk. The specific lessons this lifetime was organized to complete.</p>
+          <ul className="sp-chapter-checks">
+            <li>Your sidereal Ascendant and Moon sign — how your soul moves through the world and what it was specifically sent here to learn and complete</li>
+            <li>Your nakshatra placements — the 27 lunar mansions that reveal the precise motivational and karmic texture of your design with no Western equivalent</li>
+            <li>Planetary periods (dashas) — the specific major and sub-cycles currently active in your life and what each one is calling you toward</li>
+            <li>Karmic house analysis — the areas of life your soul agreed to develop, master, or resolve in this incarnation</li>
+            <li>Your dharmic purpose as encoded in the Vedic chart — the soul-level mission underneath the life you are consciously living</li>
+          </ul>
+        </div>
+
         {/* ── PULL QUOTE 1 ── */}
         <div className="sp-pull-quote">
           <p>"These systems do not describe personality types. They describe <em>the specific mechanics of why you work the way you work</em> — why you feel what you feel, why you do what you do, and what the full version of your life is actually being built toward."</p>
@@ -90,9 +107,9 @@ export default function Sample() {
 
         <div className="sp-divider" />
 
-        {/* ── CHAPTER 3: HUMAN DESIGN ── */}
+        {/* ── CHAPTER 4: HUMAN DESIGN ── */}
         <div className="sp-chapter">
-          <div className="sp-chapter-num">03</div>
+          <div className="sp-chapter-num">04</div>
           <div className="sp-chapter-tag">The Blueprint of Your Energy</div>
           <h2>Human Design</h2>
           <p className="sp-chapter-body">Human Design does not describe who you prefer to be. It maps how you are actually built — the specific architecture of your body-mind system, how your energy generates, how your decisions work, and how you are designed to engage with the world. This is not a personality framework. It is a body system. And it is unusually specific about the combination of capacity and requirement you are working with.</p>
@@ -107,10 +124,10 @@ export default function Sample() {
 
         <div className="sp-divider" />
 
-        {/* ── CHAPTER 4: GENE KEYS ── */}
+        {/* ── CHAPTER 5: GENE KEYS ── */}
         <div className="sp-dark-panel">
           <div className="sp-chapter">
-            <div className="sp-chapter-num">04</div>
+            <div className="sp-chapter-num">05</div>
             <div className="sp-chapter-tag">The Spectrum of Your Original Frequencies</div>
             <h2>Gene Keys</h2>
             <p className="sp-chapter-body">Gene Keys maps each aspect of your design as a spectrum — from the Shadow at the lowest frequency, through the Gift in the middle, to the Siddhi at the highest expression. The Shadow is not a failure or a flaw. It is the frequency of fear operating through your specific design. What matters is not each key in isolation — it is what they are saying in conversation with each other.</p>
@@ -126,14 +143,14 @@ export default function Sample() {
 
         {/* ── PULL QUOTE 2 ── */}
         <div className="sp-pull-quote">
-          <p>"What all four systems agree on before anything else: <em>you were built to build things that outlast you.</em> You were built to know things that others haven't figured out yet. You were built to stand at the front of a trail you are creating with your own feet."</p>
+          <p>"What all five systems agree on before anything else: <em>you were built to build things that outlast you.</em> You were built to know things that others haven't figured out yet. You were built to stand at the front of a trail you are creating with your own feet."</p>
         </div>
 
         <div className="sp-divider" />
 
-        {/* ── CHAPTER 5: SYNTHESIS ── */}
+        {/* ── CHAPTER 6: SYNTHESIS ── */}
         <div className="sp-chapter">
-          <div className="sp-chapter-num">05</div>
+          <div className="sp-chapter-num">06</div>
           <div className="sp-chapter-tag">The Mirror</div>
           <h2>The Full Synthesis</h2>
           <p className="sp-chapter-body">This is where all four systems come together into one complete picture of you. Not four separate readings placed side by side — a true synthesis. This section goes into depth on three things most readings never touch: how others experience you, how you experience yourself, and what your life looks like when you are in alignment versus when you are not.</p>
@@ -148,10 +165,10 @@ export default function Sample() {
 
         <div className="sp-divider" />
 
-        {/* ── CHAPTER 6: THE PATH ── */}
+        {/* ── CHAPTER 7: THE PATH ── */}
         <div className="sp-dark-panel">
           <div className="sp-chapter">
-            <div className="sp-chapter-num">06</div>
+            <div className="sp-chapter-num">07</div>
             <div className="sp-chapter-tag">The Living Path</div>
             <h2>The Path — Your Blueprint Applied</h2>
             <p className="sp-chapter-body">The final chapter takes everything the four systems revealed and maps it against a living spiritual framework — the specific way the universal path of alignment runs through the architecture of who you specifically were made to be. This is not theology. It is the most personal chapter in the document: what it means for you, with your specific design, your specific wounds, and your specific gifts, to live in full alignment with what you were built for.</p>
@@ -203,7 +220,7 @@ export default function Sample() {
         {/* ── CTA ── */}
         <div className="sp-cta-section">
           <h2>This is your map.<br />It has always been yours.</h2>
-          <p>Your complete Soul Blueprint and 52-week workbook — delivered to your email within 24 hours. Hand-crafted. Never automated. Written to you alone.</p>
+          <p>Your complete Soul Blueprint and 52-week workbook — delivered to your email within 72 hours. Hand-crafted. Never automated. Written to you alone.</p>
           <button className="sp-cta-btn" onClick={() => handleCheckout("soul_blueprint")}>
             ✦ &nbsp; Reveal My Blueprint — $222.00
           </button>

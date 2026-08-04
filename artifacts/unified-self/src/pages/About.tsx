@@ -57,27 +57,27 @@ export default function About() {
         {/* ── METHODOLOGY ── */}
         <div className="ab-method">
           <div className="ab-method-eyebrow">The Methodology</div>
-          <h2>Four Systems.<br /><em>One Complete Picture.</em></h2>
-          <p>Most readings give you one lens. One system, one perspective, one partial view of a complete person. The Soul Blueprint integrates four — because no single system captures the full complexity of who you are, and because the most important information lives not inside any one system but in the exact place where all four converge.</p>
-          <p>Every blueprint begins with your raw data — your full birth name, your exact date, time, and place of birth. From that data, four complete analyses are run independently. Then they are cross-examined against each other. The places where all four systems agree become the spine of the document. The places where they tension each other reveal the specific dynamics that have shaped your experience. What arrives in your inbox is not four reports in sequence. It is one integrated narrative of exactly who you are, written specifically to you, in a voice that does not read like a textbook.</p>
-          <p>Nothing in your report is copied from a template. Every sentence is written from your specific data. What arrives in your inbox is a document that will feel like someone has known you your entire life, sat down, and put you into words.</p>
+          <h2>Five Systems.<br /><em>One Complete Picture.</em></h2>
+          <p>Most readings give you one lens. One system, one perspective, one partial view of a complete person. The Soul Blueprint integrates five — because no single system captures the full complexity of who you are, and because the most important information lives not inside any one system but in the exact place where all five converge.</p>
+          <p>Every blueprint begins with your raw data — your full birth name, your exact date, time, and place of birth. From that data, five complete analyses are run independently. Then they are cross-examined against each other. The places where all five systems agree become the spine of the document. The places where they tension each other reveal the specific dynamics that have shaped your experience. What arrives in your inbox is not five reports in sequence. It is one integrated narrative of exactly who you are, written specifically to you, in a voice that communicates from your own data.</p>
+          <p>Nothing in your report is copied from a template. Every sentence is written from your specific data. What arrives in your inbox is a document that will feel like someone has known you your entire life, and for the first time is introducing you to the REAL you.</p>
 
           <div className="ab-stats">
             <div className="ab-stat">
-              <div className="ab-stat-val">4</div>
+              <div className="ab-stat-val">5</div>
               <div className="ab-stat-label">Systems,<br />In Full</div>
             </div>
             <div className="ab-stat">
-              <div className="ab-stat-val">6</div>
+              <div className="ab-stat-val">10</div>
               <div className="ab-stat-label">Complete<br />Chapters</div>
             </div>
             <div className="ab-stat">
-              <div className="ab-stat-val">150+</div>
+              <div className="ab-stat-val">75+</div>
               <div className="ab-stat-label">Pages,<br />Hand-Written</div>
             </div>
             <div className="ab-stat">
               <div className="ab-stat-val">52</div>
-              <div className="ab-stat-label">Week<br />Workbook</div>
+              <div className="ab-stat-label">Week<br />Alignment &amp; Shadow Journal</div>
             </div>
           </div>
         </div>
