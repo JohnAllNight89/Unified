@@ -67,30 +67,31 @@ function mod360(n: number): number {
  * "Big 3 + Nakshatra" free-preview scope. Lagna requires birth time + place;
  * Sun/Moon Rashi and the Moon's Nakshatra work from date alone.
  */
-export function calculateVedicChart(
+export async function calculateVedicChart(
   birthDate: string,
   birthTime: string | null,
   birthLat: number | null,
   birthLng: number | null,
   utcOffsetHours = 0,
-): VedicChartResult {
+): Promise<VedicChartResult> {
   const [y, m, d] = birthDate.split("-").map(Number);
   let hour = 12;
   if (birthTime) {
     const [h, min] = birthTime.split(":").map(Number);
     hour = h + (min || 0) / 60;
   }
-  const jd = julianDayUT(y, m, d, hour - utcOffsetHours);
+  const jd = await julianDayUT(y, m, d, hour - utcOffsetHours);
 
-  const sunLon = siderealPosition(jd, "Sun" as BodyName).longitude;
-  const moonLon = siderealPosition(jd, "Moon" as BodyName).longitude;
-  const sun = rashiOf(sunLon);
-  const moon = { ...rashiOf(moonLon), nakshatra: nakshatraOf(moonLon) };
+  const sunPos = await siderealPosition(jd, "Sun" as BodyName);
+  const moonPos = await siderealPosition(jd, "Moon" as BodyName);
+  const sun = rashiOf(sunPos.longitude);
+  const moon = { ...rashiOf(moonPos.longitude), nakshatra: nakshatraOf(moonPos.longitude) };
 
   let lagna: RashiPlacement | null = null;
   if (birthTime && birthLat !== null && birthLng !== null) {
-    const tropicalAscendant = houses(jd, birthLat, birthLng).ascendant;
-    const siderealAscendant = mod360(tropicalAscendant - lahiriAyanamsa(jd));
+    const tropicalAscendant = (await houses(jd, birthLat, birthLng)).ascendant;
+    const ayanamsa = await lahiriAyanamsa(jd);
+    const siderealAscendant = mod360(tropicalAscendant - ayanamsa);
     lagna = rashiOf(siderealAscendant);
   }
 

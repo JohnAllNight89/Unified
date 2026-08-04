@@ -11,7 +11,7 @@ export { siderealPosition };
 function mod360(n: number) { return ((n % 360) + 360) % 360; }
 
 /** Julian Day (UT) from a local birth date/time + UTC offset (hours). Noon UT if no time given. */
-export function julianDay(year: number, month: number, day: number, hour = 12): number {
+export async function julianDay(year: number, month: number, day: number, hour = 12): Promise<number> {
   return julianDayUT(year, month, day, hour);
 }
 
@@ -85,11 +85,11 @@ function makePlanet(name: string, lon: number, retrograde?: boolean): PlanetPosi
 const CHART_BODIES: BodyName[] = ["Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
 
 /** Parses "birthDate" (YYYY-MM-DD) + optional "birthTime" (HH:MM) + UTC offset into a Julian Day (UT). */
-function toJulianDayUT(
+async function toJulianDayUT(
   birthDate: string,
   birthTime: string | null | undefined,
   utcOffsetHours: number,
-): number {
+): Promise<number> {
   const [y, m, d] = birthDate.split("-").map(Number);
   let hour = 12;
   if (birthTime) {
@@ -100,32 +100,33 @@ function toJulianDayUT(
   return julianDay(y, m, d, hour - utcOffsetHours);
 }
 
-export function calculateChart(
+export async function calculateChart(
   birthDate: string,
   birthTime: string | null | undefined,
   birthLat: number | null,
   birthLng: number | null,
   utcOffsetHours = 0,
-): ChartResult {
-  const jd = toJulianDayUT(birthDate, birthTime, utcOffsetHours);
+): Promise<ChartResult> {
+  const jd = await toJulianDayUT(birthDate, birthTime, utcOffsetHours);
 
-  const sunPos = tropicalPosition(jd, "Sun");
-  const moonPos = tropicalPosition(jd, "Moon");
+  const sunPos = await tropicalPosition(jd, "Sun");
+  const moonPos = await tropicalPosition(jd, "Moon");
   const sun = makePlanet("Sun", sunPos.longitude);
   const moon = makePlanet("Moon", moonPos.longitude);
 
   let rising: PlanetPosition | null = null;
   if (birthTime && birthLat !== null && birthLng !== null) {
-    const { ascendant } = swissHouses(jd, birthLat, birthLng);
+    const { ascendant } = await swissHouses(jd, birthLat, birthLng);
     rising = makePlanet("Rising", ascendant);
   }
 
-  const planets = Object.fromEntries(
-    CHART_BODIES.map((name) => {
-      const pos = tropicalPosition(jd, name);
-      return [name.toLowerCase(), makePlanet(name, pos.longitude, pos.retrograde)];
+  const planetEntries = await Promise.all(
+    CHART_BODIES.map(async (name) => {
+      const pos = await tropicalPosition(jd, name);
+      return [name.toLowerCase(), makePlanet(name, pos.longitude, pos.retrograde)] as const;
     }),
-  ) as Record<Lowercase<Exclude<BodyName, "Sun" | "Moon">>, PlanetPosition>;
+  );
+  const planets = Object.fromEntries(planetEntries) as Record<Lowercase<Exclude<BodyName, "Sun" | "Moon">>, PlanetPosition>;
 
   return { sun, moon, rising, ...planets };
 }
@@ -140,15 +141,15 @@ export interface ChartAngles {
 }
 
 /** Placidus house cusps + the four angles, for chart-wheel rendering. Requires birth time + place. */
-export function calculateChartAngles(
+export async function calculateChartAngles(
   birthDate: string,
   birthTime: string,
   birthLat: number,
   birthLng: number,
   utcOffsetHours = 0,
-): ChartAngles {
-  const jd = toJulianDayUT(birthDate, birthTime, utcOffsetHours);
-  const h = swissHouses(jd, birthLat, birthLng);
+): Promise<ChartAngles> {
+  const jd = await toJulianDayUT(birthDate, birthTime, utcOffsetHours);
+  const h = await swissHouses(jd, birthLat, birthLng);
   return {
     ascendant: makePlanet("Ascendant", h.ascendant),
     descendant: makePlanet("Descendant", h.descendant),

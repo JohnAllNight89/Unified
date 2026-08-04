@@ -4,14 +4,32 @@
  * Uses the library's built-in Moshier semi-analytic ephemeris — no external
  * data files required, runs entirely in the browser. Both tropical (Western)
  * and sidereal (Vedic/Lahiri) positions are exposed through the same API.
+ *
+ * IMPORTANT: this module must stay side-effect-free at import time. The
+ * package's `/browser` subpath eagerly runs a *synchronous*
+ * `new WebAssembly.Module(...)` compile of a 1.2MB+ binary the instant it's
+ * imported — browsers cap synchronous main-thread WASM compilation at a few
+ * KB, so that path throws and (because this app bundles into a single JS
+ * chunk) takes down the entire site on load. We import the plain `SwissEph`
+ * class from the package's main entry instead (no top-level side effects)
+ * and do our own async fetch + `WebAssembly.compile` — the async compile API
+ * has no such size restriction — only on first actual use.
  */
-import { Constants, createSwissEph } from "@fusionstrings/swisseph-wasi/browser";
+import { Constants, SwissEph } from "@fusionstrings/swisseph-wasi";
+// Vite asset import: resolves to a fetchable URL, not an eager import of the binary.
+import wasmUrl from "@fusionstrings/swisseph-wasi/wasm?url";
 
-let ephSingleton: ReturnType<typeof createSwissEph> | null = null;
+let ephPromise: Promise<SwissEph> | null = null;
 
-function getEph() {
-  if (!ephSingleton) ephSingleton = createSwissEph();
-  return ephSingleton;
+function getEph(): Promise<SwissEph> {
+  if (!ephPromise) {
+    ephPromise = (async () => {
+      const bytes = await (await fetch(wasmUrl)).arrayBuffer();
+      const module = await WebAssembly.compile(bytes);
+      return new SwissEph(module);
+    })();
+  }
+  return ephPromise;
 }
 
 export const BODY_IDS = {
@@ -35,19 +53,21 @@ export interface RawPosition {
 }
 
 /** Julian Day (UT) from a UTC calendar date/time. */
-export function julianDayUT(year: number, month: number, day: number, utcHour: number): number {
-  return getEph().swe_julday(year, month, day, utcHour, Constants.SE_GREG_CAL);
+export async function julianDayUT(year: number, month: number, day: number, utcHour: number): Promise<number> {
+  const eph = await getEph();
+  return eph.swe_julday(year, month, day, utcHour, Constants.SE_GREG_CAL);
 }
 
 /** Tropical (Western) longitude + retrograde flag for one body. */
-export function tropicalPosition(jd: number, body: BodyName): RawPosition {
-  const { xx } = getEph().swe_calc_ut(jd, BODY_IDS[body], Constants.SEFLG_SPEED | Constants.SEFLG_MOSEPH);
+export async function tropicalPosition(jd: number, body: BodyName): Promise<RawPosition> {
+  const eph = await getEph();
+  const { xx } = eph.swe_calc_ut(jd, BODY_IDS[body], Constants.SEFLG_SPEED | Constants.SEFLG_MOSEPH);
   return { longitude: mod360(xx[0]), retrograde: xx[3] < 0 };
 }
 
 /** Sidereal (Vedic, Lahiri ayanamsa) longitude + retrograde flag for one body. */
-export function siderealPosition(jd: number, body: BodyName): RawPosition {
-  const eph = getEph();
+export async function siderealPosition(jd: number, body: BodyName): Promise<RawPosition> {
+  const eph = await getEph();
   eph.swe_set_sid_mode(Constants.SE_SIDM_LAHIRI, 0, 0);
   const { xx } = eph.swe_calc_ut(
     jd,
@@ -58,8 +78,8 @@ export function siderealPosition(jd: number, body: BodyName): RawPosition {
 }
 
 /** Current Lahiri ayanamsa value (degrees) at a given Julian Day. */
-export function lahiriAyanamsa(jd: number): number {
-  const eph = getEph();
+export async function lahiriAyanamsa(jd: number): Promise<number> {
+  const eph = await getEph();
   eph.swe_set_sid_mode(Constants.SE_SIDM_LAHIRI, 0, 0);
   return eph.swe_get_ayanamsa_ut(jd);
 }
@@ -74,8 +94,9 @@ export interface HouseResult {
 }
 
 /** Placidus house cusps + angles (Ascendant/MC/Descendant/IC). Tropical. */
-export function houses(jd: number, latDeg: number, lonDeg: number): HouseResult {
-  const { cusps, ascmc } = getEph().swe_houses(jd, latDeg, lonDeg, "P".charCodeAt(0));
+export async function houses(jd: number, latDeg: number, lonDeg: number): Promise<HouseResult> {
+  const eph = await getEph();
+  const { cusps, ascmc } = eph.swe_houses(jd, latDeg, lonDeg, "P".charCodeAt(0));
   const ascendant = mod360(ascmc[0]);
   const midheaven = mod360(ascmc[1]);
   return {

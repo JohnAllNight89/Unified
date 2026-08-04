@@ -101,7 +101,7 @@ export default function AstroChartPage() {
             }
           }
 
-          const calc = calculateChart(p.birthDate, timeStr, lat, lng, utcOffset);
+          const calc = await calculateChart(p.birthDate, timeStr, lat, lng, utcOffset);
           setChart(calc);
         }
         setSubStatus(subData.status || "inactive");

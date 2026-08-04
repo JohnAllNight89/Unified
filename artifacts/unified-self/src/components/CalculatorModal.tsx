@@ -145,7 +145,7 @@ export function CalculatorModal({ system, onClose }: CalculatorModalProps) {
       }
 
       if (system === "western") {
-        const chart = calculateChart(birthDate, birthTime || null, lat, lng, utcOffset);
+        const chart = await calculateChart(birthDate, birthTime || null, lat, lng, utcOffset);
         const items: ResultItem[] = [];
         for (const key of PLANET_ORDER) {
           const pos = chart[key] as PlanetPosition | null;
@@ -161,7 +161,7 @@ export function CalculatorModal({ system, onClose }: CalculatorModalProps) {
         setResults(items);
 
         if (birthTime && lat !== null && lng !== null) {
-          const angles = calculateChartAngles(birthDate, birthTime, lat, lng, utcOffset);
+          const angles = await calculateChartAngles(birthDate, birthTime, lat, lng, utcOffset);
           const wheelPlanets = PLANET_ORDER
             .map((key) => chart[key] as PlanetPosition | null)
             .filter((p): p is PlanetPosition => !!p)
@@ -183,7 +183,7 @@ export function CalculatorModal({ system, onClose }: CalculatorModalProps) {
       }
 
       // vedic
-      const chart = calculateVedicChart(birthDate, birthTime || null, lat, lng, utcOffset);
+      const chart = await calculateVedicChart(birthDate, birthTime || null, lat, lng, utcOffset);
       const items: ResultItem[] = [];
       if (chart.lagna) {
         const m = LAGNA_MEANINGS[chart.lagna.rashiName];

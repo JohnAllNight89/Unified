@@ -128,7 +128,7 @@ export default function AstroInterpretationPage() {
               if (m) utcOffset = parseFloat(m[1]);
             }
           }
-          setChart(calculateChart(p.birthDate, p.birthTime || null, lat, lng, utcOffset));
+          setChart(await calculateChart(p.birthDate, p.birthTime || null, lat, lng, utcOffset));
         }
       } catch (_) {}
       setLoading(false);
