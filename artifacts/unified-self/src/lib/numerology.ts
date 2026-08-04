@@ -3,13 +3,44 @@ const LETTER_VALUES: Record<string, number> = {
   j:1,k:2,l:3,m:4,n:5,o:6,p:7,q:8,r:9,
   s:1,t:2,u:3,v:4,w:5,x:6,y:7,z:8,
 };
-const VOWELS = new Set(["a","e","i","o","u","y"]);
+const VOWELS = new Set(["a","e","i","o","u"]);
 
 function reduce(n: number): number {
   while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
     n = String(n).split("").reduce((s, d) => s + parseInt(d), 0);
   }
   return n;
+}
+
+/**
+ * Classifies every letter of a full name as vowel/consonant, word by word.
+ *
+ * Standard Pythagorean-numerology rule: A/E/I/O/U are always vowels. "Y" is a
+ * vowel only when it is NOT adjacent (within the same word) to another vowel —
+ * e.g. "Y" in "Bryan" is a consonant (next to no vowel... wait, "a" follows,
+ * so it's a consonant), but "Y" in "Lynn" is a vowel (no adjacent vowel).
+ */
+function classifyLetters(fullName: string): { char: string; isVowel: boolean }[] {
+  const words = fullName.toLowerCase().replace(/[^a-z\s]/g, "").split(/\s+/).filter(Boolean);
+  const result: { char: string; isVowel: boolean }[] = [];
+  for (const word of words) {
+    for (let i = 0; i < word.length; i++) {
+      const ch = word[i];
+      let isVowel: boolean;
+      if (VOWELS.has(ch)) {
+        isVowel = true;
+      } else if (ch === "y") {
+        const prev = i > 0 ? word[i - 1] : null;
+        const next = i < word.length - 1 ? word[i + 1] : null;
+        const neighborIsVowel = (prev !== null && VOWELS.has(prev)) || (next !== null && VOWELS.has(next));
+        isVowel = !neighborIsVowel;
+      } else {
+        isVowel = false;
+      }
+      result.push({ char: ch, isVowel });
+    }
+  }
+  return result;
 }
 
 export function lifePathNumber(birthDate: string): number {
@@ -19,20 +50,20 @@ export function lifePathNumber(birthDate: string): number {
 }
 
 export function expressionNumber(fullName: string): number {
-  const letters = fullName.toLowerCase().replace(/[^a-z]/g, "").split("");
-  const total = letters.reduce((s, l) => s + (LETTER_VALUES[l] || 0), 0);
+  const letters = classifyLetters(fullName);
+  const total = letters.reduce((s, { char }) => s + (LETTER_VALUES[char] || 0), 0);
   return reduce(total);
 }
 
 export function soulUrgeNumber(fullName: string): number {
-  const vowelLetters = fullName.toLowerCase().replace(/[^a-z]/g, "").split("").filter(l => VOWELS.has(l));
-  const total = vowelLetters.reduce((s, l) => s + (LETTER_VALUES[l] || 0), 0);
+  const letters = classifyLetters(fullName).filter((l) => l.isVowel);
+  const total = letters.reduce((s, { char }) => s + (LETTER_VALUES[char] || 0), 0);
   return reduce(total);
 }
 
 export function personalityNumber(fullName: string): number {
-  const consonants = fullName.toLowerCase().replace(/[^a-z]/g, "").split("").filter(l => !VOWELS.has(l));
-  const total = consonants.reduce((s, l) => s + (LETTER_VALUES[l] || 0), 0);
+  const letters = classifyLetters(fullName).filter((l) => !l.isVowel);
+  const total = letters.reduce((s, { char }) => s + (LETTER_VALUES[char] || 0), 0);
   return reduce(total);
 }
 

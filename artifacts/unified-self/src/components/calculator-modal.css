@@ -1,0 +1,130 @@
+/* ── CALCULATOR MODAL ────────────────────────────────────── */
+.cm-overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(4, 3, 10, 0.82);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 48px 20px;
+  overflow-y: auto;
+}
+
+.cm-panel {
+  position: relative;
+  background: var(--card, #0b0919);
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 10px);
+  max-width: 560px;
+  width: 100%;
+  padding: 44px 32px 36px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.cm-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-size: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.cm-close:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+
+.cm-eyebrow {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--goldL); opacity: 0.8; margin-bottom: 12px;
+}
+
+.cm-title {
+  font-family: 'Cormorant Garamond', 'Cinzel', serif; font-size: 28px;
+  font-weight: 300; color: #fff; margin-bottom: 28px; line-height: 1.2;
+}
+
+/* per-system accent */
+.cm-num .cm-eyebrow, .cm-num .cm-submit { color: var(--goldL); }
+.cm-west .cm-eyebrow { color: var(--cobaltL); }
+.cm-vedic .cm-eyebrow { color: var(--cobaltL); }
+
+/* ── FORM ── */
+.cm-form { display: flex; flex-direction: column; gap: 20px; }
+
+.cm-field { display: flex; flex-direction: column; gap: 8px; }
+
+.cm-label {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted);
+}
+.cm-label-opt { text-transform: none; letter-spacing: 0; opacity: 0.6; font-family: 'Raleway', sans-serif; }
+
+.cm-field input {
+  background: #fff; color: #1a1626;
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 12px 14px; font-size: 15px; font-family: 'Raleway', sans-serif;
+}
+.cm-field input:focus { outline: none; border-color: var(--goldL); }
+
+.cm-error {
+  background: rgba(199, 107, 107, 0.1);
+  border: 1px solid rgba(199, 107, 107, 0.35);
+  color: #e0a0a0;
+  padding: 12px 14px; border-radius: 4px; font-size: 14px;
+}
+
+.cm-submit {
+  background: linear-gradient(135deg, var(--goldD), var(--goldL), var(--goldD));
+  color: #06060e;
+  font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  padding: 16px; border: none; border-radius: 2px; cursor: pointer;
+  transition: opacity 0.2s;
+}
+.cm-submit:hover:not(:disabled) { opacity: 0.88; }
+.cm-submit:disabled { opacity: 0.55; cursor: default; }
+
+/* ── RESULTS ── */
+.cm-results { display: flex; flex-direction: column; gap: 24px; }
+
+.cm-chart-wrap {
+  display: flex; justify-content: center;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.cm-chart-wrap svg { max-width: 100%; height: auto; }
+
+.cm-results-list { display: flex; flex-direction: column; gap: 18px; }
+
+.cm-result-item {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.cm-result-item:first-child { border-top: none; padding-top: 0; }
+
+.cm-result-label {
+  font-family: 'Cormorant Garamond', 'Cinzel', serif; font-size: 19px;
+  font-weight: 500; color: var(--goldL); margin-bottom: 8px;
+}
+
+.cm-result-technical {
+  font-size: 13px; line-height: 1.6; color: var(--muted); opacity: 0.75;
+  margin-bottom: 6px; font-style: italic;
+}
+
+.cm-result-plain {
+  font-size: 15px; line-height: 1.7; color: var(--text);
+}
+
+.cm-recalc {
+  align-self: flex-start;
+  background: none; border: none; cursor: pointer;
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--goldL);
+  opacity: 0.8; transition: opacity 0.15s;
+}
+.cm-recalc:hover { opacity: 1; }
+
+@media (max-width: 480px) {
+  .cm-overlay { padding: 24px 12px; }
+  .cm-panel { padding: 36px 20px 28px; }
+  .cm-title { font-size: 24px; }
+}

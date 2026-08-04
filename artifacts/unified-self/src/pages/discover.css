@@ -157,6 +157,32 @@
   margin-top: 3px;
 }
 
+/* ── FREE CALCULATOR BUTTON ── */
+.dh-system-calc-btn {
+  display: block;
+  margin-top: 28px;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, opacity 0.2s;
+}
+.dh-system-calc-btn:hover { opacity: 0.8; }
+
+.dh-num .dh-system-calc-btn:hover { border-color: var(--gold); }
+.dh-ast .dh-system-calc-btn:hover { border-color: var(--cobaltL); }
+.dh-hd .dh-system-calc-btn:hover { border-color: var(--tealL); }
+.dh-gk .dh-system-calc-btn:hover { border-color: var(--roseL); }
+
 /* per-system accent colors */
 .dh-num .dh-system-icon,
 .dh-num .dh-system-name,

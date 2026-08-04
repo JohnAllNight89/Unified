@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
 import { useSEO } from "@/hooks/useSEO";
+import { CalculatorModal, type CalculatorSystem } from "@/components/CalculatorModal";
 import "./shared.css";
 import "./discover.css";
 
@@ -12,6 +14,8 @@ export default function Discover() {
     description: "Learn how Numerology, Astrology, Human Design, and Gene Keys each reveal a different dimension of who you are — and what happens when all four are synthesized into one personal document.",
     path: "/discover",
   });
+
+  const [openCalculator, setOpenCalculator] = useState<CalculatorSystem | null>(null);
 
   return (
     <div className="dh-page">
@@ -57,6 +61,9 @@ export default function Discover() {
                 <li>Karmic debt and missing numbers — the specific patterns you arrived carrying and why they keep appearing</li>
                 <li>Your personal year cycle, pinnacles, and the numerical map of the season your life is currently in</li>
               </ul>
+              <button className="dh-system-calc-btn" onClick={() => setOpenCalculator("numerology")}>
+                ✦ &nbsp; See My Numerology — Free
+              </button>
             </div>
           </div>
         </div>
@@ -87,6 +94,9 @@ export default function Discover() {
                 <li>Karmic house analysis — the areas of life your soul agreed to develop, master, or complete in this incarnation</li>
                 <li>Your dharma and artha houses — what you were built to create, contribute, and accumulate in alignment with your soul's design</li>
               </ul>
+              <button className="dh-system-calc-btn" onClick={() => setOpenCalculator("vedic")}>
+                ✦ &nbsp; See My Vedic Chart — Free
+              </button>
             </div>
           </div>
         </div>
@@ -117,6 +127,9 @@ export default function Discover() {
                 <li>The houses carrying the most weight — where the real action of your life is concentrated and why certain areas have always demanded the most from you</li>
                 <li>The exact tensions and gifts built into your chart through planetary aspects — the architecture of what has been hard and what has always come through</li>
               </ul>
+              <button className="dh-system-calc-btn" onClick={() => setOpenCalculator("western")}>
+                ✦ &nbsp; See My Birth Chart — Free
+              </button>
             </div>
           </div>
         </div>
@@ -202,6 +215,10 @@ export default function Discover() {
 
       </main>
       <Footer />
+
+      {openCalculator && (
+        <CalculatorModal system={openCalculator} onClose={() => setOpenCalculator(null)} />
+      )}
     </div>
   );
 }
