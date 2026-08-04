@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { handleCheckout } from "@/lib/checkout";
 import { useSEO } from "@/hooks/useSEO";
-import { CalculatorModal, type CalculatorSystem } from "@/components/CalculatorModal";
+import type { CalculatorSystem } from "@/components/CalculatorModal";
 import "./shared.css";
 import "./discover.css";
+
+// Lazy-loaded: this chain pulls in the Swiss Ephemeris WASM engine, which
+// must never be part of the main app bundle every page depends on — see
+// CalculatorModal.tsx / lib/swisseph.ts for why.
+const CalculatorModal = lazy(() =>
+  import("@/components/CalculatorModal").then((m) => ({ default: m.CalculatorModal })),
+);
 
 export default function Discover() {
   useSEO({
@@ -217,7 +224,9 @@ export default function Discover() {
       <Footer />
 
       {openCalculator && (
-        <CalculatorModal system={openCalculator} onClose={() => setOpenCalculator(null)} />
+        <Suspense fallback={null}>
+          <CalculatorModal system={openCalculator} onClose={() => setOpenCalculator(null)} />
+        </Suspense>
       )}
     </div>
   );
