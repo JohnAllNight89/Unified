@@ -23,13 +23,15 @@ interface ProductDef {
 }
 
 const PRODUCTS: Record<string, ProductDef> = {
-  soul_blueprint:    { name: "The Soul Blueprint",         fullPrice: 22200, subscriberPrice: 22200 },
-  couples_blueprint: { name: "The Couples Blueprint",      fullPrice: 30000, subscriberPrice: 30000 },
-  current_life:      { name: "Current Life Reading",       fullPrice: 1559, subscriberPrice: 1299 },
-  couples_life:      { name: "Both Current Life Readings", fullPrice: 3118, subscriberPrice: 2598 },
-  numerology_report: { name: "In-depth Numerology Report", fullPrice: 1799, subscriberPrice: 1499 },
-  astro_reading:     { name: "In-depth Astro Reading",     fullPrice: 1799, subscriberPrice: 1499 },
-  werner_blueprint:  { name: "The Soul Blueprint — Dr. Werner Referral", fullPrice: 15000, subscriberPrice: 15000 },
+  soul_blueprint:       { name: "The Soul Blueprint",           fullPrice: 22200, subscriberPrice: 22200 },
+  couples_blueprint:    { name: "The Couples Blueprint",        fullPrice: 30000, subscriberPrice: 30000 },
+  gate_reading:         { name: "The Gate Reading",             fullPrice: 9900,  subscriberPrice: 9900  },
+  blueprint_foundation: { name: "The Blueprint Foundation",     fullPrice: 9900,  subscriberPrice: 9900  },
+  current_life:         { name: "Current Life Reading",         fullPrice: 1559,  subscriberPrice: 1299  },
+  couples_life:         { name: "Both Current Life Readings",   fullPrice: 3118,  subscriberPrice: 2598  },
+  numerology_report:    { name: "In-depth Numerology Report",   fullPrice: 1799,  subscriberPrice: 1499  },
+  astro_reading:        { name: "In-depth Astro Reading",       fullPrice: 1799,  subscriberPrice: 1499  },
+  werner_blueprint:     { name: "The Soul Blueprint — Dr. Werner Referral", fullPrice: 15000, subscriberPrice: 15000 },
 };
 
 const SUB_PRICE_CENTS = 399;

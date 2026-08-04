@@ -106,6 +106,61 @@ export default function Reports() {
 
           <div className="rp-divider" />
 
+          {/* FOCUSED THREE-SYSTEM READINGS */}
+          <span className="rp-section-label">Three Systems · One Convergence</span>
+
+          <div className="rp-product-primary">
+            <div className="rp-product-top">
+              <div>
+                <div className="rp-product-tag">Numerology · Human Design · Gene Keys</div>
+                <div className="rp-product-title">The Gate Reading</div>
+              </div>
+              <div className="rp-product-price">$99</div>
+            </div>
+            <div className="rp-product-body">
+              <p className="rp-product-desc">The same 64 gates, spoken in two different languages. The mechanics of how you are built, and the myth of what you are becoming.</p>
+              <p className="rp-product-subdesc">Human Design tells you your Type and your Strategy. Gene Keys tells you your Life's Work carries a shadow and a gift and something higher waiting past both. Almost no one has been shown these two systems read together, from the same gates, as one instrument instead of two. This is that reading — layered with your Numerology so the pattern is confirmed in a third, entirely independent language.</p>
+              <ul className="rp-checks">
+                <li>Your full Numerology profile — Life Path, Expression, Soul Urge, Personality, and the Master Numbers or Karmic Debts carried in your name and birth date</li>
+                <li>Your Human Design chart — Type, Strategy, Authority, Profile, and your defined centers, translated into how you actually move through decisions and relationships</li>
+                <li>Your Gene Keys profile — Life's Work, Evolution, Radiance, and Purpose, each read through its Shadow, Gift, and Siddhi</li>
+                <li>A synthesis naming where all three systems agree, and what that agreement is telling you</li>
+              </ul>
+              <p className="rp-product-upgrade-note">What this does not yet show you: the celestial architecture of the sky at the moment you were born, read through both the Western and Vedic lens. That is where the full Soul Blueprint picks up.</p>
+              <button className="rp-btn-gold" onClick={() => handleCheckout("gate_reading")}>
+                ✦ &nbsp; Get The Gate Reading — $99
+              </button>
+            </div>
+          </div>
+
+          <div className="rp-divider" />
+
+          <div className="rp-product-primary">
+            <div className="rp-product-top">
+              <div>
+                <div className="rp-product-tag">Numerology · Western Astrology · Vedic Astrology</div>
+                <div className="rp-product-title">The Blueprint Foundation</div>
+              </div>
+              <div className="rp-product-price">$99</div>
+            </div>
+            <div className="rp-product-body">
+              <p className="rp-product-desc">The mathematics of your name. The sky at the moment you arrived, read twice — once through the tropical lens and once through the sidereal. Three systems, one convergence.</p>
+              <p className="rp-product-subdesc">You already know your sun sign. You have probably never been shown what it actually means when it is placed next to your Life Path number and your Vedic Moon nakshatra, and asked to explain itself. This is where your reading begins — not a horoscope, not a personality quiz. A hand-written synthesis of three precise systems, each one independently confirming what the others already found.</p>
+              <ul className="rp-checks">
+                <li>Your full Numerology profile — Life Path, Expression, Soul Urge, Personality, and the Master Numbers or Karmic Debts carried in your name and birth date</li>
+                <li>Your Western Astrology chart — Sun, Moon, Rising, and the personal planets, translated into how they actually move through your daily life</li>
+                <li>Your Vedic Astrology chart — Sun, Moon, and Rising by nakshatra, plus the karmic themes your sidereal placements are structured around</li>
+                <li>A synthesis naming where all three systems agree, and what that agreement is telling you</li>
+              </ul>
+              <p className="rp-product-upgrade-note">What this does not yet show you: the energetic mechanics of how you are built to make decisions and hold energy (Human Design), or the shadow-to-gift architecture that names what you are here to become (Gene Keys). Those two systems complete the picture in the full Soul Blueprint.</p>
+              <button className="rp-btn-gold" onClick={() => handleCheckout("blueprint_foundation")}>
+                ✦ &nbsp; Get The Blueprint Foundation — $99
+              </button>
+            </div>
+          </div>
+
+          <div className="rp-divider" />
+
           {/* STANDALONE */}
           <span className="rp-section-label">Focused Reports — One System</span>
 
