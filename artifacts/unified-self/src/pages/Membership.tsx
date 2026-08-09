@@ -19,7 +19,7 @@ const FREE_BENEFITS = [
 ];
 
 const SUBSCRIBER_BENEFITS = [
-  "Everything in Free — plus:",
+  "Everything in Free, plus:",
   "Full natal chart interpretation (every placement)",
   "Planetary mythology & archetypes explained",
   "How each placement shows up in daily life",
@@ -53,7 +53,7 @@ export default function Membership() {
         {/* ── HERO ─────────────────────────────── */}
         <div className="membership-hero">
           <span className="tag">Monthly Membership</span>
-          <h1 className="membership-h1">Everything Your Chart Reveals —<br /><em>Fully Interpreted.</em></h1>
+          <h1 className="membership-h1">Everything Your Chart Reveals,<br /><em>Fully Interpreted.</em></h1>
           <p className="membership-sub">
             Your data is the map. The membership gives you the guide. For less than a cup of coffee a month.
           </p>
@@ -143,7 +143,7 @@ export default function Membership() {
           </div>
           <div style={{ textAlign: "center", marginTop: 40 }}>
             <button className="hero-btn" onClick={() => handleSubscribe()}>
-              ✦ &nbsp;Start My Membership — $3.99/mo
+              ✦ &nbsp;Start My Membership: $3.99/mo
             </button>
             <p style={{ color: "var(--muted)", fontSize: ".8rem", marginTop: 12 }}>Cancel any time. No contracts.</p>
           </div>
@@ -156,19 +156,19 @@ export default function Membership() {
             {[
               {
                 q: "Can I cancel any time?",
-                a: "Yes. Cancel from your portal at any time — your access continues through the end of the billing period and you will never be charged again.",
+                a: "Yes. Cancel from your portal at any time. Your access continues through the end of the billing period and you will never be charged again.",
               },
               {
                 q: "Do I need a subscription to buy a report?",
-                a: "No. Reports are available to anyone. Subscribers get access to member pricing on every report — lower than the standard public rate — for as long as they are subscribed.",
+                a: "No. Reports are available to anyone. Subscribers get access to member pricing on every report (lower than the standard public rate) for as long as they are subscribed.",
               },
               {
                 q: "What is included in the chart interpretation?",
-                a: "Every planetary placement in your natal chart — Sun, Moon, Rising, and all eight planets — with their sign, house, mythology, and how that energy tends to show up in real life.",
+                a: "Every planetary placement in your natal chart (Sun, Moon, Rising, and all eight planets) with their sign, house, mythology, and how that energy tends to show up in real life.",
               },
               {
                 q: "Is this different from the Soul Blueprint?",
-                a: "Yes. The membership gives you the educational interpretation layer in the portal. The Soul Blueprint is a 75+ page personal report written specifically for you — more in-depth and personal than anything in the portal.",
+                a: "Yes. The membership gives you the educational interpretation layer in the portal. The Soul Blueprint is a 75+ page personal report written specifically for you, more in-depth and personal than anything in the portal.",
               },
             ].map(({ q, a }) => (
               <div key={q} className="membership-faq-item card">

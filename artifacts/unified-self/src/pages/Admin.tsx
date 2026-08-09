@@ -321,8 +321,8 @@ export default function Admin() {
                   {users.map((u) => (
                     <tr key={u.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                       <td style={tdStyle}>{u.fullName || <span style={{ opacity: 0.4 }}>No profile</span>}</td>
-                      <td style={tdStyle}>{u.birthDate || "—"}</td>
-                      <td style={tdStyle}>{u.birthPlace || "—"}</td>
+                      <td style={tdStyle}>{u.birthDate || "N/A"}</td>
+                      <td style={tdStyle}>{u.birthPlace || "N/A"}</td>
                       <td style={tdStyle}>
                         <StatusBadge status={u.subscriptionStatus || "inactive"} />
                       </td>
@@ -357,7 +357,7 @@ export default function Admin() {
                   {orders.map((o) => (
                     <tr key={o.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                       <td style={tdStyle}>{o.productName}</td>
-                      <td style={tdStyle}>{o.customerEmail || "—"}</td>
+                      <td style={tdStyle}>{o.customerEmail || "N/A"}</td>
                       <td style={tdStyle}>{formatCents(o.amountCents)}</td>
                       <td style={tdStyle}>
                         {o.fulfilled

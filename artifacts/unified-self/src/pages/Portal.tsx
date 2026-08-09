@@ -222,7 +222,7 @@ export default function Portal() {
           </p>
           {!isSubscribed && hasProfile && (
             <Link href="/membership" className="portal-member-cta">
-              ✦ &nbsp;Become a Member — $3.99/mo
+              ✦ &nbsp;Become a Member for $3.99/mo
             </Link>
           )}
           {isSubscribed && (
@@ -238,7 +238,7 @@ export default function Portal() {
                 {hasProfile ? "Edit Your Profile" : "Create Your Profile"}
               </h2>
               <p className="portal-card-sub">
-                Your birth data is the foundation of your soul map. All calculations are done from this information — it is never shared.
+                Your birth data is the foundation of your soul map. All calculations are done from this information, and it is never shared.
               </p>
               <form onSubmit={handleSave} className="profile-form">
 
@@ -497,7 +497,7 @@ export default function Portal() {
               <span className="tag">Your Free Tools</span>
               <h2 className="portal-section-title">Explore Your Soul Data</h2>
               <p className="portal-section-sub">
-                Your numbers and your chart, calculated from your birth information. A beginning — not an ending.
+                Your numbers and your chart, calculated from your birth information: a beginning, not an ending.
               </p>
 
               <div className="portal-tools-grid">
@@ -505,7 +505,7 @@ export default function Portal() {
                   <div className="portal-tool-icon">◯</div>
                   <div className="portal-tool-name">Numerology</div>
                   <p className="portal-tool-desc">
-                    Your five core numbers — Life Path, Expression, Soul Urge, Personality, and Birth Day — with their essential meanings revealed.
+                    Your five core numbers (Life Path, Expression, Soul Urge, Personality, and Birth Day) with their essential meanings revealed.
                   </p>
                   <div className="portal-tool-cta">Explore My Numbers →</div>
                 </Link>
@@ -514,7 +514,7 @@ export default function Portal() {
                   <div className="portal-tool-icon">☽</div>
                   <div className="portal-tool-name">Astro Chart</div>
                   <p className="portal-tool-desc">
-                    Your full birth chart — every planet, every sign, every degree — calculated from your exact birth data. The map is yours. What does it mean?
+                    Your full birth chart, every planet, every sign, every degree, calculated from your exact birth data. The map is yours. What does it mean?
                   </p>
                   <div className="portal-tool-cta">View My Chart →</div>
                 </Link>
@@ -528,12 +528,12 @@ export default function Portal() {
                   <span className="tag" style={{ textAlign: "left" }}>Monthly Membership</span>
                   <h3>Unlock What Your Chart Actually Means</h3>
                   <p>
-                    Your chart shows the map. The membership gives you the guide — what each planet in each sign reveals about who you are, where you came from, and how this energy shows up in your daily life.
+                    Your chart shows the map. The membership gives you the guide: what each planet in each sign reveals about who you are, where you came from, and how this energy shows up in your daily life.
                   </p>
                   <ul className="portal-sub-list">
                     <li>Full interpretation of every planetary placement</li>
                     <li>The origins and mythology behind each archetype</li>
-                    <li>How each placement shows up in real life — generalized but personal to your chart</li>
+                    <li>How each placement shows up in real life, generalized but personal to your chart</li>
                     <li>Member pricing on all one-time reports while subscribed</li>
                   </ul>
                 </div>
@@ -571,13 +571,13 @@ export default function Portal() {
                 <span className="tag" style={{ textAlign: "left" }}>Learn the System</span>
                 <h3 className="portal-edu-title">Human Design</h3>
                 <p className="portal-edu-body">
-                  Human Design is a synthesis of four ancient wisdom systems — Astrology, the I Ching, the Kabbalah, and the Hindu-Brahmin Chakra System — fused with modern quantum physics and genetics. It was transmitted through Ra Uru Hu in 1987 and has since become one of the most precise self-knowledge systems available to the modern seeker.
+                  Human Design is a synthesis of four ancient wisdom systems (Astrology, the I Ching, the Kabbalah, and the Hindu-Brahmin Chakra System) fused with modern quantum physics and genetics. It was transmitted through Ra Uru Hu in 1987 and has since become one of the most precise self-knowledge systems available to the modern seeker.
                 </p>
                 <p className="portal-edu-body">
-                  At the heart of Human Design are five <strong>Types</strong> — Manifestors, Generators, Manifesting Generators, Projectors, and Reflectors — each with their own <strong>Strategy</strong> for navigating life, and their own <strong>Authority</strong> for making correct decisions. Living aligned with your Type is not a philosophy. It is a physical experiment with measurable results.
+                  At the heart of Human Design are five <strong>Types</strong> (Manifestors, Generators, Manifesting Generators, Projectors, and Reflectors), each with their own <strong>Strategy</strong> for navigating life, and their own <strong>Authority</strong> for making correct decisions. Living aligned with your Type is not a philosophy. It is a physical experiment with measurable results.
                 </p>
                 <p className="portal-edu-body">
-                  Your chart — called the <strong>Bodygraph</strong> — is a nine-centered map of your energy field. Some of those centers are <strong>defined</strong> (consistent, reliable, fixed), and others are <strong>open</strong> (receptive, conditioned by the energy of others). The interplay between what is defined and what is open in you explains so much: why certain environments exhaust you, why certain people energize you, why certain kinds of work feel sustainable and others drain you completely.
+                  Your chart, called the <strong>Bodygraph</strong>, is a nine-centered map of your energy field. Some of those centers are <strong>defined</strong> (consistent, reliable, fixed), and others are <strong>open</strong> (receptive, conditioned by the energy of others). The interplay between what is defined and what is open in you explains so much: why certain environments exhaust you, why certain people energize you, why certain kinds of work feel sustainable and others drain you completely.
                 </p>
                 <div className="portal-edu-types">
                   {[
@@ -594,7 +594,7 @@ export default function Portal() {
                   ))}
                 </div>
                 <div className="portal-edu-cta">
-                  <p>Your Human Design chart — your Type, Authority, Profile, Centers, Channels, and Gates — is fully calculated and interpreted inside your <strong>Soul Blueprint</strong>.</p>
+                  <p>Your Human Design chart, your Type, Authority, Profile, Centers, Channels, and Gates, is fully calculated and interpreted inside your <strong>Soul Blueprint</strong>.</p>
                   <a className="hero-btn" href="/#order">✦ &nbsp;Get My Soul Blueprint</a>
                 </div>
               </div>
@@ -607,19 +607,19 @@ export default function Portal() {
                 <span className="tag" style={{ textAlign: "left" }}>Learn the System</span>
                 <h3 className="portal-edu-title">The Gene Keys</h3>
                 <p className="portal-edu-body">
-                  The Gene Keys are a living transmission created by Richard Rudd, built upon the 64 hexagrams of the I Ching and the 64 codons of the human genetic code. They map what Rudd calls your <strong>Genius</strong> — the unique gift you carry in your DNA, and the path your soul has designed for unlocking it.
+                  The Gene Keys are a living transmission created by Richard Rudd, built upon the 64 hexagrams of the I Ching and the 64 codons of the human genetic code. They map what Rudd calls your <strong>Genius</strong>: the unique gift you carry in your DNA, and the path your soul has designed for unlocking it.
                 </p>
                 <p className="portal-edu-body">
-                  Each of the 64 Gene Keys contains a <strong>Shadow</strong>, a <strong>Gift</strong>, and a <strong>Siddhi</strong> — three frequencies of the same energy, representing the range from your deepest unconscious wound to your highest spiritual potential. The work of the Gene Keys is to move from Shadow into Gift — not by force, but through <em>contemplation</em>. The Siddhi is what becomes available when you have lived the Gift fully.
+                  Each of the 64 Gene Keys contains a <strong>Shadow</strong>, a <strong>Gift</strong>, and a <strong>Siddhi</strong>: three frequencies of the same energy, representing the range from your deepest unconscious wound to your highest spiritual potential. The work of the Gene Keys is to move from Shadow into Gift, not by force, but through <em>contemplation</em>. The Siddhi is what becomes available when you have lived the Gift fully.
                 </p>
                 <p className="portal-edu-body">
-                  Your personal <strong>Hologenetic Profile</strong> identifies which Gene Keys govern the most essential areas of your life — your <em>Life's Work</em>, your <em>Evolution</em>, your <em>Radiance</em>, your <em>Purpose</em>, and your <em>Attraction Field</em>. Each Gene Key in your profile is not an abstract concept. It is a specific frequency in your genetic code, a lived pattern in your behavior, and a doorway to a version of you that has not yet fully arrived.
+                  Your personal <strong>Hologenetic Profile</strong> identifies which Gene Keys govern the most essential areas of your life: your <em>Life's Work</em>, your <em>Evolution</em>, your <em>Radiance</em>, your <em>Purpose</em>, and your <em>Attraction Field</em>. Each Gene Key in your profile is not an abstract concept. It is a specific frequency in your genetic code, a lived pattern in your behavior, and a doorway to a version of you that has not yet fully arrived.
                 </p>
                 <div className="portal-edu-sequences">
                   {[
-                    { name: "Activation Sequence", desc: "Your genius — the core gifts that define your life's work and how you are designed to flourish." },
-                    { name: "Venus Sequence", desc: "Your heart — the patterns that govern your most intimate relationships and your relationship with yourself.", accent: true },
-                    { name: "Pearl Sequence", desc: "Your prosperity — how you are designed to attract and sustain abundance through your authentic expression." },
+                    { name: "Activation Sequence", desc: "Your genius: the core gifts that define your life's work and how you are designed to flourish." },
+                    { name: "Venus Sequence", desc: "Your heart: the patterns that govern your most intimate relationships and your relationship with yourself.", accent: true },
+                    { name: "Pearl Sequence", desc: "Your prosperity: how you are designed to attract and sustain abundance through your authentic expression." },
                   ].map(({ name, desc, accent }: { name: string; desc: string; accent?: boolean }) => (
                     <div key={name} className="portal-edu-seq-row">
                       <div className="portal-edu-seq-name" style={accent ? { color: "var(--roseL)" } : undefined}>{name}</div>
@@ -628,7 +628,7 @@ export default function Portal() {
                   ))}
                 </div>
                 <div className="portal-edu-cta">
-                  <p>Your Gene Keys Hologenetic Profile — all three sequences, calculated and interpreted in your voice — lives inside your <strong>Soul Blueprint</strong>.</p>
+                  <p>Your Gene Keys Hologenetic Profile, all three sequences calculated and interpreted in your voice, lives inside your <strong>Soul Blueprint</strong>.</p>
                   <a className="hero-btn" href="/#order">✦ &nbsp;Get My Soul Blueprint</a>
                 </div>
               </div>

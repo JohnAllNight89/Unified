@@ -12,7 +12,7 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function Connect() {
   useSEO({
-    title: "Contact The Unified Spirit — Request a Soul Blueprint Reading",
+    title: "Contact The Unified Spirit: Request a Soul Blueprint Reading",
     description: "Get in touch with The Unified Spirit. Ask questions, share what you're seeking, or reach out directly to learn more about your Soul Blueprint report.",
     path: "/connect",
   });
@@ -103,7 +103,7 @@ export default function Connect() {
                   id="cn-message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Share what's on your mind — questions, intentions, anything you'd like us to know before we connect."
+                  placeholder="Share what's on your mind: questions, intentions, anything you'd like us to know before we connect."
                   rows={5}
                 />
               </div>

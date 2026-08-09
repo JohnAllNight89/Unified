@@ -15,11 +15,11 @@ interface Profile {
 }
 
 const NUMBER_LABELS: { key: keyof NumerologyResult; label: string; icon: string; desc: string }[] = [
-  { key: "lifePath",   label: "Life Path",    icon: "◯", desc: "The master theme of your life — your soul's primary purpose and the gifts you are here to develop." },
-  { key: "expression", label: "Expression",   icon: "✦", desc: "The totality of who you are — your natural talents, abilities, and how you are designed to move through the world." },
-  { key: "soulUrge",   label: "Soul Urge",    icon: "☽", desc: "The heart's deepest longing — what motivates you at the level below words, the internal compass of your desire." },
-  { key: "personality",label: "Personality",  icon: "◈", desc: "The face you show to the world — how others first perceive you before they know your full depth." },
-  { key: "birthDay",   label: "Birth Day",    icon: "⬆", desc: "A specific gift embedded in the exact day you arrived — a talent that is immediately available to you, requiring no development." },
+  { key: "lifePath",   label: "Life Path",    icon: "◯", desc: "The master theme of your life: your soul's primary purpose and the gifts you are here to develop." },
+  { key: "expression", label: "Expression",   icon: "✦", desc: "The totality of who you are, your natural talents, abilities, and how you are designed to move through the world." },
+  { key: "soulUrge",   label: "Soul Urge",    icon: "☽", desc: "The heart's deepest longing: what motivates you at the level below words, the internal compass of your desire." },
+  { key: "personality",label: "Personality",  icon: "◈", desc: "The face you show to the world, how others first perceive you before they know your full depth." },
+  { key: "birthDay",   label: "Birth Day",    icon: "⬆", desc: "A specific gift embedded in the exact day you arrived, a talent that is immediately available to you and requires no development." },
 ];
 
 function NumberCard({ num, entry, icon, desc, expanded, onToggle }: {
@@ -36,7 +36,7 @@ function NumberCard({ num, entry, icon, desc, expanded, onToggle }: {
         </div>
         <div className="num-card-meta">
           <div className="num-card-label">{entry.label}</div>
-          <div className="num-card-title">{num} — {meaning.title}</div>
+          <div className="num-card-title">{num}: {meaning.title}</div>
         </div>
         <div className="num-card-toggle">{expanded ? "▲" : "▼"}</div>
       </div>
@@ -49,7 +49,7 @@ function NumberCard({ num, entry, icon, desc, expanded, onToggle }: {
           <div className="num-card-locked">
             <span className="num-locked-icon">✦</span>
             <p>
-              Your <strong>In-depth Numerology Report</strong> goes significantly further — delivering a complete, personal portrait of how each of these numbers expresses specifically in your life, your relationships, your career, and your recurring patterns.
+              Your <strong>In-depth Numerology Report</strong> goes significantly further, delivering a complete, personal portrait of how each of these numbers expresses specifically in your life, your relationships, your career, and your recurring patterns.
             </p>
           </div>
         </div>
@@ -177,12 +177,12 @@ export default function NumerologyPage() {
             <div className="num-report-icon">✦</div>
             <h3>This Is Just the Beginning</h3>
             <p>
-              What you've seen here are the core frequencies of your numerological design — the numbers and their essential meanings. Your <strong>In-depth Numerology Report</strong> goes much further: it traces each number through your personal history, your relationships, your career patterns, and your recurring life themes — written personally from your specific name and birth date.
+              What you've seen here are the core frequencies of your numerological design: the numbers and their essential meanings. Your <strong>In-depth Numerology Report</strong> goes much further: it traces each number through your personal history, your relationships, your career patterns, and your recurring life themes, written personally from your specific name and birth date.
             </p>
             <div className="num-report-features">
               <div>✓ Complete analysis of all five numbers, written for you specifically</div>
               <div>✓ How your numbers interact and where they create tension or harmony</div>
-              <div>✓ Your personal year cycles — what this year is asking of you</div>
+              <div>✓ Your personal year cycles: what this year is asking of you</div>
               <div>✓ Shadow patterns: the unconscious ways your numbers can work against you</div>
               <div>✓ Delivered to your email within 24 hours</div>
             </div>
@@ -191,14 +191,14 @@ export default function NumerologyPage() {
                 {isSubscribed ? "$14.99" : null}
               </span>
               <span className="num-report-amount">${isSubscribed ? "11.99" : "14.99"}</span>
-              {isSubscribed && <span className="num-report-badge">Member price — 20% off</span>}
+              {isSubscribed && <span className="num-report-badge">Member price: 20% off</span>}
             </div>
             <button className="hero-btn" onClick={handleBuyReport}>
               ✦ &nbsp;Get My Numerology Report
             </button>
             {!isSubscribed && (
               <p className="num-report-sub-note">
-                <Link href="/portal" style={{ color: "var(--goldL)" }}>Members save 20%</Link> — join for $3.99/month
+                <Link href="/portal" style={{ color: "var(--goldL)" }}>Members save 20%</Link>, join for $3.99/month
               </p>
             )}
           </div>

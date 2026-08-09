@@ -8,8 +8,8 @@ import "./home.css";
 
 export default function Home() {
   useSEO({
-    title: "The Unified Spirit — Soul Blueprint | Numerology, Astrology, Human Design & Gene Keys",
-    description: "Discover your soul's blueprint — a hand-crafted report synthesizing Numerology, Astrology, Human Design, and Gene Keys into one personalized document written from your birth data. Know who you were designed to be.",
+    title: "The Unified Spirit: Soul Blueprint | Numerology, Astrology, Human Design & Gene Keys",
+    description: "Discover your soul's blueprint: a hand-crafted report synthesizing Numerology, Astrology, Human Design, and Gene Keys into one personalized document written from your birth data. Know who you were designed to be.",
     path: "/",
   });
 
@@ -52,25 +52,25 @@ export default function Home() {
             </h2>
             <p>
               Not because they are not trying. Because they do not have a map. They are navigating
-              the most important terrain of their lives — who they are, what they are here for, why
-              they work the way they work — with no instrument precise enough to tell them what they
+              the most important terrain of their lives: who they are, what they are here for, why
+              they work the way they work, with no instrument precise enough to tell them what they
               are actually looking at.
             </p>
             <p>That is what The Unified Spirit exists to change.</p>
             <p>
               We believe every person arrives in this life with a specific design. A specific purpose.
-              A specific set of gifts that are unlike anyone else&rsquo;s — and a specific set of patterns
+              A specific set of gifts that are unlike anyone else&rsquo;s, and a specific set of patterns
               that have been getting in the way of those gifts expressing themselves fully. We believe
               those things are not abstract. They are encoded. In the mathematics of your name, in the
               sky at the moment you were born, in the architecture of your energy body, in the
               frequencies of your DNA.
             </p>
             <p>
-              We believe that when those five systems are read together — when they are cross-examined
+              We believe that when those five systems are read together, when they are cross-examined
               against each other and synthesized into a single coherent document written specifically
-              for one person — something happens that does not happen any other way. People stop feeling
+              for one person, something happens that does not happen any other way. People stop feeling
               like they are broken. They stop feeling like something is wrong with them. They start
-              recognizing themselves — maybe for the first time — in something that tells the truth
+              recognizing themselves, maybe for the first time, in something that tells the truth
               about who they actually are.
             </p>
             <p>
@@ -102,16 +102,16 @@ export default function Home() {
               Each system was developed independently, in a different time and tradition. Each one
               sees a different dimension of what makes a human being who they are. No single system
               sees the whole picture. But when all five are applied simultaneously to the specific
-              data of one person&rsquo;s birth — and synthesized into a single document — they produce
+              data of one person&rsquo;s birth, and synthesized into a single document, they produce
               something none of them can produce alone.
             </p>
             <div className="hm-systems-grid" role="list">
               {[
-                { icon: "○", name: "Numerology",        desc: "The mathematics of your name and birth — the frequency you were sent here to carry." },
-                { icon: "☽", name: "Vedic Astrology",   desc: "The ancient Jyotish system — sidereal placements that reveal your soul's karmic path, dharma, and the specific lessons written into this lifetime." },
-                { icon: "☀", name: "Western Astrology", desc: "Tropical placements mapped to your inner world — the planets, houses, and aspects that shape your psychology, relationships, and evolution." },
-                { icon: "◆", name: "Human Design",      desc: "The mechanics of your energy body — how you are built to decide and move." },
-                { icon: "✦", name: "Gene Keys",         desc: "The shadow and the gift encoded in your DNA — the path from fear to your highest expression." },
+                { icon: "○", name: "Numerology",        desc: "The mathematics of your name and birth: the frequency you were sent here to carry." },
+                { icon: "☽", name: "Vedic Astrology",   desc: "The ancient Jyotish system: sidereal placements that reveal your soul's karmic path, dharma, and the specific lessons written into this lifetime." },
+                { icon: "☀", name: "Western Astrology", desc: "Tropical placements mapped to your inner world: the planets, houses, and aspects that shape your psychology, relationships, and evolution." },
+                { icon: "◆", name: "Human Design",      desc: "The mechanics of your energy body: how you are built to decide and move." },
+                { icon: "✦", name: "Gene Keys",         desc: "The shadow and the gift encoded in your DNA: the path from fear to your highest expression." },
               ].map(({ icon, name, desc }) => (
                 <div key={name} className="hm-sys-pill" role="listitem">
                   <div className="hm-sys-pill-icon" aria-hidden="true">{icon}</div>
@@ -134,8 +134,8 @@ export default function Home() {
               <em>of a product.</em>
             </h2>
             <p className="hm-reviews-body">
-              These are moments of recognition. People encountering themselves — sometimes for
-              the first time — in something that tells the truth.
+              These are moments of recognition. People encountering themselves, sometimes for
+              the first time, in something that tells the truth.
             </p>
 
             {[
@@ -191,7 +191,7 @@ export default function Home() {
             </h2>
             <p>
               The way you are wired is not a mistake. The intensity you carry belongs somewhere.
-              The things you have always felt about yourself but could never prove — this document
+              The things you have always felt about yourself but could never prove: this document
               proves them. Not with opinion. With the precise mathematics of who you are. That is
               what a Soul Blueprint actually is.
             </p>

@@ -203,7 +203,7 @@ export default function AstroChartPage() {
           <div className="astro-no-time-note">
             <span>✦</span>
             <p>
-              Your <strong>Rising sign</strong> requires your birth time. <Link href="/portal" style={{ color: "var(--goldL)" }}>Edit your profile</Link> to add it — many insights in your chart depend on accurate timing.
+              Your <strong>Rising sign</strong> requires your birth time. <Link href="/portal" style={{ color: "var(--goldL)" }}>Edit your profile</Link> to add it, since many insights in your chart depend on accurate timing.
             </p>
           </div>
         )}
@@ -246,10 +246,10 @@ export default function AstroChartPage() {
             <div className="astro-unlock-icon">☽</div>
             <h3>What Does Your Chart Actually Mean?</h3>
             <p>
-              You now have the data. But a natal chart without interpretation is like a map without a legend — the terrain is all there, but you cannot read where you are.
+              You now have the data. But a natal chart without interpretation is like a map without a legend: the terrain is all there, but you cannot read where you are.
             </p>
             <p>
-              The monthly membership unlocks the full interpretation of your chart — what each placement means, the mythology and history behind each planetary archetype, and how these energies show up in your real, lived life.
+              The monthly membership unlocks the full interpretation of your chart: what each placement means, the mythology and history behind each planetary archetype, and how these energies show up in your real, lived life.
             </p>
 
             <div className="astro-unlock-features">
@@ -259,7 +259,7 @@ export default function AstroChartPage() {
                 "What your Rising sign says about how you arrive in the world and what others first perceive",
                 "The meaning of every other planetary placement in your chart",
                 "The origins and mythology behind each planet's archetypal energy",
-                "How this all pertains to your specific life — generalized but accurate to your chart",
+                "How this all pertains to your specific life, generalized but accurate to your chart",
               ].map((f) => (
                 <div key={f} className="astro-unlock-feature">
                   <span>✦</span>
@@ -280,7 +280,7 @@ export default function AstroChartPage() {
                     <span className="portal-sub-period">/month</span>
                   </div>
                   <button className="hero-btn" onClick={handleSubscribe}>
-                    ✦ &nbsp;Unlock My Chart — $3.99/mo
+                    ✦ &nbsp;Unlock My Chart: $3.99/mo
                   </button>
                   <p className="portal-sub-note">Includes 20% off all reports. Cancel any time.</p>
                 </div>
@@ -290,7 +290,7 @@ export default function AstroChartPage() {
                     Want the full written interpretation in one report?
                   </p>
                   <button className="outline-btn" onClick={handleBuyReport}>
-                    Get the In-depth Astro Reading — $14.99
+                    Get the In-depth Astro Reading: $14.99
                   </button>
                 </div>
               </div>

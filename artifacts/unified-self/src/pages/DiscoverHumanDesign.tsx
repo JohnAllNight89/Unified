@@ -22,17 +22,17 @@ export default function DiscoverHumanDesign() {
             Human Design
           </h1>
           <p style={{ color: "rgba(255,255,255,0.6)", maxWidth: 550, margin: "0 auto", lineHeight: 1.7 }}>
-            A synthesis of ancient wisdom and modern science — the most precise system for understanding how your energy works.
+            A synthesis of ancient wisdom and modern science, the most precise system for understanding how your energy works.
           </p>
         </div>
 
         <article className="discover-article">
           <Section title="The Transmission">
             <p>
-              Human Design arrived on January 3, 1987, when a Canadian man named <strong>Robert Alan Krakower</strong> — later known as <strong>Ra Uru Hu</strong> — experienced an eight-day mystical encounter on the island of Ibiza, Spain. During this experience, he received a detailed transmission of a new system that synthesized four ancient bodies of knowledge into a single, unified framework.
+              Human Design arrived on January 3, 1987, when a Canadian man named <strong>Robert Alan Krakower</strong> (later known as <strong>Ra Uru Hu</strong>) experienced an eight-day mystical encounter on the island of Ibiza, Spain. During this experience, he received a detailed transmission of a new system that synthesized four ancient bodies of knowledge into a single, unified framework.
             </p>
             <p>
-              Ra Uru Hu spent the next 25 years teaching, refining, and sharing this system until his death in 2011. He was clear that he did not invent Human Design — he received it. And he was equally clear that the system was not meant to be believed. It was meant to be <em>experimented with</em>.
+              Ra Uru Hu spent the next 25 years teaching, refining, and sharing this system until his death in 2011. He was clear that he did not invent Human Design; he received it. And he was equally clear that the system was not meant to be believed. It was meant to be <em>experimented with</em>.
             </p>
             <p>
               The instruction was simple: <strong>try it for yourself</strong>. Live according to your Strategy and Authority for a period of time, and see what changes. Human Design is not a philosophy. It is a mechanical experiment.
@@ -43,7 +43,7 @@ export default function DiscoverHumanDesign() {
             <p>Human Design synthesizes four ancient systems, each contributing a distinct layer of information:</p>
             <PillarCard
               name="Western Astrology"
-              desc="Provides the planetary positions at the moment of birth — the conscious personality (black) and the unconscious design (red, calculated 88 days before birth). The Sun, Earth, Moon, Nodes, and all planets are placed in the 64 gates of the Bodygraph."
+              desc="Provides the planetary positions at the moment of birth: the conscious personality (black) and the unconscious design (red, calculated 88 days before birth). The Sun, Earth, Moon, Nodes, and all planets are placed in the 64 gates of the Bodygraph."
             />
             <PillarCard
               name="The I Ching"
@@ -51,45 +51,45 @@ export default function DiscoverHumanDesign() {
             />
             <PillarCard
               name="The Kabbalah (Tree of Life)"
-              desc="The Kabbalistic Tree of Life provides the structural framework — the 36 channels that connect the nine centers. Each channel is a pathway of energy, linking two gates and creating a specific life force when both gates are activated."
+              desc="The Kabbalistic Tree of Life provides the structural framework: the 36 channels that connect the nine centers. Each channel is a pathway of energy, linking two gates and creating a specific life force when both gates are activated."
             />
             <PillarCard
               name="The Hindu-Brahmin Chakra System"
-              desc="The nine centers of the Bodygraph evolved from the seven traditional chakras. In 1781 (when Uranus was discovered), humanity underwent a mutation from seven-centered beings to nine-centered beings. The two additional centers — the G Center and the Spleen — reflect this evolutionary shift."
+              desc="The nine centers of the Bodygraph evolved from the seven traditional chakras. In 1781 (when Uranus was discovered), humanity underwent a mutation from seven-centered beings to nine-centered beings. The two additional centers, the G Center and the Spleen, reflect this evolutionary shift."
             />
           </Section>
 
           <Section title="The Five Types">
-            <p>At the foundation of Human Design is your <strong>Type</strong> — the most fundamental aspect of your design. There are five Types, each with a distinct aura, strategy, and role in the world:</p>
-            <TypeRow name="Manifestors" pct="9%" strategy="To Inform" desc="The initiators. Manifestors have a closed, repelling aura designed to push through resistance. They are here to act independently and start things. Their strategy is to inform those who will be impacted before they act — not to ask permission, but to reduce resistance. When they don't inform, they meet anger." />
-            <TypeRow name="Generators" pct="37%" strategy="To Respond" desc="The builders. Generators have an open, enveloping aura that draws life toward them. They have a defined Sacral Center — a powerful motor of life-force energy that is designed to respond to what shows up. When they wait and respond to what excites them, they find satisfaction. When they initiate, they find frustration." />
-            <TypeRow name="Manifesting Generators" pct="33%" strategy="To Respond, then Inform" desc="Multi-passionate responders. A hybrid of Manifestor and Generator energy — they have the Sacral motor of a Generator but with a direct connection to a motor that reaches the Throat. They are fast, efficient, and designed to skip steps. Their process is non-linear. They must respond first, then inform before acting." />
-            <TypeRow name="Projectors" pct="20%" strategy="To Wait for the Invitation" desc="The guides. Projectors have a focused, absorbing aura that penetrates deeply into the other. They do not have consistent access to their own energy — they are designed to guide and direct the energy of others. Their strategy is to wait for recognition and invitation before sharing their guidance. Uninvited guidance creates bitterness." />
-            <TypeRow name="Reflectors" pct="1%" strategy="To Wait a Lunar Cycle" desc="The mirrors. Reflectors have no defined centers — their entire chart is open. They reflect the health and energy of their environment. Their strategy is to wait a full 28-day lunar cycle before making major decisions, allowing the Moon to transit through all 64 gates. They are rare, wise, and profoundly sensitive to place." />
+            <p>At the foundation of Human Design is your <strong>Type</strong>: the most fundamental aspect of your design. There are five Types, each with a distinct aura, strategy, and role in the world:</p>
+            <TypeRow name="Manifestors" pct="9%" strategy="To Inform" desc="The initiators. Manifestors have a closed, repelling aura designed to push through resistance. They are here to act independently and start things. Their strategy is to inform those who will be impacted before they act, not to ask permission, but to reduce resistance. When they don't inform, they meet anger." />
+            <TypeRow name="Generators" pct="37%" strategy="To Respond" desc="The builders. Generators have an open, enveloping aura that draws life toward them. They have a defined Sacral Center, a powerful motor of life-force energy that is designed to respond to what shows up. When they wait and respond to what excites them, they find satisfaction. When they initiate, they find frustration." />
+            <TypeRow name="Manifesting Generators" pct="33%" strategy="To Respond, then Inform" desc="Multi-passionate responders. A hybrid of Manifestor and Generator energy, they have the Sacral motor of a Generator but with a direct connection to a motor that reaches the Throat. They are fast, efficient, and designed to skip steps. Their process is non-linear. They must respond first, then inform before acting." />
+            <TypeRow name="Projectors" pct="20%" strategy="To Wait for the Invitation" desc="The guides. Projectors have a focused, absorbing aura that penetrates deeply into the other. They do not have consistent access to their own energy; they are designed to guide and direct the energy of others. Their strategy is to wait for recognition and invitation before sharing their guidance. Uninvited guidance creates bitterness." />
+            <TypeRow name="Reflectors" pct="1%" strategy="To Wait a Lunar Cycle" desc="The mirrors. Reflectors have no defined centers; their entire chart is open. They reflect the health and energy of their environment. Their strategy is to wait a full 28-day lunar cycle before making major decisions, allowing the Moon to transit through all 64 gates. They are rare, wise, and profoundly sensitive to place." />
           </Section>
 
           <Section title="Authority: Your Decision-Making Compass">
             <p>
-              While your Type tells you your strategy for navigating life, your <strong>Authority</strong> tells you how to make correct decisions. Authority is the body's intelligence — it is never the mind.
+              While your Type tells you your strategy for navigating life, your <strong>Authority</strong> tells you how to make correct decisions. Authority is the body's intelligence; it is never the mind.
             </p>
             <p>
-              Human Design teaches that the mind is a brilliant tool for processing information, but it was never designed to make decisions for you. Every time you let your mind run your life, you move further from your authentic path. Authority is the alternative — a reliable, embodied compass that is unique to your design:
+              Human Design teaches that the mind is a brilliant tool for processing information, but it was never designed to make decisions for you. Every time you let your mind run your life, you move further from your authentic path. Authority is the alternative, a reliable, embodied compass that is unique to your design:
             </p>
-            <AuthRow name="Emotional (Solar Plexus)" desc="Wait for emotional clarity. Never make decisions in the highs or lows — wait until the emotional wave settles and you feel a calm knowing. This is the most common authority." accent="var(--rose)" />
-            <AuthRow name="Sacral" desc="Trust the gut response — the uh-huh (yes) or uh-uh (no). The Sacral is a motor that responds in the moment. It doesn't explain — it knows." />
-            <AuthRow name="Splenic" desc="Trust the instant, in-the-moment knowing of the Spleen. Splenic authority speaks once, quietly, and then it's gone. It is primal intuition — survival intelligence." />
+            <AuthRow name="Emotional (Solar Plexus)" desc="Wait for emotional clarity. Never make decisions in the highs or lows; wait until the emotional wave settles and you feel a calm knowing. This is the most common authority." accent="var(--rose)" />
+            <AuthRow name="Sacral" desc="Trust the gut response: the uh-huh (yes) or uh-uh (no). The Sacral is a motor that responds in the moment. It doesn't explain; it knows." />
+            <AuthRow name="Splenic" desc="Trust the instant, in-the-moment knowing of the Spleen. Splenic authority speaks once, quietly, and then it's gone. It is primal intuition: survival intelligence." />
             <AuthRow name="Ego (Heart)" desc="Trust what you have the willpower and energy to commit to. Ask: 'Do I have the heart for this?' The ego authority operates through promises and willpower." accent="var(--rose)" />
-            <AuthRow name="Self-Projected" desc="Trust what you hear yourself say when speaking your truth out loud. The G Center speaks through your voice — talk it through with someone you trust." />
-            <AuthRow name="Environment / Mental" desc="There is no inner authority. Correct decisions come from being in the right environment and talking things through. No one can tell you what to do — but the right place will make it clear." />
+            <AuthRow name="Self-Projected" desc="Trust what you hear yourself say when speaking your truth out loud. The G Center speaks through your voice; talk it through with someone you trust." />
+            <AuthRow name="Environment / Mental" desc="There is no inner authority. Correct decisions come from being in the right environment and talking things through. No one can tell you what to do, but the right place will make it clear." />
             <AuthRow name="Lunar (Reflectors only)" desc="Wait 28 days. Let the Moon move through your entire chart before deciding. Talk to trusted others throughout the cycle. Clarity comes at the end." />
           </Section>
 
           <Section title="The Nine Centers">
             <p>
-              The Bodygraph contains nine centers — energy hubs that process specific frequencies of life force. Each center can be <strong>defined</strong> (colored in, consistent, reliable) or <strong>open/undefined</strong> (white, receptive, conditioned by others).
+              The Bodygraph contains nine centers: energy hubs that process specific frequencies of life force. Each center can be <strong>defined</strong> (colored in, consistent, reliable) or <strong>open/undefined</strong> (white, receptive, conditioned by others).
             </p>
             <p>
-              Your defined centers are where you have a fixed, consistent energy that radiates outward. Your open centers are where you take in and amplify the energy of those around you — and where you are most vulnerable to conditioning from the world.
+              Your defined centers are where you have a fixed, consistent energy that radiates outward. Your open centers are where you take in and amplify the energy of those around you, and where you are most vulnerable to conditioning from the world.
             </p>
             <CenterRow name="Head" theme="Inspiration & mental pressure" />
             <CenterRow name="Ajna" theme="Conceptualization & mental certainty" />
@@ -104,7 +104,7 @@ export default function DiscoverHumanDesign() {
 
           <Section title="Your Human Design in Your Blueprint">
             <p>
-              Your full Human Design chart — your Type, Strategy, Authority, Profile, all nine centers, your channels, and your gates — is calculated from your exact birth data and fully interpreted inside your <strong>Soul Blueprint</strong>.
+              Your full Human Design chart (your Type, Strategy, Authority, Profile, all nine centers, your channels, and your gates) is calculated from your exact birth data and fully interpreted inside your <strong>Soul Blueprint</strong>.
             </p>
             <p>
               The Blueprint doesn't just tell you your Type. It tells you what each defined and open center means for your specific life, which channels carry your deepest gifts, and which gates hold the themes you're here to work with.

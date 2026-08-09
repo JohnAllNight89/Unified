@@ -29,6 +29,9 @@ import Reports from "@/pages/Reports";
 import Insights from "@/pages/Insights";
 import InsightsWhatIsASoulBlueprint from "@/pages/InsightsWhatIsASoulBlueprint";
 import InsightsHumanDesignGeneKeys from "@/pages/InsightsHumanDesignGeneKeys";
+import InsightsWesternVsVedic from "@/pages/InsightsWesternVsVedic";
+import InsightsHandWrittenVsAI from "@/pages/InsightsHandWrittenVsAI";
+import InsightsCouplesBlueprint from "@/pages/InsightsCouplesBlueprint";
 
 const queryClient = new QueryClient();
 
@@ -190,6 +193,9 @@ function AppRouter() {
             <Route path="/insights" component={Insights} />
             <Route path="/insights/what-is-a-soul-blueprint" component={InsightsWhatIsASoulBlueprint} />
             <Route path="/insights/human-design-and-gene-keys" component={InsightsHumanDesignGeneKeys} />
+            <Route path="/insights/western-vs-vedic-astrology" component={InsightsWesternVsVedic} />
+            <Route path="/insights/hand-written-vs-ai-soul-blueprint" component={InsightsHandWrittenVsAI} />
+            <Route path="/insights/couples-blueprint-explained" component={InsightsCouplesBlueprint} />
             <Route path="/sample" component={Sample} />
             <Route path="/faq" component={FAQ} />
             <Route path="/connect" component={Connect} />

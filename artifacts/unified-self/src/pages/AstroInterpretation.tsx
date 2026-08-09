@@ -83,7 +83,7 @@ function InterpCard({ pos }: { pos: PlanetPosition }) {
               </>
             ) : (
               <p style={{ color: "var(--muted)", fontStyle: "italic" }}>
-                This placement is rare. It carries a unique synthesis of {pos.planet}'s archetypal energy expressed through the lens of {pos.sign} — a combination worth exploring in your personal Soul Blueprint.
+                This placement is rare. It carries a unique synthesis of {pos.planet}'s archetypal energy expressed through the lens of {pos.sign}, a combination worth exploring in your personal Soul Blueprint.
               </p>
             )}
           </div>
@@ -182,7 +182,7 @@ export default function AstroInterpretationPage() {
           </div>
           <div className="portal-section" style={{ textAlign: "center" }}>
             <button className="hero-btn" onClick={handleSubscribe}>
-              ✦ &nbsp;Start My Membership — $3.99/mo
+              ✦ &nbsp;Start My Membership: $3.99/mo
             </button>
             <br /><br />
             <Link href="/portal/astro" className="outline-btn">View My Raw Chart →</Link>
@@ -230,7 +230,7 @@ export default function AstroInterpretationPage() {
 
         <section className="portal-section" style={{ marginTop: 32 }}>
           <p className="portal-section-sub" style={{ marginBottom: 40 }}>
-            Each planet is a different facet of your soul. Tap any to read what it means — where it came from, and how it lives in your specific life. Take your time. This is your map.
+            Each planet is a different facet of your soul. Tap any to read what it means: where it came from, and how it lives in your specific life. Take your time. This is your map.
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -248,10 +248,10 @@ export default function AstroInterpretationPage() {
             <div className="num-report-icon">✦</div>
             <h3>You Are Reading the Outline. The Soul Blueprint Is the Full Story.</h3>
             <p>
-              What you have here is a genuine beginning — a real, accurate interpretation of your chart. What lives inside your <strong>Soul Blueprint</strong> is the synthesis: your Astrology, your Numerology, your Human Design, and your Gene Keys — all four systems woven together into one complete portrait of exactly who you were designed to be. 75+ pages, personally written from your specific data.
+              What you have here is a genuine beginning, a real, accurate interpretation of your chart. What lives inside your <strong>Soul Blueprint</strong> is the synthesis: your Astrology, your Numerology, your Human Design, and your Gene Keys, all five systems woven together into one complete portrait of exactly who you were designed to be. 75+ pages, personally written from your specific data.
             </p>
             <a className="hero-btn" href="/#order">
-              ✦ &nbsp;Get My Soul Blueprint — $222.00
+              ✦ &nbsp;Get My Soul Blueprint: $222.00
             </a>
           </div>
         </section>

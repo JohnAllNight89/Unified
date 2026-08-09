@@ -15,14 +15,29 @@ const POSTS = [
   {
     href: "/insights/human-design-and-gene-keys",
     title: "Human Design + Gene Keys: How They Work Together (And Why Both Matter)",
-    excerpt: "The same 64 gates, spoken in two different languages — one mechanical, one evolutionary. Almost no one has been shown these two systems read together, as one instrument instead of two. Here's what changes when you do.",
+    excerpt: "The same 64 gates, spoken in two different languages: one mechanical, one evolutionary. Almost no one has been shown these two systems read together, as one instrument instead of two. Here's what changes when you do.",
+  },
+  {
+    href: "/insights/western-vs-vedic-astrology",
+    title: "Western vs. Vedic Astrology: Why Your Sun Sign Isn't the Whole Story",
+    excerpt: "Your Western Sun sign and your Vedic Sun sign are usually different signs. Here's why the tropical and sidereal zodiacs measure the sky differently, and what each one actually reveals about you.",
+  },
+  {
+    href: "/insights/hand-written-vs-ai-soul-blueprint",
+    title: "Hand-Written vs. AI-Generated Soul Reports: What's Actually Different",
+    excerpt: "Free instant soul blueprints are everywhere now. Here's the real difference between a template applied to your birth data and a document written by a person who actually read it.",
+  },
+  {
+    href: "/insights/couples-blueprint-explained",
+    title: "What Is the Couples Blueprint? Reading Two Designs Together",
+    excerpt: "Two individual Soul Blueprints tell you who each person is. The Couples Blueprint tells you what happens when those two specific designs meet: where you amplify each other, where friction lives, and why.",
   },
 ];
 
 export default function Insights() {
   useSEO({
-    title: "Insights — Soul Blueprint, Human Design & Gene Keys | The Unified Spirit",
-    description: "Articles on Numerology, Astrology, Human Design, and Gene Keys — how these systems work, how they work together, and what a true Soul Blueprint synthesis actually reveals.",
+    title: "Insights: Soul Blueprint, Human Design & Gene Keys | The Unified Spirit",
+    description: "Articles on Numerology, Astrology, Human Design, and Gene Keys: how these systems work, how they work together, and what a true Soul Blueprint synthesis actually reveals.",
     path: "/insights",
   });
 
@@ -38,7 +53,7 @@ export default function Insights() {
           <div className="in-hero-glow" />
           <div className="in-eyebrow">Insights</div>
           <h1>Understanding the<br />Systems Behind Your Blueprint.</h1>
-          <p>Writing on Numerology, Astrology, Human Design, and Gene Keys — what each system actually sees, and what happens when they're read together.</p>
+          <p>Writing on Numerology, Astrology, Human Design, and Gene Keys: what each system actually sees, and what happens when they're read together.</p>
         </section>
 
         {/* ── LIST ── */}
