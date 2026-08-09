@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: "/discover", label: "Discover" },
   { href: "/sample",   label: "Sample Report" },
   { href: "/reports",  label: "Reports" },
+  { href: "/insights", label: "Insights" },
   { href: "/faq",      label: "FAQ" },
   { href: "/connect",  label: "Connect" },
 ];
@@ -52,7 +53,7 @@ export function Nav() {
             <Link
               key={href}
               href={href}
-              className={`nav-link${location === href || (href === "/discover" && location.startsWith("/discover")) ? " active" : ""}`}
+              className={`nav-link${location === href || ((href === "/discover" || href === "/insights") && location.startsWith(href)) ? " active" : ""}`}
             >
               {label}
             </Link>
@@ -107,7 +108,7 @@ export function Nav() {
           <Link
             key={href}
             href={href}
-            className={`nav-mobile-link${location === href || (href === "/discover" && location.startsWith("/discover")) ? " active" : ""}`}
+            className={`nav-mobile-link${location === href || ((href === "/discover" || href === "/insights") && location.startsWith(href)) ? " active" : ""}`}
             onClick={close}
           >
             {label}

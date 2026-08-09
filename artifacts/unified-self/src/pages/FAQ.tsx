@@ -148,7 +148,7 @@ export default function FAQ() {
 
   useSEO({
     title: "FAQ — Soul Blueprint Questions Answered | The Unified Spirit",
-    description: "Answers to common questions about Soul Blueprint reports — how they work, what's included, delivery time, pricing, and the four systems: Numerology, Astrology, Human Design, and Gene Keys.",
+    description: "Answers to common questions about Soul Blueprint reports — how they work, what's included, delivery time, pricing, and the five systems: Numerology, Western Astrology, Vedic Astrology, Human Design, and Gene Keys.",
     path: "/faq",
   });
 

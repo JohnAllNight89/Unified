@@ -26,6 +26,9 @@ import AstroInterpretationPage from "@/pages/AstroInterpretation";
 import Membership from "@/pages/Membership";
 import DrWernerReferral from "@/pages/DrWernerReferral";
 import Reports from "@/pages/Reports";
+import Insights from "@/pages/Insights";
+import InsightsWhatIsASoulBlueprint from "@/pages/InsightsWhatIsASoulBlueprint";
+import InsightsHumanDesignGeneKeys from "@/pages/InsightsHumanDesignGeneKeys";
 
 const queryClient = new QueryClient();
 
@@ -184,6 +187,9 @@ function AppRouter() {
             <Route path="/discover/gene-keys" component={DiscoverGeneKeys} />
             <Route path="/about" component={About} />
             <Route path="/reports" component={Reports} />
+            <Route path="/insights" component={Insights} />
+            <Route path="/insights/what-is-a-soul-blueprint" component={InsightsWhatIsASoulBlueprint} />
+            <Route path="/insights/human-design-and-gene-keys" component={InsightsHumanDesignGeneKeys} />
             <Route path="/sample" component={Sample} />
             <Route path="/faq" component={FAQ} />
             <Route path="/connect" component={Connect} />
