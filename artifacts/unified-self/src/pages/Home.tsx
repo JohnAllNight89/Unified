@@ -66,7 +66,7 @@ export default function Home() {
               frequencies of your DNA.
             </p>
             <p>
-              We believe that when those four systems are read together — when they are cross-examined
+              We believe that when those five systems are read together — when they are cross-examined
               against each other and synthesized into a single coherent document written specifically
               for one person — something happens that does not happen any other way. People stop feeling
               like they are broken. They stop feeling like something is wrong with them. They start
@@ -93,24 +93,25 @@ export default function Home() {
         {/* ── SYSTEMS BRIEF ────────────────────────────────────── */}
         <section className="hm-systems" aria-labelledby="hm-systems-heading">
           <div className="hm-systems-inner">
-            <div className="hm-eyebrow">The Four Systems</div>
+            <div className="hm-eyebrow">The Five Systems</div>
             <h2 id="hm-systems-heading">
-              Four ancient disciplines.<br />
+              Five ancient disciplines.<br />
               <em>One integrated truth about you.</em>
             </h2>
             <p className="hm-systems-body">
               Each system was developed independently, in a different time and tradition. Each one
               sees a different dimension of what makes a human being who they are. No single system
-              sees the whole picture. But when all four are applied simultaneously to the specific
+              sees the whole picture. But when all five are applied simultaneously to the specific
               data of one person&rsquo;s birth — and synthesized into a single document — they produce
               something none of them can produce alone.
             </p>
             <div className="hm-systems-grid" role="list">
               {[
-                { icon: "○", name: "Numerology",    desc: "The mathematics of your name and birth — the frequency you were sent here to carry." },
-                { icon: "☽", name: "Astrology",     desc: "Vedic and Tropical charts synthesized — the sky at the exact moment of your birth." },
-                { icon: "◆", name: "Human Design",  desc: "The mechanics of your energy body — how you are built to decide and move." },
-                { icon: "✦", name: "Gene Keys",     desc: "The shadow and the gift encoded in your DNA — the path from fear to your highest expression." },
+                { icon: "○", name: "Numerology",        desc: "The mathematics of your name and birth — the frequency you were sent here to carry." },
+                { icon: "☽", name: "Vedic Astrology",   desc: "The ancient Jyotish system — sidereal placements that reveal your soul's karmic path, dharma, and the specific lessons written into this lifetime." },
+                { icon: "☀", name: "Western Astrology", desc: "Tropical placements mapped to your inner world — the planets, houses, and aspects that shape your psychology, relationships, and evolution." },
+                { icon: "◆", name: "Human Design",      desc: "The mechanics of your energy body — how you are built to decide and move." },
+                { icon: "✦", name: "Gene Keys",         desc: "The shadow and the gift encoded in your DNA — the path from fear to your highest expression." },
               ].map(({ icon, name, desc }) => (
                 <div key={name} className="hm-sys-pill" role="listitem">
                   <div className="hm-sys-pill-icon" aria-hidden="true">{icon}</div>

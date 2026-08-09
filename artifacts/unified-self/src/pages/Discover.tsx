@@ -25,8 +25,8 @@ export default function Discover() {
         <section className="dh-hero">
           <div className="dh-hero-glow" />
           <div className="dh-eyebrow">Discover</div>
-          <h1>The Four Systems</h1>
-          <p>These are not personality tests. They are four distinct ancient disciplines — each one developed independently, each one mapping a different layer of what makes you who you are. Together, they form something none of them can produce alone.</p>
+          <h1>The Five Systems</h1>
+          <p>These are not personality tests. They are five distinct ancient disciplines — each one developed independently, each one mapping a different layer of what makes you who you are. Together, they form something none of them can produce alone.</p>
         </section>
 
         {/* ── NUMEROLOGY ── */}
@@ -61,27 +61,55 @@ export default function Discover() {
           </div>
         </div>
 
-        {/* ── ASTROLOGY ── */}
+        {/* ── VEDIC ASTROLOGY ── */}
         <div className="dh-system dh-ast dh-system--dark">
           <div className="dh-system-inner">
             <div className="dh-system-header">
               <div className="dh-system-icon">☽</div>
-              <div className="dh-system-name">Astrology</div>
+              <div className="dh-system-name">Vedic Astrology</div>
             </div>
-            <div className="dh-system-origin">Babylonian · Hellenistic · Vedic · The Architecture of Your Birth</div>
+            <div className="dh-system-origin">Jyotish · Sidereal · The Soul's Karmic Blueprint</div>
 
-            <div className="dh-system-lead">The sky at the moment you were born was a completely unique configuration that has never existed before and will never exist again. Your natal chart is the map of that sky — and everything it says is about you specifically.</div>
+            <div className="dh-system-lead">Vedic Astrology is one of the oldest living systems of celestial wisdom on earth. Where Western Astrology maps your psychology, Vedic maps your soul — the karmic agreements you arrived with, the dharma you are here to walk, and the specific lessons this lifetime was designed to complete.</div>
 
-            <p className="dh-system-body">Astrology is five thousand years old. It has been practiced in some form by virtually every civilization in human history — Babylonian, Egyptian, Greek, Indian, Chinese, Persian. Every tradition arrived at the same fundamental insight: the positioning of the planets at the moment of your birth encodes information about the nature of the life you are here to live. Not as fate. As terrain.</p>
+            <p className="dh-system-body">Jyotish — the Sanskrit word meaning "science of light" — calculates your chart using sidereal positioning: the actual astronomical position of the planets against the fixed stars at the moment of your birth, rather than their seasonal relationship to the sun. This distinction matters enormously. It shifts every placement by roughly 23 degrees, and with that shift comes a completely different layer of information — one that operates beneath personality and speaks directly to the soul.</p>
 
-            <p className="dh-system-body">When most people think of astrology they think of sun signs — the twelve archetypes most people know from horoscope columns. But your sun sign is one data point in a chart that contains dozens. Your Moon sign governs your emotional body, your instincts, the way you process feeling. Your Rising sign — the sign that was on the eastern horizon at the moment of your birth — determines how others experience you before you have said or done anything. Your planetary placements in each of the twelve houses of the chart describe where in your life each planetary energy is operating. The aspects — the geometric angles between planets — describe the specific tensions and harmonies built into your design.</p>
+            <p className="dh-system-body">Your Vedic chart reveals the karmic architecture your soul agreed to before arriving. Your Ascendant and Moon sign in Jyotish carry more interpretive weight than in the Western system — they describe not just how you present but how your soul moves through this world and what it is specifically here to resolve. The nakshatras — 27 lunar mansions that divide the zodiac into precise sectors — add a level of nuance and specificity that has no Western equivalent. Each one carries a deity, a motivation, a wound, and a gift.</p>
 
-            <p className="dh-system-body">In your Soul Blueprint, astrology is not read as prediction. It is read as precision. Which houses carry the heaviest weight in your life and why. What the specific placements of your Saturn, Pluto, and North Node say about the nature of your evolution. Where your gifts live in the chart and what has been blocking their full expression. What the light you carry actually cost you to develop — and what it is capable of when it is not being protected.</p>
-
-            <p className="dh-system-body">Your natal chart does not describe a personality. It describes the specific quality of fire you were put through and what that fire made you. There is no one else with your chart. There is no one else with your life.</p>
+            <p className="dh-system-body">In your Soul Blueprint, your Vedic chart is read alongside your Western chart — not in competition with it, but in conversation. Together, they show you the full dimensionality of your astrological design: the outer terrain and the inner karmic contract, the personality and the soul, the life you are living and the lessons that organized it.</p>
 
             <div className="dh-system-what">
-              <div className="dh-system-what-label">What Your Astrology Maps</div>
+              <div className="dh-system-what-label">What Your Vedic Chart Maps</div>
+              <ul className="dh-checks">
+                <li>Your sidereal Ascendant and Moon sign — how your soul moves through the world and what it was specifically sent here to learn</li>
+                <li>Your nakshatra placements — the 27 lunar mansions that reveal the precise motivational and karmic texture of your design</li>
+                <li>Planetary periods (dashas) — the specific major and sub-cycles your life is currently moving through and what each one is asking of you</li>
+                <li>Karmic house analysis — the areas of life your soul agreed to develop, master, or complete in this incarnation</li>
+                <li>Your dharma and artha houses — what you were built to create, contribute, and accumulate in alignment with your soul's design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* ── WESTERN ASTROLOGY ── */}
+        <div className="dh-system dh-num">
+          <div className="dh-system-inner">
+            <div className="dh-system-header">
+              <div className="dh-system-icon">☀</div>
+              <div className="dh-system-name">Western Astrology</div>
+            </div>
+            <div className="dh-system-origin">Babylonian · Hellenistic · Tropical · The Architecture of Your Inner World</div>
+
+            <div className="dh-system-lead">The sky at the moment you were born was a completely unique configuration that has never existed before and will never exist again. Your Western natal chart is the map of that sky — and everything it says is about the specific inner terrain you were born to inhabit.</div>
+
+            <p className="dh-system-body">Western Astrology is five thousand years old and has been practiced in some form by virtually every civilization in human history. Its foundation is the tropical zodiac — the twelve seasonal signs mapped to the sun's relationship with the earth. Where Vedic astrology reads the soul's karmic contract, Western astrology reads the psyche: your patterns, your drives, your relational architecture, and the specific quality of consciousness your chart is organized around.</p>
+
+            <p className="dh-system-body">When most people think of astrology they think of sun signs. But your sun sign is one data point in a chart that contains dozens. Your Moon sign governs your emotional body, your instincts, the way you process feeling. Your Rising sign — the sign on the eastern horizon at the moment of your birth — determines how others experience you before you have said or done anything. Your planetary placements in each of the twelve houses describe where in your life each planetary energy is operating. The aspects — the geometric angles between planets — describe the specific tensions and harmonies built into your psychological design.</p>
+
+            <p className="dh-system-body">In your Soul Blueprint, Western astrology is read not as prediction but as precision. Which houses carry the heaviest weight and why. What your Saturn, Pluto, and North Node placements say about the nature of your growth. Where your gifts live in the chart and what has been standing in the way of their full expression. Your natal chart does not describe a personality type. It describes the specific quality of fire you were put through — and what that fire made you.</p>
+
+            <div className="dh-system-what">
+              <div className="dh-system-what-label">What Your Western Chart Maps</div>
               <ul className="dh-checks">
                 <li>Your Sun, Moon, and Rising — the core identity, emotional nature, and outer presence you were born with</li>
                 <li>Every key planetary placement interpreted through the lens of your actual life — not archetypes, but how each one shows up in your specific patterns and relationships</li>
@@ -159,9 +187,9 @@ export default function Discover() {
 
         {/* ── SYNTHESIS BRIDGE ── */}
         <div className="dh-bridge">
-          <h2>Four lenses.<br /><em>One complete picture of you.</em></h2>
-          <p>Each system sees something the others cannot. Numerology names the mathematical arc your life is organized around. Astrology names the terrain — the sky you were born under and the quality of experience it produced. Human Design names the mechanics — how your energy body actually operates and what it requires. The Gene Keys name the frequency — the specific spectrum each part of your design is moving through, from shadow toward gift.</p>
-          <p>No single system can see the whole. But when all four are applied simultaneously to your specific data — cross-examined against each other, read in conversation — they produce something that none of them can produce alone. Not a collection of insights. A single, coherent, integrated picture of exactly who you are and what you were built for. That is what a Soul Blueprint actually is.</p>
+          <h2>Five lenses.<br /><em>One complete picture of you.</em></h2>
+          <p>Each system sees something the others cannot. Numerology names the mathematical arc your life is organized around. Vedic Astrology names the karmic contract — the soul agreements and dharmic path encoded before you arrived. Western Astrology names the terrain — the sky you were born under and the quality of inner experience it produced. Human Design names the mechanics — how your energy body actually operates and what it requires. The Gene Keys name the frequency — the specific spectrum each part of your design is moving through, from shadow toward gift.</p>
+          <p>No single system can see the whole. But when all five are applied simultaneously to your specific data — cross-examined against each other, read in conversation — they produce something that none of them can produce alone. Not a collection of insights. A single, coherent, integrated picture of exactly who you are and what you were built for. That is what a Soul Blueprint actually is.</p>
         </div>
 
         {/* ── CTA ── */}
