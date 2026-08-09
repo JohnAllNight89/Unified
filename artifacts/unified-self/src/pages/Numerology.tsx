@@ -184,7 +184,7 @@ export default function NumerologyPage() {
               <div>✓ How your numbers interact and where they create tension or harmony</div>
               <div>✓ Your personal year cycles: what this year is asking of you</div>
               <div>✓ Shadow patterns: the unconscious ways your numbers can work against you</div>
-              <div>✓ Delivered to your email within 24 hours</div>
+              <div>✓ Delivered to your email within 72 hours</div>
             </div>
             <div className="num-report-price">
               <span className="price-orig" aria-label="Original price">

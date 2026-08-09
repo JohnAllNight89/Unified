@@ -15,7 +15,7 @@ export function Footer() {
         <a href="mailto:4pointspirit@gmail.com">4pointspirit@gmail.com</a>
       </p>
       <p style={{ marginTop: 4 }}>
-        Reports crafted personally and delivered within 24 hours of purchase.
+        Reports crafted personally and delivered within 72 hours of purchase.
       </p>
     </footer>
   );

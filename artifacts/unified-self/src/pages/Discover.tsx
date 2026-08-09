@@ -9,7 +9,7 @@ import "./discover.css";
 export default function Discover() {
   useSEO({
     title: "Discover Numerology, Astrology, Human Design & Gene Keys | The Unified Spirit",
-    description: "Learn how Numerology, Astrology, Human Design, and Gene Keys each reveal a different dimension of who you are, and what happens when all four are synthesized into one personal document.",
+    description: "Learn how Numerology, Western Astrology, Vedic Astrology, Human Design, and Gene Keys each reveal a different dimension of who you are, and what happens when all five are synthesized into one personal document.",
     path: "/discover",
   });
 
@@ -130,7 +130,7 @@ export default function Discover() {
             </div>
             <div className="dh-system-origin">I Ching · Kabbalah · Hindu Chakras · Western Astrology · Synthesized 1987</div>
 
-            <div className="dh-system-lead">Human Design is the most mechanically precise of the four systems. It does not describe who you think you are or who you want to be. It maps how your energy body actually works, and what it requires to function correctly.</div>
+            <div className="dh-system-lead">Human Design is the most mechanically precise of the five systems. It does not describe who you think you are or who you want to be. It maps how your energy body actually works, and what it requires to function correctly.</div>
 
             <p className="dh-system-body">Human Design was synthesized in 1987 from four ancient systems (the I Ching, the Kabbalah, the Hindu-Brahmin chakra system, and Western Astrology) into a single unified framework. What it produced was something none of those systems could offer individually: a precise map of the human energy body, including how each person's energy operates, how they are designed to make decisions, and how they are designed to interact with the world around them.</p>
 

@@ -153,11 +153,11 @@ export default function Sample() {
           <div className="sp-chapter-num">06</div>
           <div className="sp-chapter-tag">The Mirror</div>
           <h2>The Full Synthesis</h2>
-          <p className="sp-chapter-body">This is where all four systems come together into one complete picture of you: not four separate readings placed side by side, but a true synthesis. This section goes into depth on three things most readings never touch: how others experience you, how you experience yourself, and what your life looks like when you are in alignment versus when you are not.</p>
+          <p className="sp-chapter-body">This is where all five systems come together into one complete picture of you: not five separate readings placed side by side, but a true synthesis. This section goes into depth on three things most readings never touch: how others experience you, how you experience yourself, and what your life looks like when you are in alignment versus when you are not.</p>
           <ul className="sp-chapter-checks">
             <li>How others experience you: the impression you leave, the energy you project, what people feel in your presence before a word has been spoken</li>
             <li>How you experience yourself: your internal world, your self-perception, where it matches your design and where it diverges</li>
-            <li>The specific shadows that appear across all four systems: the recurring patterns that are not random but the exact shape of your gifts operating at the frequency of fear</li>
+            <li>The specific shadows that appear across all five systems: the recurring patterns that are not random but the exact shape of your gifts operating at the frequency of fear</li>
             <li>Life in alignment: what it looks, feels, and moves like when you are fully living your blueprint</li>
             <li>Life out of alignment: the patterns, feelings, and recurring experiences that signal you have drifted from yourself</li>
           </ul>
@@ -171,7 +171,7 @@ export default function Sample() {
             <div className="sp-chapter-num">07</div>
             <div className="sp-chapter-tag">The Living Path</div>
             <h2>The Path: Your Blueprint Applied</h2>
-            <p className="sp-chapter-body">The final chapter takes everything the four systems revealed and maps it against a living spiritual framework: the specific way the universal path of alignment runs through the architecture of who you specifically were made to be. This is not theology. It is the most personal chapter in the document: what it means for you, with your specific design, your specific wounds, and your specific gifts, to live in full alignment with what you were built for.</p>
+            <p className="sp-chapter-body">The final chapter takes everything the five systems revealed and maps it against a living spiritual framework: the specific way the universal path of alignment runs through the architecture of who you specifically were made to be. This is not theology. It is the most personal chapter in the document: what it means for you, with your specific design, your specific wounds, and your specific gifts, to live in full alignment with what you were built for.</p>
             <ul className="sp-chapter-checks">
               <li>Your specific evolutionary lessons, not general wisdom but the exact territory your design is asking you to walk</li>
               <li>The precise intersection between your numerological arc, your astrological assignments, your energetic mechanics, and your Gene Keys frequencies</li>
@@ -224,7 +224,7 @@ export default function Sample() {
           <button className="sp-cta-btn" onClick={() => handleCheckout("soul_blueprint")}>
             ✦ &nbsp; Reveal My Blueprint: $222.00
           </button>
-          <div className="sp-cta-meta">PDF delivered to your email &nbsp;·&nbsp; Personal to you alone &nbsp;·&nbsp; Within 24 hours</div>
+          <div className="sp-cta-meta">PDF delivered to your email &nbsp;·&nbsp; Personal to you alone &nbsp;·&nbsp; Within 72 hours</div>
         </div>
 
       </main>

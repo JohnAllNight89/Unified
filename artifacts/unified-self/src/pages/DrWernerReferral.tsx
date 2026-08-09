@@ -87,7 +87,7 @@ export default function DrWernerReferral() {
           You have always known<br />more than you knew<br />how to <em>explain.</em>
         </h1>
         <p className="dw-hero-sub">
-          Dr. Werner sent you here because she believes you're ready for this. What follows is a complete map of who you were built to be: built from your name, your birthdate, and four ancient systems applied simultaneously to your specific data.
+          Dr. Werner sent you here because she believes you're ready for this. What follows is a complete map of who you were built to be: built from your name, your birthdate, and five ancient systems applied simultaneously to your specific data.
         </p>
         <div className="dw-hero-cta">
           <a href="#framework" className="dw-cta-btn">✦ &nbsp; See What's Inside</a>
@@ -171,7 +171,7 @@ export default function DrWernerReferral() {
             </div>
             <div>
               <div className="dw-phase-title">The Cross-System Synthesis</div>
-              <p className="dw-phase-body">We cross-examine all four systems simultaneously to find where they intersect, eliminating conflicting generalities and weaving the fragments into a single, cohesive master operating manual. Not four reports stitched together. One integrated narrative of who you are and what you were built to build.</p>
+              <p className="dw-phase-body">We cross-examine all five systems simultaneously to find where they intersect, eliminating conflicting generalities and weaving the fragments into a single, cohesive master operating manual. Not five reports stitched together. One integrated narrative of who you are and what you were built to build.</p>
             </div>
           </div>
 
@@ -220,14 +220,14 @@ export default function DrWernerReferral() {
       {/* ── TESTIMONIAL ── */}
       <div className="dw-testimonial-panel">
         <div className="dw-stars">★★★★★</div>
-        <blockquote>"I have spent years trying to understand myself. This did in 24 hours what years of searching could not. I read it three times and cried twice. I finally feel seen, not by someone who knows me, but by something that knows me completely."</blockquote>
+        <blockquote>"I have spent years trying to understand myself. This did in 72 hours what years of searching could not. I read it three times and cried twice. I finally feel seen, not by someone who knows me, but by something that knows me completely."</blockquote>
         <div className="dw-attr">Kayla M. &nbsp;·&nbsp; Atlanta, GA</div>
       </div>
 
       {/* ── CLOSING ── */}
       <div className="dw-close-panel">
         <h2>This is your map.<br />It has always been yours.</h2>
-        <p>Give us your birth details at checkout. Your complete Soul Blueprint and 52-week journal arrive in your inbox within 24 hours: hand-crafted, never automated, written to you alone.</p>
+        <p>Give us your birth details at checkout. Your complete Soul Blueprint and 52-week journal arrive in your inbox within 72 hours: hand-crafted, never automated, written to you alone.</p>
         <div className="dw-price-block">
           <div className="dw-price-row">
             <span className="dw-price-was">$222</span>
@@ -243,7 +243,7 @@ export default function DrWernerReferral() {
           ✦ &nbsp; Reveal My Blueprint
         </button>
         <div className="dw-close-meta">
-          PDF delivered to your email &nbsp;·&nbsp; Personal to you alone &nbsp;·&nbsp; Within 24 hours
+          PDF delivered to your email &nbsp;·&nbsp; Personal to you alone &nbsp;·&nbsp; Within 72 hours
         </div>
       </div>
 
