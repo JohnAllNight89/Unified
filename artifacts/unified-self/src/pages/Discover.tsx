@@ -1,3 +1,4 @@
+import { lazy, Suspense, useState } from "react";
 import { Starfield } from "@/components/Starfield";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -6,12 +7,22 @@ import { useSEO } from "@/hooks/useSEO";
 import "./shared.css";
 import "./discover.css";
 
+// Lazy-loaded: CalculatorModal pulls in the astronomia VSOP87 planetary
+// data tables (westernChart.ts), which are large. Loading them only when a
+// visitor actually opens a calculator keeps that weight off every other
+// page load and off /discover's own initial load too.
+const CalculatorModal = lazy(() =>
+  import("@/components/CalculatorModal").then((m) => ({ default: m.CalculatorModal }))
+);
+
 export default function Discover() {
   useSEO({
     title: "Discover Numerology, Astrology, Human Design & Gene Keys | The Unified Spirit",
     description: "Learn how Numerology, Western Astrology, Vedic Astrology, Human Design, and Gene Keys each reveal a different dimension of who you are, and what happens when all five are synthesized into one personal document.",
     path: "/discover",
   });
+
+  const [openCalc, setOpenCalc] = useState<null | "numerology" | "western">(null);
 
   return (
     <div className="dh-page">
@@ -57,6 +68,11 @@ export default function Discover() {
                 <li>Karmic debt and missing numbers: the specific patterns you arrived carrying and why they keep appearing</li>
                 <li>Your personal year cycle, pinnacles, and the numerical map of the season your life is currently in</li>
               </ul>
+            </div>
+
+            <div className="dh-system-cta">
+              <button className="dh-calc-btn" onClick={() => setOpenCalc("numerology")}>✦ &nbsp; Try It Free</button>
+              <p className="dh-calc-note">Get your Life Path, Soul Urge, Expression, Attitude, and Personality numbers, free.</p>
             </div>
           </div>
         </div>
@@ -117,6 +133,11 @@ export default function Discover() {
                 <li>The houses carrying the most weight: where the real action of your life is concentrated and why certain areas have always demanded the most from you</li>
                 <li>The exact tensions and gifts built into your chart through planetary aspects: the architecture of what has been hard and what has always come through</li>
               </ul>
+            </div>
+
+            <div className="dh-system-cta">
+              <button className="dh-calc-btn" onClick={() => setOpenCalc("western")}>✦ &nbsp; Try It Free</button>
+              <p className="dh-calc-note">See your Sun, Moon, planets, and (with your birth time and place) your Rising sign and wheel chart, free.</p>
             </div>
           </div>
         </div>
@@ -202,6 +223,15 @@ export default function Discover() {
 
       </main>
       <Footer />
+      {openCalc && (
+        <Suspense fallback={
+          <div className="dh-modal-overlay">
+            <div className="dh-modal-panel dh-modal-panel--loading">Loading calculator…</div>
+          </div>
+        }>
+          <CalculatorModal system={openCalc} onClose={() => setOpenCalc(null)} />
+        </Suspense>
+      )}
     </div>
   );
 }
