@@ -3,7 +3,20 @@ const LETTER_VALUES: Record<string, number> = {
   j:1,k:2,l:3,m:4,n:5,o:6,p:7,q:8,r:9,
   s:1,t:2,u:3,v:4,w:5,x:6,y:7,z:8,
 };
-const VOWELS = new Set(["a","e","i","o","u","y"]);
+const VOWELS = new Set(["a","e","i","o","u"]);
+
+// Standard Pythagorean-numerology rule: Y counts as a vowel only when it is
+// NOT adjacent to another vowel (e.g. the Y in "Kayla" is a consonant because
+// it sits next to "a"; the Y in "Lynn" is a vowel because neither neighbor is
+// a vowel).
+function isVowelAt(letters: string[], i: number): boolean {
+  const letter = letters[i];
+  if (letter !== "y") return VOWELS.has(letter);
+  const prev = letters[i - 1];
+  const next = letters[i + 1];
+  const adjacentToVowel = (prev !== undefined && VOWELS.has(prev)) || (next !== undefined && VOWELS.has(next));
+  return !adjacentToVowel;
+}
 
 function reduce(n: number): number {
   while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
@@ -25,13 +38,15 @@ export function expressionNumber(fullName: string): number {
 }
 
 export function soulUrgeNumber(fullName: string): number {
-  const vowelLetters = fullName.toLowerCase().replace(/[^a-z]/g, "").split("").filter(l => VOWELS.has(l));
+  const letters = fullName.toLowerCase().replace(/[^a-z]/g, "").split("");
+  const vowelLetters = letters.filter((_, i) => isVowelAt(letters, i));
   const total = vowelLetters.reduce((s, l) => s + (LETTER_VALUES[l] || 0), 0);
   return reduce(total);
 }
 
 export function personalityNumber(fullName: string): number {
-  const consonants = fullName.toLowerCase().replace(/[^a-z]/g, "").split("").filter(l => !VOWELS.has(l));
+  const letters = fullName.toLowerCase().replace(/[^a-z]/g, "").split("");
+  const consonants = letters.filter((_, i) => !isVowelAt(letters, i));
   const total = consonants.reduce((s, l) => s + (LETTER_VALUES[l] || 0), 0);
   return reduce(total);
 }
@@ -41,6 +56,17 @@ export function birthDayNumber(birthDate: string): number {
   if (parts.length < 3) return 0;
   const day = parseInt(parts[2], 10);
   return reduce(day);
+}
+
+// Attitude Number (sometimes called the Sun Number): sum of the birth month
+// and day digits, reduced. Distinct from the Life Path, which sums the full
+// birth date including the year.
+export function attitudeNumber(birthDate: string): number {
+  const parts = birthDate.split("-");
+  if (parts.length < 3) return 0;
+  const digits = (parts[1] + parts[2]).replace(/\D/g, "");
+  const total = digits.split("").reduce((s, d) => s + parseInt(d), 0);
+  return reduce(total);
 }
 
 export interface NumerologyResult {
