@@ -52,6 +52,9 @@ html { scroll-behavior: smooth; }
   object-fit: contain;
   object-position: center;
   display: block;
+  /* Recolors the logo artwork's purple/violet nebula tones toward the
+     site's gold palette, leaving the linework and gold glow intact. */
+  filter: grayscale(0.9) sepia(0.9) saturate(2.8) hue-rotate(-5deg) brightness(1.02);
   /* Soft edge fade so the image's own rectangular boundary dissolves into
      the Starfield behind it rather than presenting a hard cutoff. The
      image's real content (sigil + wordmark) sits well inside this margin. */
