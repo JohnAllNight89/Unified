@@ -66,16 +66,6 @@ export function Starfield({ fixed = false }: { fixed?: boolean }) {
         ctx.fill();
       });
 
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2, canvas.height * 0.3, 0,
-        canvas.width / 2, canvas.height * 0.3, canvas.width * 0.6
-      );
-      gradient.addColorStop(0, "rgba(45, 27, 94, 0.15)");
-      gradient.addColorStop(0.5, "rgba(26, 15, 58, 0.05)");
-      gradient.addColorStop(1, "rgba(7, 4, 15, 0)");
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       if (animate) {
         animationFrameId = requestAnimationFrame(() => drawFrame(true));
       }
