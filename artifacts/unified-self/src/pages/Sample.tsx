@@ -9,7 +9,7 @@ import "./sample.css";
 export default function Sample() {
   useSEO({
     title: "Sample Soul Blueprint Report: The Unified Spirit",
-    description: "See inside a real Soul Blueprint: 6 chapters covering Numerology, Astrology, Human Design, Gene Keys, your personal Synthesis, and your path forward. 150+ pages written from your birth data.",
+    description: "See inside a real Soul Blueprint: 10 chapters covering Numerology, Western Astrology, Vedic Astrology, Human Design, Gene Keys, your personal Synthesis, and your path forward. 75+ pages written from your birth data.",
     path: "/sample",
   });
 

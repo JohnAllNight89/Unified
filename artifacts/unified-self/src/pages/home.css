@@ -161,6 +161,43 @@
   50%       { opacity: 0.42; }
 }
 
+/* ── SAMPLE EXCERPT ────────────────────────────────────────── */
+.hm-excerpt {
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.hm-excerpt-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 72px 28px;
+  text-align: center;
+}
+
+.hm-excerpt .hm-eyebrow {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.hm-excerpt-quote {
+  font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  font-size: clamp(19px, 3.2vw, 25px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 22px;
+}
+
+.hm-excerpt-attr {
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  opacity: 0.65;
+  margin-bottom: 18px;
+}
+
 /* ── MISSION ───────────────────────────────────────────────── */
 .hm-mission {
   border-top: 1px solid var(--border);
@@ -343,6 +380,160 @@
 @media (max-width: 500px) {
   .hm-systems-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ── COMPARISON ────────────────────────────────────────────── */
+.hm-compare {
+  border-top: 1px solid var(--border);
+  background: rgba(8, 8, 26, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.hm-compare-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 88px 28px;
+}
+
+.hm-compare .hm-eyebrow {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hm-compare h2 {
+  font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  font-size: clamp(28px, 5.5vw, 46px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hm-compare h2 em {
+  font-style: italic;
+  color: var(--goldL);
+}
+
+.hm-compare-body {
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--muted);
+  font-weight: 300;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 44px;
+}
+
+.hm-compare-grid {
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hm-compare-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+
+.hm-compare-row:first-child { border-top: none; }
+
+.hm-compare-row > div {
+  padding: 18px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.hm-compare-row--head {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.hm-compare-row--head > div {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+  padding-bottom: 14px;
+}
+
+.hm-compare-row--head .hm-compare-us {
+  color: var(--goldL);
+  opacity: 1;
+}
+
+.hm-compare-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--goldL);
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+}
+
+.hm-compare-generic {
+  color: var(--muted);
+  opacity: 0.75;
+}
+
+.hm-compare-us-cell {
+  color: var(--text);
+  background: rgba(201, 168, 76, 0.06);
+  border-left: 1px solid var(--border);
+  font-weight: 400;
+}
+
+@media (max-width: 640px) {
+  .hm-compare-row {
+    grid-template-columns: 1fr;
+  }
+  .hm-compare-row--head {
+    display: none;
+  }
+  .hm-compare-row > div {
+    padding: 6px 18px;
+  }
+  .hm-compare-label {
+    padding-top: 18px !important;
+  }
+  .hm-compare-generic {
+    border-left: 2px solid var(--border);
+    margin-left: 2px;
+    padding-left: 16px !important;
+  }
+  .hm-compare-generic::before {
+    content: 'Generic App / AI Prompt';
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+  .hm-compare-us-cell {
+    border-left: 2px solid var(--goldL);
+    margin-left: 2px;
+    padding-left: 16px !important;
+    padding-bottom: 18px !important;
+  }
+  .hm-compare-us-cell::before {
+    content: 'The Unified Spirit Blueprint';
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--goldL);
+    opacity: 0.85;
+    margin-bottom: 6px;
   }
 }
 

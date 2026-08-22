@@ -46,6 +46,20 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── SAMPLE EXCERPT ───────────────────────────────────── */}
+        <section className="hm-excerpt" aria-label="Excerpt from a Soul Blueprint">
+          <div className="hm-excerpt-inner">
+            <div className="hm-eyebrow">From the Sample Report</div>
+            <p className="hm-excerpt-quote">
+              &ldquo;Before anyone had an opinion about you, before you had done anything at all, you
+              had a name. Embedded in that name, and in the exact moment you were born, is a
+              mathematical structure that describes the specific frequency you came here to carry.&rdquo;
+            </p>
+            <div className="hm-excerpt-attr">— Chapter One: Numerology, from your Soul Blueprint</div>
+            <Link href="/sample" className="hm-hero-secondary">Read the Full Sample Report →</Link>
+          </div>
+        </section>
+
         {/* ── MISSION ──────────────────────────────────────────── */}
         <section className="hm-mission" aria-labelledby="hm-mission-heading">
           <div className="hm-mission-inner">
@@ -123,6 +137,56 @@ export default function Home() {
                     <div className="hm-sys-pill-name">{name}</div>
                     <div className="hm-sys-pill-desc">{desc}</div>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── COMPARISON ───────────────────────────────────────── */}
+        <section className="hm-compare" aria-labelledby="hm-compare-heading">
+          <div className="hm-compare-inner">
+            <div className="hm-eyebrow">Why Synthesized</div>
+            <h2 id="hm-compare-heading">
+              Not another app.<br />
+              <em>Not a prompt.</em>
+            </h2>
+            <p className="hm-compare-body">
+              A single-system reading, or an AI prompt fed your placements, can only ever tell you
+              part of the picture. Here is the actual difference.
+            </p>
+            <div className="hm-compare-grid" role="table" aria-label="Comparison of generic readings versus a Soul Blueprint">
+              <div className="hm-compare-row hm-compare-row--head" role="row">
+                <div role="columnheader"></div>
+                <div role="columnheader">Generic App / AI Prompt</div>
+                <div role="columnheader" className="hm-compare-us">The Unified Spirit Blueprint</div>
+              </div>
+              {[
+                {
+                  label: "System Scope",
+                  generic: "One system, read in isolation",
+                  us: "Five systems — Numerology, Western Astrology, Vedic Astrology, Human Design, Gene Keys — cross-examined and synthesized together",
+                },
+                {
+                  label: "Creation Method",
+                  generic: "Automated, template-generated",
+                  us: "Read and hand-written personally for you: never AI-generated, never templated",
+                },
+                {
+                  label: "What You Receive",
+                  generic: "Generic chart symbols and canned interpretation text",
+                  us: "75+ pages built specifically from your birth data, plus a 52-week Alignment & Shadow Journal",
+                },
+                {
+                  label: "Delivery",
+                  generic: "Instant — identical for everyone who shares your placement",
+                  us: "Delivered within 72 hours, because it's actually being written",
+                },
+              ].map((row) => (
+                <div className="hm-compare-row" role="row" key={row.label}>
+                  <div className="hm-compare-label" role="rowheader">{row.label}</div>
+                  <div className="hm-compare-generic" role="cell">{row.generic}</div>
+                  <div className="hm-compare-us-cell" role="cell">{row.us}</div>
                 </div>
               ))}
             </div>
