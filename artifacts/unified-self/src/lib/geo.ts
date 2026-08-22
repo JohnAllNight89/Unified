@@ -1,10 +1,5 @@
-// Geocoding + UTC-offset helpers for the free /discover calculators.
-//
-// Ported from Portal.tsx's geocodePlace() and AstroChart.tsx's
-// computeUtcOffset()/geo-tz pattern rather than importing from those files
-// directly, so this new, additive feature can't regress the existing paid
-// pages that already use these patterns. Worth deduping into a single
-// shared module later; not bundled into this change.
+// Geocoding + UTC-offset helpers for the astrology chart pages (the free
+// /discover calculator and the paid Portal chart pages all share this).
 
 export async function geocodePlace(place: string): Promise<{ lat: number; lng: number } | null> {
   try {
@@ -20,42 +15,21 @@ export async function geocodePlace(place: string): Promise<{ lat: number; lng: n
   return null;
 }
 
-// Returns the UTC offset (hours) for an IANA timezone on a given date,
-// accounting for the DST rules that were historically in effect on that day.
-function computeUtcOffset(ianaTimezone: string, dateStr: string): number {
-  const [y, mo, d] = dateStr.split("-").map(Number);
-  // Use noon UTC on the birth date — safely avoids DST transition ambiguity
-  const ref = new Date(Date.UTC(y, mo - 1, d, 12, 0, 0));
+// Resolves lat/lng + a birth date to a UTC offset (hours), via the backend's
+// /api/timezone endpoint. Timezone-boundary lookup (the `geo-tz` package)
+// reads a local data file via Node's `fs` module, so it can only run
+// server-side -- calling it directly from the browser (as this used to do)
+// throws on every request and was silently swallowed, leaving every chart
+// calculated as if birth time were already UTC. Returns null (rather than a
+// bare 0) if the lookup fails, so callers can distinguish "genuinely UTC"
+// from "lookup failed" and fall back accordingly.
+export async function getUtcOffset(lat: number, lng: number, dateStr: string): Promise<number | null> {
   try {
-    const parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: ianaTimezone,
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }).formatToParts(ref);
-    const g = (type: string) => parseInt(parts.find(p => p.type === type)?.value ?? "0");
-    const h = g("hour") === 24 ? 0 : g("hour");
-    const local = new Date(Date.UTC(g("year"), g("month") - 1, g("day"), h, g("minute")));
-    return (local.getTime() - ref.getTime()) / 3_600_000;
+    const resp = await fetch(`/api/timezone?lat=${lat}&lng=${lng}&date=${dateStr}`, { credentials: "include" });
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    return typeof data.offsetHours === "number" ? data.offsetHours : null;
   } catch {
-    return 0;
+    return null;
   }
-}
-
-// Resolves lat/lng to a UTC offset (hours) for the given birth date, via the
-// IANA timezone at that location. Returns 0 (treated as UTC) if lookup
-// fails for any reason — callers already treat a missing/zero offset as
-// "best effort" the same way AstroChart.tsx does.
-export async function getUtcOffset(lat: number, lng: number, dateStr: string): Promise<number> {
-  try {
-    const geotz = await import("geo-tz");
-    const zones: string[] = geotz.find(lat, lng);
-    if (zones.length > 0) return computeUtcOffset(zones[0], dateStr);
-  } catch {
-    // fall through
-  }
-  return 0;
 }

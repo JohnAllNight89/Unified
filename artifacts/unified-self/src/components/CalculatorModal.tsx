@@ -112,7 +112,7 @@ export function CalculatorModal({ system, onClose }: CalculatorModalProps) {
         if (geo) {
           lat = geo.lat;
           lng = geo.lng;
-          if (birthTime) utcOffset = await getUtcOffset(geo.lat, geo.lng, birthDate);
+          if (birthTime) utcOffset = (await getUtcOffset(geo.lat, geo.lng, birthDate)) ?? 0;
         }
       }
       const result = calculateWesternChart(birthDate, birthTime || null, lat, lng, utcOffset);

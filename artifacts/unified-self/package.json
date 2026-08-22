@@ -73,7 +73,6 @@
   },
   "dependencies": {
     "@clerk/react": "^6.2.1",
-    "astronomia": "^4.2.0",
-    "geo-tz": "^7.0.0"
+    "astronomia": "^4.2.0"
   }
 }

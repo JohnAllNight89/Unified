@@ -110,6 +110,9 @@ importers:
       express:
         specifier: ^5
         version: 5.2.1
+      geo-tz:
+        specifier: ^7.0.0
+        version: 7.0.7
       http-proxy-middleware:
         specifier: ^3.0.5
         version: 3.0.5
@@ -342,9 +345,6 @@ importers:
       astronomia:
         specifier: ^4.2.0
         version: 4.2.0
-      geo-tz:
-        specifier: ^7.0.0
-        version: 7.0.7
     devDependencies:
       '@hookform/resolvers':
         specifier: ^3.10.0

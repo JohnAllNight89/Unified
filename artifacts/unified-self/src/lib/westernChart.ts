@@ -36,6 +36,31 @@ function tand(deg: number) { return Math.tan(deg * DEG); }
 function atan2d(y: number, x: number) { return Math.atan2(y, x) * RAD; }
 function mod360(n: number) { return ((n % 360) + 360) % 360; }
 
+// `astronomia`'s bundled VSOP87 data for Uranus and Neptune contains a
+// handful of corrupted NaN coefficient rows in their highest-order (T^4)
+// periodic terms -- a data-generation artifact in the upstream package. Left
+// alone, a single NaN term poisons the entire series sum for that body, and
+// `astronomia`'s own Coord constructor (`this._ra = ra || 0`) silently turns
+// the resulting NaN longitude into an incorrect 0 (Aries 0 deg) instead of
+// erroring, so the corruption goes unnoticed. Strip any non-finite term
+// before constructing the Planet -- each affected term's amplitude is
+// already near the sub-arcsecond level, so dropping it outright has no
+// meaningful effect on accuracy.
+function sanitizeVsop87(data: any): any {
+  const clean: any = { ...data };
+  for (const series of ["L", "B", "R"]) {
+    if (!data[series]) continue;
+    const cleanSeries: any = {};
+    for (const key of Object.keys(data[series])) {
+      cleanSeries[key] = data[series][key].filter(
+        (term: number[]) => term.every((v) => Number.isFinite(v))
+      );
+    }
+    clean[series] = cleanSeries;
+  }
+  return clean;
+}
+
 // Cache one Planet instance per body across calls -- the VSOP87 series data
 // is static, only jde changes per calculation.
 const earthPlanet = new Planet(vsop87Dearth);
@@ -45,8 +70,8 @@ const VSOP_PLANETS: Record<string, unknown> = {
   Mars: vsop87Dmars,
   Jupiter: vsop87Djupiter,
   Saturn: vsop87Dsaturn,
-  Uranus: vsop87Duranus,
-  Neptune: vsop87Dneptune,
+  Uranus: sanitizeVsop87(vsop87Duranus),
+  Neptune: sanitizeVsop87(vsop87Dneptune),
 };
 const planetInstances: Record<string, any> = {};
 for (const [name, data] of Object.entries(VSOP_PLANETS)) {
