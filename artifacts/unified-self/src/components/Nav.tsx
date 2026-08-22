@@ -45,7 +45,7 @@ export function Nav() {
 
       <nav className={`tus-nav${sticky ? " tus-nav--sticky" : ""}`}>
         <Link href="/" className="nav-brand" onClick={close}>
-          The Unified Spirit
+          Home
         </Link>
 
         <div className="nav-links">
