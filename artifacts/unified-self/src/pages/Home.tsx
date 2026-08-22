@@ -9,7 +9,7 @@ import "./home.css";
 export default function Home() {
   useSEO({
     title: "The Unified Spirit: Soul Blueprint | Numerology, Astrology, Human Design & Gene Keys",
-    description: "Discover your soul's blueprint: a hand-crafted report synthesizing Numerology, Astrology, Human Design, and Gene Keys into one personalized document written from your birth data. Know who you were designed to be.",
+    description: "Discover your soul's blueprint: a hand-crafted report synthesizing Numerology, Western Astrology, Vedic Astrology, Human Design, and Gene Keys into one personalized document written from your birth data. Know who you were designed to be.",
     path: "/",
   });
 
@@ -35,7 +35,11 @@ export default function Home() {
             that belong to no one else on earth. This is the document that shows you exactly
             what that looks like.
           </p>
+          <p className="hm-hero-trust">
+            Every Soul Blueprint is read and written personally, by hand: never templated, never AI-generated.
+          </p>
           <Link href="/reports" className="hm-hero-btn">✦&nbsp;&nbsp; See What&rsquo;s Available</Link>
+          <Link href="/sample" className="hm-hero-secondary">See a Sample Report →</Link>
           <div className="hm-scroll-hint" aria-hidden="true">
             <span className="hm-scroll-label">Read</span>
             <div className="hm-scroll-line" />

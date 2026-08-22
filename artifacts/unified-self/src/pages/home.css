@@ -65,6 +65,18 @@
   z-index: 1;
 }
 
+.hm-hero-trust {
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--goldL);
+  opacity: 0.8;
+  font-style: italic;
+  max-width: 440px;
+  margin: 0 auto 32px;
+  position: relative;
+  z-index: 1;
+}
+
 .hm-hero-btn {
   display: block;
   max-width: 340px;
@@ -93,6 +105,27 @@
   filter: brightness(1.1);
   transform: translateY(-2px);
   box-shadow: 0 8px 40px rgba(201, 168, 76, 0.55);
+}
+
+.hm-hero-secondary {
+  display: block;
+  margin: 18px auto 0;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  text-align: center;
+  opacity: 0.75;
+  transition: opacity 0.2s, color 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.hm-hero-secondary:hover {
+  opacity: 1;
+  color: var(--goldL);
 }
 
 /* Scroll hint */
