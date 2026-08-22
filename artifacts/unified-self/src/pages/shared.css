@@ -33,7 +33,11 @@ html { scroll-behavior: smooth; }
 /* ─── BANNER ─────────────────────────────────────────────── */
 .tus-banner {
   width: 100%;
-  background: var(--dark);
+  /* Transparent on purpose: the page's fixed <Starfield /> canvas sits
+     behind the header and shows through here, so the logo image (which
+     is height-constrained and often narrower than the viewport) blends
+     into the same starry backdrop instead of sitting in a flat-color box. */
+  background: transparent;
   line-height: 0;
 }
 .tus-banner a {
@@ -48,6 +52,11 @@ html { scroll-behavior: smooth; }
   object-fit: contain;
   object-position: center;
   display: block;
+  /* Soft edge fade so the image's own rectangular boundary dissolves into
+     the Starfield behind it rather than presenting a hard cutoff. The
+     image's real content (sigil + wordmark) sits well inside this margin. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 /* ─── NAV ───────────────────────────────────────────────── */
