@@ -83,5 +83,31 @@ if (fs.existsSync(frontendDist)) {
   });
 }
 
+// Clerk's dev-instance handshake path throws (rather than degrading
+// gracefully, as a production instance would) whenever a visitor's browser
+// presents a session cookie that no longer matches the instance's current
+// signing keys -- e.g. after any Clerk key rotation. Without this handler
+// that crashes the page with a 500 for that visitor. Clear the stale Clerk
+// cookies and serve the page as signed-out instead, so a key rotation never
+// takes the site down for anyone.
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (res.headersSent) {
+    next(err);
+    return;
+  }
+  req.log?.error({ err }, "Unhandled request error");
+
+  const isClerkAuthError = typeof err?.message === "string" && err.message.includes("Clerk");
+  if (isClerkAuthError && fs.existsSync(frontendDist)) {
+    res.clearCookie("__session");
+    res.clearCookie("__client_uat");
+    res.clearCookie("__client");
+    res.sendFile(path.join(frontendDist, "index.html"));
+    return;
+  }
+
+  res.status(500).json({ error: "Internal server error" });
+});
+
 export default app;
 
